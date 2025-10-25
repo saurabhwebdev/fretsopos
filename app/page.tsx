@@ -310,7 +310,7 @@ export default function Home() {
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight px-4">Everything you need to run your pet business</h3>
           <p className="text-sm sm:text-base text-muted-foreground mt-3 px-4">Complete suite of tools for seamless pet care business operations</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {[
             { icon: BarChart3, title: 'Point of Sale', description: 'Fast billing with GST support and receipts.' },
             { icon: Package, title: 'Inventory', description: 'Track stock for food, accessories and medicines.' },
@@ -373,7 +373,7 @@ export default function Home() {
 
       {/* Pricing Section */}
       <section id="pricing" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 sm:mb-12 px-4">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">Flexible Pricing for Your Business</h3>
             <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
@@ -381,9 +381,9 @@ export default function Home() {
             </p>
           </div>
           
-          <Card className="border-2 border-[#E50914] shadow-xl hover:shadow-2xl transition-shadow duration-300">
-            <CardHeader className="text-center p-6 sm:p-10 bg-gradient-to-b from-[#E50914]/5 to-white">
-              <CardTitle className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3">Custom Pricing</CardTitle>
+          <Card className="border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+            <CardHeader className="text-center p-6 sm:p-10">
+              <CardTitle className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-[#E50914]">Custom Pricing</CardTitle>
               <CardDescription className="text-sm sm:text-base lg:text-lg text-muted-foreground">
                 Tailored solutions for your pet business
               </CardDescription>
