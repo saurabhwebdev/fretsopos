@@ -55,76 +55,12 @@ export default function Home() {
         setShowScrollTop(false);
       }
       
-      // Detect actual background color at navbar position
-      // Check left side of screen for hero section (red background)
-      const navbarLeft = 100; // Check left side for red bg
-      const navbarBottom = 80; // Approximate navbar height
-      
-      // Get element at navbar position (left side)
-      const elementAtNavbar = document.elementFromPoint(navbarLeft, navbarBottom);
-      
-      if (elementAtNavbar) {
-        // Get computed background color of the element or its parents
-        let currentElement: HTMLElement | null = elementAtNavbar as HTMLElement;
-        let bgColor = '';
-        let foundBg = false;
-        
-        // Traverse up the DOM tree to find a non-transparent background
-        while (currentElement && currentElement !== document.body) {
-          const computedStyle = window.getComputedStyle(currentElement);
-          const backgroundColor = computedStyle.backgroundColor;
-          
-          // Also check for background images (hero section)
-          const backgroundImage = computedStyle.backgroundImage;
-          
-          // If element has background image, assume it's the red hero section
-          if (backgroundImage && backgroundImage !== 'none' && backgroundImage.includes('herobg')) {
-            // Hero section with red background
-            setLogoColor('white');
-            foundBg = true;
-            return;
-          }
-          
-          // Check if background is not transparent
-          if (backgroundColor && backgroundColor !== 'rgba(0, 0, 0, 0)' && backgroundColor !== 'transparent') {
-            bgColor = backgroundColor;
-            foundBg = true;
-            break;
-          }
-          
-          currentElement = currentElement.parentElement;
-        }
-        
-        // Check body background if nothing found
-        if (!foundBg && document.body) {
-          const bodyStyle = window.getComputedStyle(document.body);
-          bgColor = bodyStyle.backgroundColor;
-        }
-        
-        // Determine if background is light or dark
-        if (bgColor) {
-          // Parse RGB values
-          const rgb = bgColor.match(/\d+/g);
-          if (rgb && rgb.length >= 3) {
-            const r = parseInt(rgb[0]);
-            const g = parseInt(rgb[1]);
-            const b = parseInt(rgb[2]);
-            
-            // Calculate brightness using perceived luminance formula
-            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-            
-            // If brightness is high (light background), use red logo
-            // If brightness is low (dark/red background), use white logo
-            if (brightness > 128) {
-              setLogoColor('red');
-            } else {
-              setLogoColor('white');
-            }
-          }
-        } else {
-          // Default to white if no background detected (likely on red hero)
-          setLogoColor('white');
-        }
+      // Simple logo color logic: white on hero section (top), red on rest
+      // Hero section is approximately the first 600-700px of the page
+      if (scrollY < 500) {
+        setLogoColor('white');
+      } else {
+        setLogoColor('red');
       }
     };
 
