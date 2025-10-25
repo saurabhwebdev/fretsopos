@@ -40,9 +40,10 @@ export default function Home() {
 
   // Handle scroll effect for navbar and scroll to top button
   useEffect(() => {
-    const handleScroll = () => {
+    const detectBackgroundColor = () => {
       const scrollY = window.scrollY;
       
+      // Update scroll states
       if (scrollY > 50) {
         setIsScrolled(true);
       } else {
@@ -55,23 +56,93 @@ export default function Home() {
         setShowScrollTop(false);
       }
       
-      // Simple logo color logic: white on hero section (top), red on rest
-      // Hero section is approximately the first 600-700px of the page
-      if (scrollY < 500) {
+      // Detect background color at logo position
+      const logoX = 100; // Left side where logo is
+      const logoY = 40; // Approximate navbar logo vertical position
+      
+      const element = document.elementFromPoint(logoX, logoY);
+      
+      if (!element) {
         setLogoColor('white');
+        return;
+      }
+      
+      // Traverse up the DOM to find a non-transparent background
+      let currentElement: HTMLElement | null = element as HTMLElement;
+      let backgroundColor = '';
+      
+      while (currentElement && currentElement !== document.body) {
+        const styles = window.getComputedStyle(currentElement);
+        const bgColor = styles.backgroundColor;
+        const bgImage = styles.backgroundImage;
+        
+        // Check if there's a background image (like hero section)
+        if (bgImage && bgImage !== 'none') {
+          // If it's the hero section with image, use white logo
+          setLogoColor('white');
+          return;
+        }
+        
+        // Check for non-transparent background color
+        if (bgColor && bgColor !== 'rgba(0, 0, 0, 0)' && bgColor !== 'transparent') {
+          backgroundColor = bgColor;
+          break;
+        }
+        
+        currentElement = currentElement.parentElement;
+      }
+      
+      // If no background found, check body
+      if (!backgroundColor) {
+        const bodyStyles = window.getComputedStyle(document.body);
+        backgroundColor = bodyStyles.backgroundColor;
+      }
+      
+      // Calculate brightness from RGB color
+      if (backgroundColor) {
+        const rgbMatch = backgroundColor.match(/\d+/g);
+        if (rgbMatch && rgbMatch.length >= 3) {
+          const r = parseInt(rgbMatch[0]);
+          const g = parseInt(rgbMatch[1]);
+          const b = parseInt(rgbMatch[2]);
+          
+          // Calculate perceived brightness (0-255)
+          const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+          
+          // If background is light (brightness > 128), use red logo
+          // If background is dark (brightness <= 128), use white logo
+          setLogoColor(brightness > 128 ? 'red' : 'white');
+        } else {
+          // Default to white if color parsing fails
+          setLogoColor('white');
+        }
       } else {
-        setLogoColor('red');
+        // Default to white if no color detected
+        setLogoColor('white');
       }
     };
 
-    // Run on mount and scroll
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
+    // Run on mount, scroll, and resize
+    detectBackgroundColor();
+    
+    // Use requestAnimationFrame for smooth detection
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          detectBackgroundColor();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', detectBackgroundColor);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
+      window.removeEventListener('resize', detectBackgroundColor);
     };
   }, []);
 
