@@ -1,11 +1,11 @@
 # Fretso - Pet Business Management Software
-# https://fretso.in/robots.txt
+# https://www.fretso.in/robots.txt
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://fretso.in/sitemap.xml
+Sitemap: https://www.fretso.in/sitemap.xml
 
 # Disallow admin/private areas if any
 # Disallow: /admin/
