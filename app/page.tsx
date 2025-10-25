@@ -209,7 +209,7 @@ export default function Home() {
       <section className="hero-section flex flex-col lg:flex-row lg:min-h-screen">
         {/* Left Side - Image */}
         <div 
-          className="w-full lg:w-1/2 h-[50vh] sm:h-[60vh] lg:min-h-screen order-1 lg:order-none"
+          className="w-full lg:w-1/2 h-[45vh] sm:h-[55vh] lg:min-h-screen order-1 lg:order-none"
           style={{
             backgroundImage: 'url(/herobg.png)',
             backgroundSize: 'cover',
@@ -219,40 +219,42 @@ export default function Home() {
         />
         
         {/* Right Side - Content */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center bg-white p-6 sm:p-8 lg:p-16 order-2 lg:order-none">
-          <div className="max-w-lg space-y-6 sm:space-y-8 text-center">
+        <div className="w-full lg:w-1/2 flex items-center justify-center bg-white p-8 sm:p-10 lg:p-16 order-2 lg:order-none">
+          <div className="max-w-lg space-y-5 sm:space-y-8 text-center">
             {/* Logo */}
-            <div className="flex justify-center mb-2">
+            <div className="flex justify-center mb-1">
               <FretsoLogo size="lg" />
             </div>
             
             {/* Main heading */}
-            <div className="space-y-2 sm:space-y-3">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-snug">
+            <div className="space-y-1.5 sm:space-y-3">
+              <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 Pet Business Management
               </h2>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#E50914] leading-snug">
+              <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#E50914] leading-tight">
                 Made for <span className="transition-all duration-500">{madeForTexts[currentTextIndex]}</span>
               </h2>
             </div>
             
             {/* Simple description */}
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed pt-2">
+            <p className="text-sm sm:text-lg md:text-xl text-gray-600 leading-relaxed pt-1">
               For Pet Shops, Spas & Clinics
             </p>
             
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-4 sm:pt-6">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-3 sm:pt-6">
               <Button 
                 size="lg" 
-                className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base w-full sm:w-auto"
+                onClick={() => scrollToSection('contact')}
+                className="bg-[#E50914] hover:bg-[#C40812] active:scale-95 text-white font-semibold px-8 sm:px-8 py-6 sm:py-6 text-base sm:text-base w-full sm:w-auto transition-all duration-200 shadow-lg"
               >
                 Get Started
               </Button>
               <Button 
                 size="lg" 
                 variant="outline"
-                className="px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base w-full sm:w-auto"
+                onClick={() => scrollToSection('features')}
+                className="px-8 sm:px-8 py-6 sm:py-6 text-base sm:text-base w-full sm:w-auto active:scale-95 transition-all duration-200 border-2"
               >
                 Learn More
               </Button>
@@ -262,12 +264,12 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="container mx-auto px-4 py-12 sm:py-16 md:py-20">
-        <div className="max-w-5xl mx-auto text-center mb-10 sm:mb-14">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">Everything you need to run your pet business</h3>
-          <p className="text-sm sm:text-base text-muted-foreground mt-3">Complete suite of tools for seamless pet care business operations</p>
+      <section id="features" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
+        <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight px-4">Everything you need to run your pet business</h3>
+          <p className="text-sm sm:text-base text-muted-foreground mt-3 px-4">Complete suite of tools for seamless pet care business operations</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {[
             { icon: BarChart3, title: 'Point of Sale', description: 'Fast billing with GST support and receipts.' },
             { icon: Package, title: 'Inventory', description: 'Track stock for food, accessories and medicines.' },
@@ -280,13 +282,13 @@ export default function Home() {
           ].map((feature, index) => {
             const Icon = feature.icon as any;
             return (
-              <Card key={index} className="border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md transition-all">
-                <CardHeader className="p-5">
-                  <div className="w-12 h-12 bg-[#E50914]/10 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-[#E50914]" />
+              <Card key={index} className="border border-gray-200 hover:border-[#E50914]/50 shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <CardHeader className="p-4 sm:p-5">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-[#E50914]/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#E50914]" />
                   </div>
-                  <CardTitle className="text-base sm:text-lg">{feature.title}</CardTitle>
-                  <CardDescription className="text-sm text-muted-foreground">
+                  <CardTitle className="text-base sm:text-lg mb-1.5">{feature.title}</CardTitle>
+                  <CardDescription className="text-xs sm:text-sm text-muted-foreground leading-snug">
                     {feature.description}
                   </CardDescription>
                 </CardHeader>
@@ -297,13 +299,13 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="bg-gradient-to-b from-white to-gray-50 py-12 sm:py-16 md:py-20">
+      <section id="benefits" className="bg-gradient-to-b from-white to-gray-50 py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center mb-10 sm:mb-14">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">Why choose Fretso for your pet business?</h3>
-            <p className="text-sm sm:text-base text-muted-foreground mt-3">Built specifically for the Indian pet care industry</p>
+          <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight px-4">Why choose Fretso for your pet business?</h3>
+            <p className="text-sm sm:text-base text-muted-foreground mt-3 px-4">Built specifically for the Indian pet care industry</p>
           </div>
-          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
             {[
               { title: 'GST Compliant', description: 'Automatic GST calculation and invoicing' },
               { title: 'Multi-Location', description: 'Manage multiple stores from one dashboard' },
@@ -312,14 +314,14 @@ export default function Home() {
               { title: 'WhatsApp Integration', description: 'Automated appointment reminders' },
               { title: 'Affordable Pricing', description: 'Made for Indian small businesses' },
             ].map((benefit, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-xl p-5 hover:border-[#E50914] hover:shadow-md transition-all">
-                <div className="flex items-start gap-3">
-                  <div className="mt-1">
-                    <CheckCircle2 className="w-5 h-5 text-[#E50914]" />
+              <div key={index} className="bg-white border border-gray-200 rounded-xl p-4 sm:p-5 hover:border-[#E50914] hover:shadow-lg transition-all duration-300 hover:scale-105">
+                <div className="flex items-start gap-2.5 sm:gap-3">
+                  <div className="mt-0.5">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] flex-shrink-0" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-base mb-1">{benefit.title}</h4>
-                    <p className="text-sm text-muted-foreground">{benefit.description}</p>
+                    <h4 className="font-semibold text-sm sm:text-base mb-1">{benefit.title}</h4>
+                    <p className="text-xs sm:text-sm text-muted-foreground leading-snug">{benefit.description}</p>
                   </div>
                 </div>
               </div>
@@ -329,23 +331,23 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="container mx-auto px-4 py-12 sm:py-16 md:py-20">
+      <section id="pricing" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10 sm:mb-14">
+          <div className="text-center mb-8 sm:mb-12 px-4">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">Flexible Pricing for Your Business</h3>
             <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
               Every pet business is unique. We understand that your needs are different, which is why our pricing is customized based on your specific requirements.
             </p>
           </div>
           
-          <Card className="border-2 border-[#E50914] shadow-xl">
-            <CardHeader className="text-center p-8 sm:p-10 bg-gradient-to-b from-[#E50914]/5 to-white">
-              <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Custom Pricing</CardTitle>
-              <CardDescription className="text-base sm:text-lg text-muted-foreground">
+          <Card className="border-2 border-[#E50914] shadow-xl hover:shadow-2xl transition-shadow duration-300">
+            <CardHeader className="text-center p-6 sm:p-10 bg-gradient-to-b from-[#E50914]/5 to-white">
+              <CardTitle className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3">Custom Pricing</CardTitle>
+              <CardDescription className="text-sm sm:text-base lg:text-lg text-muted-foreground">
                 Tailored solutions for your pet business
               </CardDescription>
             </CardHeader>
-            <CardContent className="p-8 sm:p-10">
+            <CardContent className="p-6 sm:p-10">
               <div className="space-y-6">
                 <div className="text-center space-y-4">
                   <p className="text-base sm:text-lg text-gray-700">
@@ -353,45 +355,45 @@ export default function Home() {
                   </p>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-                  <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                    <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4">
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-sm sm:text-base">Business Size</p>
+                      <p className="font-semibold text-xs sm:text-base">Business Size</p>
                       <p className="text-xs sm:text-sm text-muted-foreground">Single store or multi-location</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                    <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-sm sm:text-base">Features Needed</p>
+                      <p className="font-semibold text-xs sm:text-base">Features Needed</p>
                       <p className="text-xs sm:text-sm text-muted-foreground">Choose only what you use</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                    <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-sm sm:text-base">Number of Users</p>
+                      <p className="font-semibold text-xs sm:text-base">Number of Users</p>
                       <p className="text-xs sm:text-sm text-muted-foreground">Pay for active users only</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                    <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-sm sm:text-base">Transaction Volume</p>
+                      <p className="font-semibold text-xs sm:text-base">Transaction Volume</p>
                       <p className="text-xs sm:text-sm text-muted-foreground">Scales with your growth</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="pt-6 text-center">
-                  <p className="text-sm sm:text-base text-gray-600 mb-6">
+                  <p className="text-xs sm:text-base text-gray-600 mb-6">
                     Get a personalized quote in minutes. No hidden fees, no surprises.
                   </p>
                   <Button 
                     size="lg"
                     onClick={() => scrollToSection('contact')}
-                    className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base"
+                    className="bg-[#E50914] hover:bg-[#C40812] active:scale-95 text-white font-semibold px-10 sm:px-10 py-6 sm:py-6 text-base sm:text-base w-full sm:w-auto transition-all duration-200 shadow-lg"
                   >
                     Get Custom Quote
                   </Button>
@@ -409,12 +411,12 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="container mx-auto px-4 py-12 sm:py-16 md:py-20 lg:py-32">
-        <div className="bg-[#E50914] rounded-3xl p-12 sm:p-16 md:p-20 lg:p-24 text-center space-y-8 sm:space-y-10 shadow-2xl">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+      <section id="contact" className="container mx-auto px-4 py-16 sm:py-20 md:py-24 lg:py-32">
+        <div className="bg-[#E50914] rounded-2xl sm:rounded-3xl p-8 sm:p-16 md:p-20 lg:p-24 text-center space-y-6 sm:space-y-10 shadow-2xl">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Ready to Transform Your Pet Business?
           </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
             Join pet shops, spas & clinics across India using Fretso
           </p>
           
@@ -462,7 +464,7 @@ export default function Home() {
           
           <Button 
             size="lg" 
-            className="bg-white hover:bg-gray-100 text-[#E50914] font-semibold px-10 sm:px-12 py-6 sm:py-7 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
+            className="bg-white hover:bg-gray-100 active:scale-95 text-[#E50914] font-semibold px-12 sm:px-14 py-7 sm:py-7 text-lg sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto max-w-xs"
           >
             Contact Us
           </Button>
@@ -473,10 +475,10 @@ export default function Home() {
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 bg-[#E50914] hover:bg-[#C40812] text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110"
+          className="fixed bottom-6 right-6 z-50 bg-[#E50914] hover:bg-[#C40812] active:scale-90 text-white p-3.5 sm:p-4 rounded-full shadow-2xl transition-all duration-200 hover:scale-110 animate-bounce"
           aria-label="Scroll to top"
         >
-          <ArrowUp className="w-5 h-5" />
+          <ArrowUp className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       )}
 
