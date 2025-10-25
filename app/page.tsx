@@ -1,5 +1,5 @@
 'use client';
-
+// Force rebuild: 2025-10-25T10:16:08Z
 import React, { useState, useEffect } from 'react';
 import Script from 'next/script';
 import { seoConfig } from '@/config/seo';
