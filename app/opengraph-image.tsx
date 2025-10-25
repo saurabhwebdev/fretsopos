@@ -9,6 +9,11 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image() {
+  // Fetch Pacifico font
+  const pacificoFont = fetch(
+    new URL('https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ96A4sijpFu_.woff')
+  ).then((res) => res.arrayBuffer());
+
   return new ImageResponse(
     (
       <div
@@ -35,11 +40,12 @@ export default async function Image() {
           <div
             style={{
               fontSize: 140,
-              fontWeight: 'bold',
+              fontWeight: 'normal',
               color: 'white',
               marginBottom: 30,
               letterSpacing: '0.05em',
               textShadow: '0 4px 20px rgba(0,0,0,0.3)',
+              fontFamily: 'Pacifico',
             }}
           >
             Fretso
@@ -77,6 +83,13 @@ export default async function Image() {
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: 'Pacifico',
+          data: await pacificoFont,
+          style: 'normal',
+        },
+      ],
     }
   );
 }
