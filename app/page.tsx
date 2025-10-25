@@ -5,6 +5,7 @@ import Script from 'next/script';
 import { seoConfig } from '@/config/seo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import FretsoLogo from '@/components/fretso-logo';
 import { CheckCircle2, BarChart3, Package, Calendar, Users, Instagram, Facebook, Linkedin, ArrowUp, Receipt, Wrench, Settings } from 'lucide-react';
 
@@ -126,7 +127,7 @@ export default function Home() {
       {/* Transparent Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500`}>
         <div className={`container mx-auto px-4 sm:px-6 py-4 sm:py-6 transition-all duration-500 ${
-          isScrolled ? 'mt-2 sm:mt-4 bg-white/30 backdrop-blur-xl shadow-2xl rounded-full max-w-4xl border border-white/20' : ''
+          isScrolled ? 'mt-2 sm:mt-4 bg-white/30 backdrop-blur-xl shadow-2xl md:rounded-full max-w-4xl border border-white/20' : ''
         }`}>
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -152,56 +153,51 @@ export default function Home() {
               </Button>
             </div>
             
-            {/* Mobile Hamburger */}
+            {/* Mobile Menu - Sheet */}
             <div className="md:hidden">
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className={`p-2 ${isScrolled ? 'text-[#E50914]' : 'text-white'}`}
-                aria-label="Toggle menu"
-              >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  {isMobileMenuOpen ? (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  ) : (
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  )}
-                </svg>
-              </button>
+              <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+                <SheetTrigger asChild>
+                  <button
+                    className={`p-2 ${isScrolled ? 'text-[#E50914]' : 'text-white'}`}
+                    aria-label="Toggle menu"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  </button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                  <div className="flex flex-col space-y-4 mt-8">
+                    <button 
+                      onClick={() => scrollToSection('features')}
+                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition-all text-left"
+                    >
+                      Features
+                    </button>
+                    <button 
+                      onClick={() => scrollToSection('benefits')}
+                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition-all text-left"
+                    >
+                      Benefits
+                    </button>
+                    <button 
+                      onClick={() => scrollToSection('pricing')}
+                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition-all text-left"
+                    >
+                      Pricing
+                    </button>
+                    <Button 
+                      size="lg" 
+                      onClick={() => scrollToSection('contact')}
+                      className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold w-full"
+                    >
+                      Contact Us
+                    </Button>
+                  </div>
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
-          
-          {/* Mobile Menu Dropdown */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden mt-4 py-4 bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl">
-              <div className="flex flex-col space-y-3 px-4">
-                <button 
-                  onClick={() => scrollToSection('features')}
-                  className="text-sm font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition-all text-left"
-                >
-                  Features
-                </button>
-                <button 
-                  onClick={() => scrollToSection('benefits')}
-                  className="text-sm font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition-all text-left"
-                >
-                  Benefits
-                </button>
-                <button 
-                  onClick={() => scrollToSection('pricing')}
-                  className="text-sm font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition-all text-left"
-                >
-                  Pricing
-                </button>
-                <Button 
-                  size="sm" 
-                  onClick={() => scrollToSection('contact')}
-                  className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold w-full"
-                >
-                  Contact Us
-                </Button>
-              </div>
-            </div>
-          )}
         </div>
       </nav>
 
