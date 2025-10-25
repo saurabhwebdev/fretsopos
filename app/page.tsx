@@ -174,26 +174,26 @@ export default function Home() {
                   <div className="flex flex-col space-y-4 mt-8">
                     <button 
                       onClick={() => scrollToSection('features')}
-                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition-all text-left"
+                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
                     >
                       Features
                     </button>
                     <button 
                       onClick={() => scrollToSection('benefits')}
-                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition-all text-left"
+                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
                     >
                       Benefits
                     </button>
                     <button 
                       onClick={() => scrollToSection('pricing')}
-                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition-all text-left"
+                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
                     >
                       Pricing
                     </button>
                     <Button 
                       size="lg" 
                       onClick={() => scrollToSection('contact')}
-                      className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold w-full"
+                      className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold w-full hover:scale-105 hover:shadow-lg transition-all duration-300 transform"
                     >
                       Contact Us
                     </Button>
@@ -402,7 +402,7 @@ export default function Home() {
           
           <div className="mt-8 text-center">
             <p className="text-xs sm:text-sm text-muted-foreground">
-              💡 <strong>Free Trial Available:</strong> Test Fretso with your team for 14 days, no credit card required.
+              💡 <strong>Free trial available. No CC required.</strong> Contact us for free trial.
             </p>
           </div>
         </div>
