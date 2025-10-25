@@ -1,0 +1,15 @@
+# Fretso - Pet Business Management Software
+# https://fretso.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://fretso.com/sitemap.xml
+
+# Disallow admin/private areas if any
+# Disallow: /admin/
+# Disallow: /api/
+
+# Crawl-delay
+Crawl-delay: 0
