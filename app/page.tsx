@@ -453,7 +453,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section id="contact" className="container mx-auto px-4 py-16 sm:py-20 md:py-24 lg:py-32">
-        <div className="bg-[#E50914] rounded-2xl sm:rounded-3xl p-8 sm:p-16 md:p-20 lg:p-24 text-center space-y-6 sm:space-y-10 shadow-2xl">
+        <div className="max-w-5xl mx-auto bg-[#E50914] rounded-2xl sm:rounded-3xl p-8 sm:p-16 md:p-20 lg:p-24 text-center space-y-6 sm:space-y-10 shadow-2xl">
           <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Ready to Transform Your Pet Business?
           </h2>
