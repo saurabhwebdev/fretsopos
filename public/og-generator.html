@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fretso OG Image</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            width: 1200px;
+            height: 630px;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+        .container {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #E50914 0%, #C40812 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-image: url('herobg.png');
+            background-size: cover;
+            background-position: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(229, 9, 20, 0.85);
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 60px;
+        }
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 120px;
+            color: white;
+            margin-bottom: 30px;
+            letter-spacing: 0.05em;
+        }
+        .tagline {
+            font-size: 48px;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .subtitle {
+            font-size: 32px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="logo">Fretso</div>
+            <div class="tagline">Pet Business Management</div>
+            <div class="subtitle">Made for India 🇮🇳</div>
+        </div>
+    </div>
+</body>
+</html>

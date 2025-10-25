@@ -46,7 +46,7 @@ export const seoConfig = {
     description: "Complete solution for Pet Shops, Pet Spas & Pet Clinics in India. Custom pricing for every business. GST billing, inventory, appointments & more.",
     images: [
       {
-        url: "/og-image.png", // 1200x630 recommended
+        url: "https://fretso.in/opengraph-image",
         width: 1200,
         height: 630,
         alt: "Fretso - Pet Business Management Software",
@@ -61,7 +61,7 @@ export const seoConfig = {
     creator: "@fretso",
     title: "Fretso - Pet Business Management for India",
     description: "Complete solution for Pet Shops, Pet Spas & Pet Clinics in India. Custom pricing tailored to your business needs.",
-    images: ["/twitter-image.png"], // 1200x600 recommended
+    images: ["https://fretso.in/opengraph-image"], // Using same as OG image
   },
   
   // Robots
