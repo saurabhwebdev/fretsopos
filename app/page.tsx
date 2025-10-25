@@ -6,6 +6,10 @@ import { seoConfig } from '@/config/seo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from '@/components/ui/sheet';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { Label } from '@/components/ui/label';
 import FretsoLogo from '@/components/fretso-logo';
 import { CheckCircle2, BarChart3, Package, Calendar, Users, Instagram, Facebook, Linkedin, ArrowUp, Receipt, Wrench, Settings, Mail } from 'lucide-react';
 
@@ -30,6 +34,9 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [logoColor, setLogoColor] = useState('white');
+  const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -87,6 +94,40 @@ export default function Home() {
   // Scroll to top
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Handle form submission
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    const formData = new FormData(e.currentTarget);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mqagkzle', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setSubmitStatus('success');
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => {
+          setIsContactDialogOpen(false);
+          setSubmitStatus('idle');
+        }, 2000);
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const features = [
@@ -469,12 +510,93 @@ export default function Home() {
             </a>
           </div>
           
-          <Button 
-            size="lg" 
-            className="bg-white hover:bg-gray-100 active:scale-95 text-[#E50914] font-semibold px-12 sm:px-14 py-7 sm:py-7 text-lg sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto max-w-xs"
-          >
-            Contact Us
-          </Button>
+          <Dialog open={isContactDialogOpen} onOpenChange={setIsContactDialogOpen}>
+            <DialogTrigger asChild>
+              <Button 
+                size="lg" 
+                className="bg-white hover:bg-gray-100 active:scale-95 text-[#E50914] font-semibold px-12 sm:px-14 py-7 sm:py-7 text-lg sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto max-w-xs"
+              >
+                Contact Us
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[500px]">
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold text-[#E50914]">Get in Touch</DialogTitle>
+                <DialogDescription>
+                  Fill out the form below and we'll get back to you shortly.
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleFormSubmit} className="space-y-4 mt-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Name *</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    required
+                    className="w-full"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email *</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    required
+                    className="w-full"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="phone">Phone</Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    placeholder="Your phone number"
+                    className="w-full"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="business">Business Name</Label>
+                  <Input
+                    id="business"
+                    name="business"
+                    placeholder="Your pet business name"
+                    className="w-full"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="message">Message *</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell us about your requirements..."
+                    required
+                    className="w-full min-h-[100px]"
+                  />
+                </div>
+                {submitStatus === 'success' && (
+                  <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm">
+                    ✓ Thank you! We'll get back to you soon.
+                  </div>
+                )}
+                {submitStatus === 'error' && (
+                  <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
+                    Something went wrong. Please try again or email us directly.
+                  </div>
+                )}
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#E50914] hover:bg-[#C40812] text-white font-semibold py-6"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </Button>
+              </form>
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
 
