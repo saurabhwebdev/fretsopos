@@ -1,7 +1,7 @@
 export const seoConfig = {
   // Basic Site Info
   siteName: "Fretso",
-  siteUrl: "https://fretso.com", // Update with actual domain
+  siteUrl: "https://fretso.in",
   defaultTitle: "Fretso - Pet Business Management Software for India",
   titleTemplate: "%s | Fretso",
   
@@ -103,10 +103,10 @@ export const seoConfig = {
   
   // Alternate Languages
   alternates: {
-    canonical: "https://fretso.com",
+    canonical: "https://fretso.in",
     languages: {
-      "en-IN": "https://fretso.com",
-      "hi-IN": "https://fretso.com/hi",
+      "en-IN": "https://fretso.in",
+      "hi-IN": "https://fretso.in/hi",
     },
   },
   
