@@ -5,9 +5,8 @@ import { clarity } from '@microsoft/clarity';
 
 export default function ClarityAnalytics() {
   useEffect(() => {
-    // Initialize Clarity with your project ID
-    // You'll need to replace 'YOUR_CLARITY_PROJECT_ID' with your actual Clarity project ID
-    clarity.init('YOUR_CLARITY_PROJECT_ID');
+    // Initialize Clarity with project ID
+    clarity.init('tvstf1ncoi');
   }, []);
 
   return null;
