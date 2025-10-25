@@ -312,14 +312,14 @@ export default function Home() {
         </div>
         <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {[
-            { icon: BarChart3, title: 'Point of Sale', description: 'Fast billing with GST support and receipts.' },
-            { icon: Package, title: 'Inventory', description: 'Track stock for food, accessories and medicines.' },
-            { icon: Calendar, title: 'Appointments', description: 'Manage grooming and vet schedules.' },
-            { icon: Users, title: 'Customers', description: 'Pet parent profiles and pet history.' },
-            { icon: Receipt, title: 'Transactions', description: 'Sales history and invoices.' },
-            { icon: Wrench, title: 'Services', description: 'Grooming and spa services management.' },
-            { icon: BarChart3, title: 'Reports', description: 'Analytics and business insights.' },
-            { icon: Settings, title: 'Settings', description: 'Customize to your workflow.' },
+            { icon: BarChart3, title: 'Point of Sale', description: 'Fast checkout with multiple payment modes (Cash, Card, UPI, Wallet) & GST invoicing.' },
+            { icon: Package, title: 'Smart Inventory', description: 'Track stock, expiry dates, batch numbers, profit margins & get low stock alerts.' },
+            { icon: Calendar, title: 'Appointments', description: 'Schedule grooming & vet visits with pet linking, service selection & deposit tracking.' },
+            { icon: Users, title: 'Customer & Pet CRM', description: 'Manage pet parent profiles, pet details, vaccination records & visit history.' },
+            { icon: Receipt, title: 'Transactions', description: 'Complete sales history with flexible discounts, payment tracking & invoice generation.' },
+            { icon: Wrench, title: 'Services Hub', description: 'Manage grooming & spa services with duration, pricing & GST configuration.' },
+            { icon: BarChart3, title: 'Business Reports', description: 'Revenue analytics, top products, customer insights & payment method breakdown.' },
+            { icon: Package, title: 'Supplier Management', description: 'Track suppliers, purchase orders, credit limits & order history.' },
           ].map((feature, index) => {
             const Icon = feature.icon as any;
             return (
@@ -348,12 +348,18 @@ export default function Home() {
           </div>
           <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
             {[
-              { title: 'GST Compliant', description: 'Automatic GST calculation and invoicing' },
-              { title: 'Multi-Location', description: 'Manage multiple stores from one dashboard' },
-              { title: 'Pet Health Records', description: 'Track vaccination and medical history' },
-              { title: 'Bilingual Support', description: 'Available in Hindi & English' },
-              { title: 'WhatsApp Integration', description: 'Automated appointment reminders' },
-              { title: 'Affordable Pricing', description: 'Made for Indian small businesses' },
+              { title: 'GST & Tax Compliant', description: 'Automatic CGST, SGST, IGST calculation with configurable rates per product' },
+              { title: 'Multi-Currency Support', description: 'USD, INR and other currencies with localized formatting' },
+              { title: 'Pet Health Tracking', description: 'Complete vaccination history, allergies, medical notes & visit records' },
+              { title: 'Expiry Management', description: 'Track manufacturing & expiry dates, batch numbers with automatic alerts' },
+              { title: 'Flexible Discounts', description: 'Percentage or fixed amount discounts with reason tracking' },
+              { title: 'Excel Import/Export', description: 'Bulk import products, export inventory, appointments & transaction reports' },
+              { title: 'Stock Movement History', description: 'Complete audit trail of all inventory adjustments and reasons' },
+              { title: 'Profit Margin Tracking', description: 'Cost price vs selling price analysis for better pricing decisions' },
+              { title: 'Low Stock Alerts', description: 'Automatic notifications when stock reaches minimum levels or reorder points' },
+              { title: 'Multiple Payment Methods', description: 'Accept Cash, Card, UPI, Wallet with payment tracking & analytics' },
+              { title: 'Service-Based Billing', description: 'Time-based services with duration tracking & appointment integration' },
+              { title: 'Customer Analytics', description: 'Track purchase history, spending patterns & customer lifetime value' },
             ].map((benefit, index) => (
               <div key={index} className="bg-white border border-gray-200 rounded-xl p-4 sm:p-5 hover:border-[#E50914] hover:shadow-lg transition-all duration-300 hover:scale-105">
                 <div className="flex items-start gap-2.5 sm:gap-3">
