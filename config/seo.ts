@@ -6,7 +6,7 @@ export const seoConfig = {
   titleTemplate: "%s | Fretso",
   
   // Default Meta Description
-  description: "Complete management solution for Pet Shops, Pet Spas & Pet Clinics in India. Features include GST billing, inventory management, grooming appointments, and pet parent records. Built specifically for the Indian pet care industry.",
+  description: "Complete management solution for Pet Shops, Pet Spas & Pet Clinics in India. Features include GST billing, inventory management, grooming appointments, pet parent records, and custom pricing tailored to your business. Built specifically for the Indian pet care industry.",
   
   // Keywords
   keywords: [
@@ -24,7 +24,11 @@ export const seoConfig = {
     "pet appointment booking",
     "pet salon management",
     "pet health records",
-    "Bharat pet business"
+    "custom pet software pricing",
+    "affordable pet business software",
+    "flexible pet management pricing",
+    "Bharat pet business",
+    "multi-location pet store software"
   ],
   
   // Author & Creator
@@ -39,7 +43,7 @@ export const seoConfig = {
     alternateLocales: ["hi_IN"],
     siteName: "Fretso",
     title: "Fretso - Pet Business Management for India",
-    description: "Complete solution for Pet Shops, Pet Spas & Pet Clinics in India. Manage your pet business with ease.",
+    description: "Complete solution for Pet Shops, Pet Spas & Pet Clinics in India. Custom pricing for every business. GST billing, inventory, appointments & more.",
     images: [
       {
         url: "/og-image.png", // 1200x630 recommended
@@ -56,7 +60,7 @@ export const seoConfig = {
     site: "@fretso", // Update with actual Twitter handle
     creator: "@fretso",
     title: "Fretso - Pet Business Management for India",
-    description: "Complete solution for Pet Shops, Pet Spas & Pet Clinics in India.",
+    description: "Complete solution for Pet Shops, Pet Spas & Pet Clinics in India. Custom pricing tailored to your business needs.",
     images: ["/twitter-image.png"], // 1200x600 recommended
   },
   
@@ -150,6 +154,11 @@ export const pagesSEO = {
     title: "Features - Complete Pet Business Tools",
     description: "Explore POS, Inventory Management, Appointments, Customer Records, Reports and more features designed for pet businesses.",
     keywords: ["pet POS system", "pet inventory", "appointment booking"],
+  },
+  pricing: {
+    title: "Custom Pricing - Flexible Plans for Your Pet Business",
+    description: "Get custom pricing tailored to your pet business needs. No two businesses are the same - our pricing adapts to your size, features, and requirements.",
+    keywords: ["pet software pricing", "custom pet business pricing", "affordable pet management", "flexible pricing plans"],
   },
   contact: {
     title: "Contact Us - Get Started with Fretso",

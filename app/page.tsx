@@ -140,6 +140,9 @@ export default function Home() {
               <button onClick={() => scrollToSection('benefits')} className="text-xs lg:text-sm font-medium text-[#E50914] bg-white/90 px-3 lg:px-4 py-2 rounded-lg hover:bg-white hover:shadow-lg transition-all duration-300">
                 Benefits
               </button>
+              <button onClick={() => scrollToSection('pricing')} className="text-xs lg:text-sm font-medium text-[#E50914] bg-white/90 px-3 lg:px-4 py-2 rounded-lg hover:bg-white hover:shadow-lg transition-all duration-300">
+                Pricing
+              </button>
               <Button 
                 size="sm"
                 onClick={() => scrollToSection('contact')}
@@ -182,6 +185,12 @@ export default function Home() {
                   className="text-sm font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition-all text-left"
                 >
                   Benefits
+                </button>
+                <button 
+                  onClick={() => scrollToSection('pricing')}
+                  className="text-sm font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 transition-all text-left"
+                >
+                  Pricing
                 </button>
                 <Button 
                   size="sm" 
@@ -315,6 +324,86 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="container mx-auto px-4 py-12 sm:py-16 md:py-20">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10 sm:mb-14">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">Flexible Pricing for Your Business</h3>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+              Every pet business is unique. We understand that your needs are different, which is why our pricing is customized based on your specific requirements.
+            </p>
+          </div>
+          
+          <Card className="border-2 border-[#E50914] shadow-xl">
+            <CardHeader className="text-center p-8 sm:p-10 bg-gradient-to-b from-[#E50914]/5 to-white">
+              <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Custom Pricing</CardTitle>
+              <CardDescription className="text-base sm:text-lg text-muted-foreground">
+                Tailored solutions for your pet business
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-8 sm:p-10">
+              <div className="space-y-6">
+                <div className="text-center space-y-4">
+                  <p className="text-base sm:text-lg text-gray-700">
+                    <strong>No business is the same.</strong> Whether you run a small pet shop, a grooming spa, or a multi-location veterinary clinic, we'll create a pricing plan that fits your:
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                  <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                    <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-sm sm:text-base">Business Size</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">Single store or multi-location</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                    <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-sm sm:text-base">Features Needed</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">Choose only what you use</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                    <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-sm sm:text-base">Number of Users</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">Pay for active users only</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
+                    <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-sm sm:text-base">Transaction Volume</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">Scales with your growth</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="pt-6 text-center">
+                  <p className="text-sm sm:text-base text-gray-600 mb-6">
+                    Get a personalized quote in minutes. No hidden fees, no surprises.
+                  </p>
+                  <Button 
+                    size="lg"
+                    onClick={() => scrollToSection('contact')}
+                    className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold px-8 sm:px-10 py-5 sm:py-6 text-sm sm:text-base"
+                  >
+                    Get Custom Quote
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          <div className="mt-8 text-center">
+            <p className="text-xs sm:text-sm text-muted-foreground">
+              💡 <strong>Free Trial Available:</strong> Test Fretso with your team for 14 days, no credit card required.
+            </p>
           </div>
         </div>
       </section>
