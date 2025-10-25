@@ -11,6 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import FretsoLogo from '@/components/fretso-logo';
+import { ThemeToggle } from '@/components/theme-toggle';
 import { CheckCircle2, BarChart3, Package, Calendar, Users, Instagram, Facebook, Linkedin, ArrowUp, Receipt, Wrench, Settings, Mail } from 'lucide-react';
 
 export default function Home() {
@@ -168,11 +169,11 @@ export default function Home() {
       {/* Transparent Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500`}>
         <div className={`container mx-auto px-4 sm:px-6 py-4 sm:py-6 transition-all duration-500 ${
-          isScrolled ? 'sm:mt-4 bg-white/30 backdrop-blur-xl shadow-2xl md:rounded-full max-w-4xl border border-white/20' : ''
+          isScrolled ? 'sm:mt-4 bg-white/30 dark:bg-gray-900/30 backdrop-blur-xl shadow-2xl md:rounded-full max-w-4xl border border-white/20 dark:border-gray-700/20' : ''
         }`}>
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <FretsoLogo size="sm" className={`transition-colors duration-300 ${logoColor === 'white' ? 'text-white' : 'text-[#E50914]'}`} />
+            <FretsoLogo size="sm" className={`transition-colors duration-300 ${logoColor === 'white' ? 'text-white dark:text-white' : 'text-[#E50914] dark:text-[#E50914]'}`} />
             
             {/* Nav Links - Desktop */}
             <div className="hidden md:flex items-center gap-4 lg:gap-8">
@@ -185,6 +186,7 @@ export default function Home() {
               <button onClick={() => scrollToSection('pricing')} className="text-xs lg:text-sm font-medium text-[#E50914] bg-white/90 px-3 lg:px-4 py-2 rounded-lg hover:bg-white hover:shadow-lg transition-all duration-300">
                 Pricing
               </button>
+              <ThemeToggle />
               <Button 
                 size="sm"
                 onClick={() => scrollToSection('contact')}
@@ -199,7 +201,7 @@ export default function Home() {
               <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                 <SheetTrigger asChild>
                   <button
-                    className={`p-2 ${isScrolled ? 'text-[#E50914]' : 'text-white'}`}
+                    className={`p-2 ${isScrolled ? 'text-[#E50914] dark:text-white' : 'text-white'}`}
                     aria-label="Toggle menu"
                   >
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -213,21 +215,25 @@ export default function Home() {
                     Navigate to different sections of the website
                   </SheetDescription>
                   <div className="flex flex-col space-y-4 mt-8">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-semibold text-muted-foreground">Theme</span>
+                      <ThemeToggle />
+                    </div>
                     <button 
                       onClick={() => scrollToSection('features')}
-                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
+                      className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
                     >
                       Features
                     </button>
                     <button 
                       onClick={() => scrollToSection('benefits')}
-                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
+                      className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
                     >
                       Benefits
                     </button>
                     <button 
                       onClick={() => scrollToSection('pricing')}
-                      className="text-base font-medium text-[#E50914] bg-gray-50 px-4 py-3 rounded-lg hover:bg-gray-100 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
+                      className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
                     >
                       Pricing
                     </button>
@@ -260,7 +266,7 @@ export default function Home() {
         />
         
         {/* Right Side - Content */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center bg-white p-8 sm:p-10 lg:p-16 order-2 lg:order-none">
+        <div className="w-full lg:w-1/2 flex items-center justify-center bg-white dark:bg-background p-8 sm:p-10 lg:p-16 order-2 lg:order-none">
           <div className="max-w-lg space-y-5 sm:space-y-8 text-center">
             {/* Logo */}
             <div className="flex justify-center mb-1">
@@ -278,7 +284,7 @@ export default function Home() {
             </div>
             
             {/* Simple description */}
-            <p className="text-sm sm:text-lg md:text-xl text-gray-600 leading-relaxed pt-1">
+            <p className="text-sm sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed pt-1">
               For Pet Shops, Spas & Clinics
             </p>
             

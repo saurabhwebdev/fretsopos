@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Pacifico } from "next/font/google";
 import { seoConfig } from "@/config/seo";
+import { ThemeProvider } from "@/components/theme-provider";
 import ClarityAnalytics from "@/components/clarity";
 import TawkChat from "@/components/tawk-chat";
 import "./globals.css";
@@ -114,13 +115,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pacifico.variable} antialiased`}
       >
-        <ClarityAnalytics />
-        <TawkChat />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ClarityAnalytics />
+          <TawkChat />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
