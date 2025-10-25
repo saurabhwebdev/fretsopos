@@ -5,7 +5,7 @@ import Script from 'next/script';
 import { seoConfig } from '@/config/seo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import FretsoLogo from '@/components/fretso-logo';
 import { CheckCircle2, BarChart3, Package, Calendar, Users, Instagram, Facebook, Linkedin, ArrowUp, Receipt, Wrench, Settings } from 'lucide-react';
 
@@ -167,6 +167,10 @@ export default function Home() {
                   </button>
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                  <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                  <SheetDescription className="sr-only">
+                    Navigate to different sections of the website
+                  </SheetDescription>
                   <div className="flex flex-col space-y-4 mt-8">
                     <button 
                       onClick={() => scrollToSection('features')}
