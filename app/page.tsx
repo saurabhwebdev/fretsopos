@@ -177,20 +177,20 @@ export default function Home() {
             
             {/* Nav Links - Desktop */}
             <div className="hidden md:flex items-center gap-4 lg:gap-8">
-              <button onClick={() => scrollToSection('features')} className="text-xs lg:text-sm font-medium text-[#E50914] bg-white/90 px-3 lg:px-4 py-2 rounded-lg hover:bg-white hover:shadow-lg transition-all duration-300">
+              <button onClick={() => scrollToSection('features')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white bg-white/90 dark:bg-transparent dark:hover:text-[#E50914] px-3 lg:px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-white/10 hover:shadow-lg transition-all duration-300">
                 Features
               </button>
-              <button onClick={() => scrollToSection('benefits')} className="text-xs lg:text-sm font-medium text-[#E50914] bg-white/90 px-3 lg:px-4 py-2 rounded-lg hover:bg-white hover:shadow-lg transition-all duration-300">
+              <button onClick={() => scrollToSection('benefits')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white bg-white/90 dark:bg-transparent dark:hover:text-[#E50914] px-3 lg:px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-white/10 hover:shadow-lg transition-all duration-300">
                 Benefits
               </button>
-              <button onClick={() => scrollToSection('pricing')} className="text-xs lg:text-sm font-medium text-[#E50914] bg-white/90 px-3 lg:px-4 py-2 rounded-lg hover:bg-white hover:shadow-lg transition-all duration-300">
+              <button onClick={() => scrollToSection('pricing')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white bg-white/90 dark:bg-transparent dark:hover:text-[#E50914] px-3 lg:px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-white/10 hover:shadow-lg transition-all duration-300">
                 Pricing
               </button>
               <ThemeToggle />
               <Button 
                 size="sm"
                 onClick={() => scrollToSection('contact')}
-                className="bg-white hover:bg-white hover:shadow-lg hover:scale-105 text-[#E50914] font-semibold transition-all duration-300 text-xs lg:text-sm"
+                className="bg-white hover:bg-white hover:shadow-lg hover:scale-105 text-[#E50914] dark:bg-[#E50914] dark:text-white dark:hover:bg-[#C40812] font-semibold transition-all duration-300 text-xs lg:text-sm"
               >
                 Contact Us
               </Button>
@@ -346,7 +346,7 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="bg-gradient-to-b from-white to-gray-50 py-16 sm:py-20 md:py-24">
+      <section id="benefits" className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight px-4">Why choose Fretso for your pet business?</h3>
@@ -373,14 +373,14 @@ export default function Home() {
               { title: 'Dark Mode Support', description: 'Beautiful dark theme for comfortable viewing in any lighting condition' },
               { title: 'Responsive Design', description: 'Works perfectly on desktop, tablet & mobile devices with adaptive layouts' },
             ].map((benefit, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-xl p-4 sm:p-5 hover:border-[#E50914] hover:shadow-lg transition-all duration-300 hover:scale-105">
+              <div key={index} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 sm:p-5 hover:border-[#E50914] dark:hover:border-[#E50914] hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 hover:scale-105">
                 <div className="flex items-start gap-2.5 sm:gap-3">
                   <div className="mt-0.5">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] flex-shrink-0" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm sm:text-base mb-1">{benefit.title}</h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground leading-snug">{benefit.description}</p>
+                    <h4 className="font-semibold text-sm sm:text-base mb-1 dark:text-gray-100">{benefit.title}</h4>
+                    <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400 leading-snug">{benefit.description}</p>
                   </div>
                 </div>
               </div>
@@ -399,54 +399,54 @@ export default function Home() {
             </p>
           </div>
           
-          <Card className="border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
+          <Card className="border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 dark:bg-gray-800">
             <CardHeader className="text-center p-6 sm:p-10">
               <CardTitle className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-[#E50914]">Custom Pricing</CardTitle>
-              <CardDescription className="text-sm sm:text-base lg:text-lg text-muted-foreground">
+              <CardDescription className="text-sm sm:text-base lg:text-lg text-muted-foreground dark:text-gray-400">
                 Tailored solutions for your pet business
               </CardDescription>
             </CardHeader>
             <CardContent className="p-6 sm:p-10">
               <div className="space-y-6">
                 <div className="text-center space-y-4">
-                  <p className="text-base sm:text-lg text-gray-700">
-                    <strong>No business is the same.</strong> Whether you run a small pet shop, a grooming spa, or a multi-location veterinary clinic, we'll create a pricing plan that fits your:
+                  <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300">
+                    <strong className="dark:text-gray-100">No business is the same.</strong> Whether you run a small pet shop, a grooming spa, or a multi-location veterinary clinic, we'll create a pricing plan that fits your:
                   </p>
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4">
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-xs sm:text-base">Business Size</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground">Single store or multi-location</p>
+                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Business Size</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Single store or multi-location</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-xs sm:text-base">Features Needed</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground">Choose only what you use</p>
+                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Features Needed</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Choose only what you use</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-xs sm:text-base">Number of Users</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground">Pay for active users only</p>
+                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Number of Users</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Pay for active users only</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-xs sm:text-base">Transaction Volume</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground">Scales with your growth</p>
+                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Transaction Volume</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Scales with your growth</p>
                     </div>
                   </div>
                 </div>
                 
                 <div className="pt-6 text-center">
-                  <p className="text-xs sm:text-base text-gray-600 mb-6">
+                  <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mb-6">
                     Get a personalized quote in minutes. No hidden fees, no surprises.
                   </p>
                   <Button 
@@ -630,7 +630,7 @@ export default function Home() {
       )}
 
       {/* Footer */}
-      <footer className="bg-gradient-to-b from-white to-gray-50">
+      <footer className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
         <div className="container mx-auto px-4 py-8 sm:py-12">
           <div className="flex flex-col items-center gap-4">
             {/* Logo */}
@@ -640,7 +640,7 @@ export default function Home() {
             <div className="flex items-center gap-4">
               <a 
                 href="mailto:fretsoindia@gmail.com" 
-                className="text-[#E50914] hover:text-[#C40812] transition-colors"
+                className="text-[#E50914] dark:text-gray-300 hover:text-[#C40812] dark:hover:text-white transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-5 h-5" />
@@ -649,7 +649,7 @@ export default function Home() {
                 href="https://instagram.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-[#E50914] hover:text-[#C40812] transition-colors"
+                className="text-[#E50914] dark:text-gray-300 hover:text-[#C40812] dark:hover:text-white transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
@@ -658,7 +658,7 @@ export default function Home() {
                 href="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-[#E50914] hover:text-[#C40812] transition-colors"
+                className="text-[#E50914] dark:text-gray-300 hover:text-[#C40812] dark:hover:text-white transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
@@ -667,7 +667,7 @@ export default function Home() {
                 href="https://www.linkedin.com/company/fretsoindia/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-[#E50914] hover:text-[#C40812] transition-colors"
+                className="text-[#E50914] dark:text-gray-300 hover:text-[#C40812] dark:hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5" />
@@ -676,7 +676,7 @@ export default function Home() {
                 href="https://wa.me/918087098711" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-[#E50914] hover:text-[#C40812] transition-colors"
+                className="text-[#E50914] dark:text-gray-300 hover:text-[#C40812] dark:hover:text-white transition-colors"
                 aria-label="WhatsApp"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -686,7 +686,7 @@ export default function Home() {
             </div>
             
             {/* Copyright */}
-            <p className="text-xs sm:text-sm text-muted-foreground text-center">
+            <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400 text-center">
               © 2025 Fretso. All rights reserved.
             </p>
           </div>
