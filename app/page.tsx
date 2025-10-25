@@ -127,7 +127,7 @@ export default function Home() {
       {/* Transparent Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500`}>
         <div className={`container mx-auto px-4 sm:px-6 py-4 sm:py-6 transition-all duration-500 ${
-          isScrolled ? 'mt-2 sm:mt-4 bg-white/30 backdrop-blur-xl shadow-2xl md:rounded-full max-w-4xl border border-white/20' : ''
+          isScrolled ? 'sm:mt-4 bg-white/30 backdrop-blur-xl shadow-2xl md:rounded-full max-w-4xl border border-white/20' : ''
         }`}>
           <div className="flex items-center justify-between">
             {/* Logo */}
