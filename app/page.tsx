@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import FretsoLogo from '@/components/fretso-logo';
-import { CheckCircle2, BarChart3, Package, Calendar, Users, Instagram, Facebook, Linkedin, ArrowUp, Receipt, Wrench, Settings } from 'lucide-react';
+import { CheckCircle2, BarChart3, Package, Calendar, Users, Instagram, Facebook, Linkedin, ArrowUp, Receipt, Wrench, Settings, Mail } from 'lucide-react';
 
 export default function Home() {
   // Rotating text for "Made for India" in different Indian languages
@@ -423,6 +423,13 @@ export default function Home() {
           {/* Social Media Icons */}
           <div className="flex items-center justify-center gap-6 pt-4">
             <a 
+              href="mailto:fretsoindia@gmail.com" 
+              className="text-white hover:text-white/80 transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="w-7 h-7 sm:w-8 sm:h-8" />
+            </a>
+            <a 
               href="https://instagram.com" 
               target="_blank" 
               rel="noopener noreferrer"
@@ -491,6 +498,13 @@ export default function Home() {
             
             {/* Social Media Icons */}
             <div className="flex items-center gap-4">
+              <a 
+                href="mailto:fretsoindia@gmail.com" 
+                className="text-[#E50914] hover:text-[#C40812] transition-colors"
+                aria-label="Email"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
               <a 
                 href="https://instagram.com" 
                 target="_blank" 
