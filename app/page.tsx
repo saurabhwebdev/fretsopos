@@ -346,7 +346,7 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950 py-16 sm:py-20 md:py-24">
+      <section id="benefits" className="bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight px-4">Why choose Fretso for your pet business?</h3>
@@ -373,7 +373,7 @@ export default function Home() {
               { title: 'Dark Mode Support', description: 'Beautiful dark theme for comfortable viewing in any lighting condition' },
               { title: 'Responsive Design', description: 'Works perfectly on desktop, tablet & mobile devices with adaptive layouts' },
             ].map((benefit, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 sm:p-5 hover:border-[#E50914] dark:hover:border-[#E50914] hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 hover:scale-105">
+              <div key={index} className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4 sm:p-5 hover:border-[#E50914] dark:hover:border-[#E50914] hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 hover:scale-105">
                 <div className="flex items-start gap-2.5 sm:gap-3">
                   <div className="mt-0.5">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] flex-shrink-0" />
@@ -399,7 +399,7 @@ export default function Home() {
             </p>
           </div>
           
-          <Card className="border border-gray-200 dark:border-gray-700 shadow-sm hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 dark:bg-gray-800">
+          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 dark:bg-black">
             <CardHeader className="text-center p-6 sm:p-10">
               <CardTitle className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-[#E50914]">Custom Pricing</CardTitle>
               <CardDescription className="text-sm sm:text-base lg:text-lg text-muted-foreground dark:text-gray-400">
@@ -415,28 +415,28 @@ export default function Home() {
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4">
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Business Size</p>
                       <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Single store or multi-location</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Features Needed</p>
                       <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Choose only what you use</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Number of Users</p>
                       <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Pay for active users only</p>
                     </div>
                   </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
                     <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Transaction Volume</p>
@@ -630,7 +630,7 @@ export default function Home() {
       )}
 
       {/* Footer */}
-      <footer className="bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-950">
+      <footer className="bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background">
         <div className="container mx-auto px-4 py-8 sm:py-12">
           <div className="flex flex-col items-center gap-4">
             {/* Logo */}
