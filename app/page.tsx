@@ -67,6 +67,7 @@ export default function Home() {
         // Get computed background color of the element or its parents
         let currentElement: HTMLElement | null = elementAtNavbar as HTMLElement;
         let bgColor = '';
+        let foundBg = false;
         
         // Traverse up the DOM tree to find a non-transparent background
         while (currentElement && currentElement !== document.body) {
@@ -76,20 +77,28 @@ export default function Home() {
           // Also check for background images (hero section)
           const backgroundImage = computedStyle.backgroundImage;
           
-          // Check if background is not transparent
-          if (backgroundColor && backgroundColor !== 'rgba(0, 0, 0, 0)' && backgroundColor !== 'transparent') {
-            bgColor = backgroundColor;
-            break;
-          }
-          
           // If element has background image, assume it's the red hero section
-          if (backgroundImage && backgroundImage !== 'none') {
+          if (backgroundImage && backgroundImage !== 'none' && backgroundImage.includes('herobg')) {
             // Hero section with red background
             setLogoColor('white');
+            foundBg = true;
             return;
           }
           
+          // Check if background is not transparent
+          if (backgroundColor && backgroundColor !== 'rgba(0, 0, 0, 0)' && backgroundColor !== 'transparent') {
+            bgColor = backgroundColor;
+            foundBg = true;
+            break;
+          }
+          
           currentElement = currentElement.parentElement;
+        }
+        
+        // Check body background if nothing found
+        if (!foundBg && document.body) {
+          const bodyStyle = window.getComputedStyle(document.body);
+          bgColor = bodyStyle.backgroundColor;
         }
         
         // Determine if background is light or dark
@@ -112,6 +121,9 @@ export default function Home() {
               setLogoColor('white');
             }
           }
+        } else {
+          // Default to white if no background detected (likely on red hero)
+          setLogoColor('white');
         }
       }
     };
