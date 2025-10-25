@@ -9,10 +9,18 @@ export const size = {
 export const contentType = 'image/png';
 
 export default async function Image() {
-  // Fetch Pacifico font
-  const pacificoFont = fetch(
-    new URL('https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ96A4sijpFu_.woff')
-  ).then((res) => res.arrayBuffer());
+  // Fetch Pacifico font with error handling
+  let pacificoFont;
+  try {
+    const fontResponse = await fetch(
+      'https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ96A4sijpFu_.woff'
+    );
+    if (fontResponse.ok) {
+      pacificoFont = await fontResponse.arrayBuffer();
+    }
+  } catch (error) {
+    console.error('Failed to load Pacifico font:', error);
+  }
 
   return new ImageResponse(
     (
@@ -45,7 +53,7 @@ export default async function Image() {
               marginBottom: 30,
               letterSpacing: '0.05em',
               textShadow: '0 4px 20px rgba(0,0,0,0.3)',
-              fontFamily: 'Pacifico',
+              fontFamily: 'Pacifico, cursive, system-ui',
             }}
           >
             Fretso
@@ -83,13 +91,15 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: 'Pacifico',
-          data: await pacificoFont,
-          style: 'normal',
-        },
-      ],
+      ...(pacificoFont && {
+        fonts: [
+          {
+            name: 'Pacifico',
+            data: pacificoFont,
+            style: 'normal',
+          },
+        ],
+      }),
     }
   );
 }
