@@ -172,14 +172,16 @@ export default function FounderOfferPopup() {
 
   return (
     <div 
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 animate-in fade-in duration-300"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-3 sm:p-4 md:p-6 animate-in fade-in duration-300 overflow-y-auto"
       style={{
         backgroundColor: `rgba(0, 0, 0, ${appearance.overlayOpacity / 100})`,
         backdropFilter: 'blur(8px)'
       }}
+      onClick={closePopup}
     >
       <div 
-        className={`relative bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden ${animationClass} duration-500`}
+        className={`relative bg-white dark:bg-gray-900 rounded-2xl shadow-2xl w-full max-w-xl md:max-w-2xl my-auto overflow-hidden ${animationClass} duration-500`}
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
@@ -215,10 +217,10 @@ export default function FounderOfferPopup() {
         </div>
 
         {/* Content */}
-        <div className="p-8 space-y-6">
+        <div className="p-6 sm:p-8 space-y-4 sm:space-y-5">
           {/* Title & Highlight */}
           <div className="text-center space-y-2">
-            <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
               {offer.title}
             </h3>
             <div className="inline-flex items-center gap-2 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-400 px-4 py-2 rounded-full">
@@ -230,10 +232,10 @@ export default function FounderOfferPopup() {
           {/* Pricing */}
           <div className="text-center space-y-2">
             <div className="flex items-center justify-center gap-3">
-              <span className="text-lg text-gray-500 dark:text-gray-400 line-through">
+              <span className="text-base sm:text-lg text-gray-500 dark:text-gray-400 line-through">
                 {offer.originalPrice}
               </span>
-              <span className="text-4xl font-bold text-[#E50914]">
+              <span className="text-3xl sm:text-4xl font-bold text-[#E50914]">
                 {offer.price}
               </span>
             </div>
@@ -297,7 +299,7 @@ export default function FounderOfferPopup() {
           </div>
 
           {/* Benefits */}
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             {offer.benefits.map((benefit, index) => (
               <div key={index} className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
@@ -322,7 +324,7 @@ export default function FounderOfferPopup() {
         </div>
 
         {/* Social Proof - Real User Activity */}
-        <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-800/50 dark:to-gray-900/50 px-6 py-5 border-t border-gray-200 dark:border-gray-700">
+        <div className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-800/50 dark:to-gray-900/50 px-4 sm:px-6 py-4 sm:py-5 border-t border-gray-200 dark:border-gray-700">
           {/* Main trust indicator */}
           <div className="flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300 mb-4">
             <div className="flex -space-x-3">
