@@ -48,7 +48,7 @@ export const founderOfferConfig = {
     animation: "scale", // "scale" | "slide" | "fade"
     
     // Show countdown timer
-    showCountdown: false,
-    countdownMinutes: 15
+    showCountdown: true,
+    countdownMinutes: 15  // Timer duration in minutes
   }
 };
