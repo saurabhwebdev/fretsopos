@@ -227,6 +227,9 @@ export default function Home() {
               <button onClick={() => scrollToSection('pricing')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white bg-white/90 dark:bg-transparent dark:hover:text-[#E50914] px-3 lg:px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-white/10 hover:shadow-lg transition-all duration-300">
                 Pricing
               </button>
+              <button onClick={() => scrollToSection('testimonials')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white bg-white/90 dark:bg-transparent dark:hover:text-[#E50914] px-3 lg:px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-white/10 hover:shadow-lg transition-all duration-300">
+                Testimonials
+              </button>
               <ThemeToggle />
               <Button 
                 size="sm"
@@ -277,6 +280,12 @@ export default function Home() {
                       className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
                     >
                       Pricing
+                    </button>
+                    <button 
+                      onClick={() => scrollToSection('testimonials')}
+                      className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
+                    >
+                      Testimonials
                     </button>
                     <Button 
                       size="lg" 
@@ -511,7 +520,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section - Minimal Slider */}
-      <section className="bg-white dark:bg-background py-16 sm:py-20 md:py-24">
+      <section id="testimonials" className="bg-white dark:bg-background py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12 sm:mb-16">
@@ -569,22 +578,22 @@ export default function Home() {
               {/* Previous Button */}
               <button
                 onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-12 w-10 h-10 sm:w-12 sm:h-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-lg"
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-12 w-9 h-9 sm:w-10 sm:h-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-gray-800 transition-all hover:scale-110 shadow-md"
                 aria-label="Previous testimonial"
               >
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
               </button>
               
               {/* Next Button */}
               <button
                 onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-12 w-10 h-10 sm:w-12 sm:h-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-lg"
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-12 w-9 h-9 sm:w-10 sm:h-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-gray-800 transition-all hover:scale-110 shadow-md"
                 aria-label="Next testimonial"
               >
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </button>
             </div>
