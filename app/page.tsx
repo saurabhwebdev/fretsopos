@@ -38,6 +38,7 @@ export default function Home() {
   const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -131,6 +132,37 @@ export default function Home() {
     }
   };
 
+  const testimonials = [
+    {
+      name: "Priya Mehta",
+      role: "Owner, Paws & Claws Pet Store",
+      location: "Mumbai, Maharashtra",
+      text: "Fretso has completely transformed how we manage our pet shop in Mumbai. The GST billing is accurate, inventory tracking saves us hours, and our customers love the professional invoices. Best investment for our business!",
+      initials: "PM"
+    },
+    {
+      name: "Rajesh Kumar",
+      role: "Founder, Furry Friends Spa",
+      location: "Bangalore, Karnataka",
+      text: "Running a grooming spa requires perfect appointment scheduling. Fretso's system handles everything - from booking slots to tracking pet vaccination records. Our clients are impressed with how organized we've become!",
+      initials: "RK"
+    },
+    {
+      name: "Dr. Sneha Desai",
+      role: "Head Veterinarian, PetCare Clinic",
+      location: "New Delhi, Delhi",
+      text: "As a veterinary clinic, maintaining accurate pet health records is crucial. Fretso's comprehensive CRM with vaccination tracking and medical notes has made our operations seamless. The multi-currency support is perfect for our international clients!",
+      initials: "DS"
+    },
+    {
+      name: "Anil Patil",
+      role: "Manager, Pet Paradise Store",
+      location: "Pune, Maharashtra",
+      text: "The profit analysis feature is a game-changer! Now I can see exactly which products are making money and which aren't. The expiry alerts have also saved us from losses. Highly recommend Fretso to every pet business owner!",
+      initials: "AP"
+    }
+  ];
+
   const features = [
     {
       icon: BarChart3,
@@ -153,6 +185,15 @@ export default function Home() {
       description: "Manage customer & pet details, vaccination history"
     }
   ];
+
+  // Auto-rotate testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000); // Change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [testimonials.length]);
 
   return (
     <>
@@ -469,113 +510,84 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="bg-gradient-to-b from-gray-50 to-white dark:from-background dark:to-background py-16 sm:py-20 md:py-24">
+      {/* Testimonials Section - Minimal Slider */}
+      <section className="bg-white dark:bg-background py-16 sm:py-20 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight px-4">Trusted by Pet Businesses Across India</h3>
-            <p className="text-sm sm:text-base text-muted-foreground mt-3 px-4">See what our customers have to say about Fretso</p>
-          </div>
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {/* Testimonial 1 - Mumbai */}
-            <Card className="border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 hover:scale-105 dark:bg-black">
-              <CardContent className="p-5 sm:p-6">
-                <div className="flex items-center gap-1 mb-3">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12 sm:mb-16">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">Trusted by Pet Businesses Across India</h3>
+              <p className="text-sm sm:text-base text-muted-foreground">See what our customers have to say</p>
+            </div>
+            
+            {/* Testimonial Slider */}
+            <div className="relative">
+              {/* Main Testimonial Card */}
+              <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-2xl p-8 sm:p-12 shadow-sm transition-all duration-500">
+                {/* Stars */}
+                <div className="flex items-center justify-center gap-1 mb-6">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#E50914] text-[#E50914]" />
+                    <Star key={i} className="w-5 h-5 fill-[#E50914] text-[#E50914]" />
                   ))}
                 </div>
-                <Quote className="w-8 h-8 text-[#E50914]/20 mb-3" />
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                  "Fretso has completely transformed how we manage our pet shop in Mumbai. The GST billing is accurate, inventory tracking saves us hours, and our customers love the professional invoices. Best investment for our business!"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#E50914] font-bold text-base sm:text-lg">PM</span>
+                
+                {/* Quote */}
+                <div className="text-center mb-8">
+                  <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+                    "{testimonials[currentTestimonial].text}"
+                  </p>
+                </div>
+                
+                {/* Author */}
+                <div className="flex flex-col items-center gap-4">
+                  <div className="w-14 h-14 bg-[#E50914]/10 rounded-full flex items-center justify-center">
+                    <span className="text-[#E50914] font-bold text-xl">{testimonials[currentTestimonial].initials}</span>
                   </div>
-                  <div>
-                    <p className="font-semibold text-sm sm:text-base dark:text-gray-100">Priya Mehta</p>
-                    <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Owner, Paws & Claws Pet Store</p>
-                    <p className="text-xs text-muted-foreground dark:text-gray-500">Mumbai, Maharashtra</p>
+                  <div className="text-center">
+                    <p className="font-semibold text-base sm:text-lg dark:text-gray-100">{testimonials[currentTestimonial].name}</p>
+                    <p className="text-sm text-muted-foreground dark:text-gray-400">{testimonials[currentTestimonial].role}</p>
+                    <p className="text-xs text-muted-foreground dark:text-gray-500 mt-1">{testimonials[currentTestimonial].location}</p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-
-            {/* Testimonial 2 - Bangalore */}
-            <Card className="border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 hover:scale-105 dark:bg-black">
-              <CardContent className="p-5 sm:p-6">
-                <div className="flex items-center gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#E50914] text-[#E50914]" />
-                  ))}
-                </div>
-                <Quote className="w-8 h-8 text-[#E50914]/20 mb-3" />
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                  "Running a grooming spa requires perfect appointment scheduling. Fretso's system handles everything - from booking slots to tracking pet vaccination records. Our clients are impressed with how organized we've become!"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#E50914] font-bold text-base sm:text-lg">RK</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm sm:text-base dark:text-gray-100">Rajesh Kumar</p>
-                    <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Founder, Furry Friends Spa</p>
-                    <p className="text-xs text-muted-foreground dark:text-gray-500">Bangalore, Karnataka</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Testimonial 3 - Delhi */}
-            <Card className="border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 hover:scale-105 dark:bg-black">
-              <CardContent className="p-5 sm:p-6">
-                <div className="flex items-center gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#E50914] text-[#E50914]" />
-                  ))}
-                </div>
-                <Quote className="w-8 h-8 text-[#E50914]/20 mb-3" />
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                  "As a veterinary clinic, maintaining accurate pet health records is crucial. Fretso's comprehensive CRM with vaccination tracking and medical notes has made our operations seamless. The multi-currency support is perfect for our international clients!"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#E50914] font-bold text-base sm:text-lg">DS</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm sm:text-base dark:text-gray-100">Dr. Sneha Desai</p>
-                    <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Head Veterinarian, PetCare Clinic</p>
-                    <p className="text-xs text-muted-foreground dark:text-gray-500">New Delhi, Delhi</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Testimonial 4 - Pune */}
-            <Card className="border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 hover:scale-105 dark:bg-black md:col-span-2 lg:col-span-1">
-              <CardContent className="p-5 sm:p-6">
-                <div className="flex items-center gap-1 mb-3">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#E50914] text-[#E50914]" />
-                  ))}
-                </div>
-                <Quote className="w-8 h-8 text-[#E50914]/20 mb-3" />
-                <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                  "The profit analysis feature is a game-changer! Now I can see exactly which products are making money and which aren't. The expiry alerts have also saved us from losses. Highly recommend Fretso to every pet business owner!"
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914]/10 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#E50914] font-bold text-base sm:text-lg">AP</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm sm:text-base dark:text-gray-100">Anil Patil</p>
-                    <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Manager, Pet Paradise Store</p>
-                    <p className="text-xs text-muted-foreground dark:text-gray-500">Pune, Maharashtra</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
+              
+              {/* Navigation Dots */}
+              <div className="flex items-center justify-center gap-2 mt-8">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`transition-all duration-300 rounded-full ${
+                      index === currentTestimonial
+                        ? 'w-8 h-2 bg-[#E50914]'
+                        : 'w-2 h-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                    }`}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              {/* Previous Button */}
+              <button
+                onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-12 w-10 h-10 sm:w-12 sm:h-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-lg"
+                aria-label="Previous testimonial"
+              >
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              
+              {/* Next Button */}
+              <button
+                onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-12 w-10 h-10 sm:w-12 sm:h-12 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors shadow-lg"
+                aria-label="Next testimonial"
+              >
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </section>
