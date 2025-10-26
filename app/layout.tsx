@@ -4,6 +4,7 @@ import { seoConfig } from "@/config/seo";
 import { ThemeProvider } from "@/components/theme-provider";
 import ClarityAnalytics from "@/components/clarity";
 import TawkChat from "@/components/tawk-chat";
+import FounderOfferPopup from "@/components/founder-offer-popup";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -127,6 +128,7 @@ export default function RootLayout({
         >
           <ClarityAnalytics />
           <TawkChat />
+          <FounderOfferPopup />
           {children}
         </ThemeProvider>
       </body>
