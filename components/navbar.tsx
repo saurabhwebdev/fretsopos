@@ -126,55 +126,57 @@ export default function Navbar() {
                   </div>
                   <button 
                     onClick={() => scrollToSection('features')}
-                    className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
+                    className="text-base font-medium text-[#E50914] dark:text-white px-4 py-3 hover:text-[#C40812] dark:hover:text-[#E50914] transition-colors duration-200 text-left border-b border-gray-100 dark:border-gray-800"
                   >
                     Features
                   </button>
                   <button 
                     onClick={() => scrollToSection('benefits')}
-                    className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
+                    className="text-base font-medium text-[#E50914] dark:text-white px-4 py-3 hover:text-[#C40812] dark:hover:text-[#E50914] transition-colors duration-200 text-left border-b border-gray-100 dark:border-gray-800"
                   >
                     Benefits
                   </button>
                   <button 
                     onClick={() => scrollToSection('pricing')}
-                    className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
+                    className="text-base font-medium text-[#E50914] dark:text-white px-4 py-3 hover:text-[#C40812] dark:hover:text-[#E50914] transition-colors duration-200 text-left border-b border-gray-100 dark:border-gray-800"
                   >
                     Pricing
                   </button>
                   <button 
                     onClick={() => scrollToSection('testimonials')}
-                    className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
+                    className="text-base font-medium text-[#E50914] dark:text-white px-4 py-3 hover:text-[#C40812] dark:hover:text-[#E50914] transition-colors duration-200 text-left border-b border-gray-100 dark:border-gray-800"
                   >
                     Testimonials
                   </button>
                   <button 
                     onClick={() => scrollToSection('faq')}
-                    className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
+                    className="text-base font-medium text-[#E50914] dark:text-white px-4 py-3 hover:text-[#C40812] dark:hover:text-[#E50914] transition-colors duration-200 text-left border-b border-gray-100 dark:border-gray-800"
                   >
                     FAQ
                   </button>
                   <Link 
                     href="/about"
-                    className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform block"
+                    className="text-base font-medium text-[#E50914] dark:text-white px-4 py-3 hover:text-[#C40812] dark:hover:text-[#E50914] transition-colors duration-200 text-left border-b border-gray-100 dark:border-gray-800 block"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     About Us
                   </Link>
                   <Link 
                     href="/support"
-                    className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform block"
+                    className="text-base font-medium text-[#E50914] dark:text-white px-4 py-3 hover:text-[#C40812] dark:hover:text-[#E50914] transition-colors duration-200 text-left border-b border-gray-100 dark:border-gray-800 block"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Support
                   </Link>
-                  <Button 
-                    size="lg" 
-                    onClick={() => scrollToSection('contact')}
-                    className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold w-full hover:scale-105 hover:shadow-lg transition-all duration-300 transform"
-                  >
-                    Contact Us
-                  </Button>
+                  <div className="pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
+                    <Button 
+                      size="lg" 
+                      onClick={() => scrollToSection('contact')}
+                      className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold w-full transition-colors duration-200"
+                    >
+                      Contact Us
+                    </Button>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
