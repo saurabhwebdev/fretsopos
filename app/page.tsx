@@ -286,6 +286,16 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Decorative Divider */}
+      <div className="relative py-8 sm:py-12">
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t border-gray-200 dark:border-gray-800"></div>
+        </div>
+        <div className="relative flex justify-center">
+          <span className="bg-background px-6 text-3xl">✦</span>
+        </div>
+      </div>
+
       {/* Features Section */}
       <section id="features" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
         <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
@@ -327,6 +337,13 @@ export default function Home() {
           })}
         </div>
       </section>
+
+      {/* Animated Wave Divider */}
+      <div className="relative h-16 sm:h-24">
+        <svg className="absolute bottom-0 w-full h-16 sm:h-24 text-gray-50 dark:text-background" viewBox="0 0 1440 120" preserveAspectRatio="none">
+          <path fill="currentColor" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+        </svg>
+      </div>
 
       {/* Benefits Section */}
       <section id="benefits" className="bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background py-16 sm:py-20 md:py-24">
@@ -383,6 +400,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Decorative Dots Divider */}
+      <div className="relative py-8 sm:py-12">
+        <div className="flex items-center justify-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-[#E50914] animate-pulse"></div>
+          <div className="w-2 h-2 rounded-full bg-[#E50914] animate-pulse" style={{animationDelay: '0.2s'}}></div>
+          <div className="w-2 h-2 rounded-full bg-[#E50914] animate-pulse" style={{animationDelay: '0.4s'}}></div>
+        </div>
+      </div>
 
       {/* Pricing Section */}
       <section id="pricing" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
@@ -463,6 +489,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Gradient Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-[#E50914] to-transparent"></div>
 
       {/* Testimonials Section - Minimal Slider */}
       <section id="testimonials" className="bg-white dark:bg-background py-16 sm:py-20 md:py-24">
@@ -545,6 +574,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Decorative Line with Icon */}
+      <div className="relative py-8 sm:py-12">
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t-2 border-dashed border-gray-200 dark:border-gray-800"></div>
+        </div>
+        <div className="relative flex justify-center">
+          <div className="bg-background px-4 sm:px-6">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#E50914]/10 flex items-center justify-center">
+              <span className="text-[#E50914] text-lg sm:text-xl">?</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* FAQ Section */}
       <section id="faq" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
@@ -631,6 +674,19 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Sparkle Divider */}
+      <div className="relative py-8 sm:py-12 overflow-hidden">
+        <div className="flex items-center justify-center gap-4 sm:gap-8">
+          <div className="h-px w-16 sm:w-32 bg-gradient-to-r from-transparent to-[#E50914]"></div>
+          <div className="flex gap-1.5 sm:gap-2">
+            <span className="text-[#E50914] text-xl sm:text-2xl">✦</span>
+            <span className="text-[#E50914] text-base sm:text-lg">✦</span>
+            <span className="text-[#E50914] text-xl sm:text-2xl">✦</span>
+          </div>
+          <div className="h-px w-16 sm:w-32 bg-gradient-to-l from-transparent to-[#E50914]"></div>
+        </div>
+      </div>
 
       {/* CTA Section */}
       <section id="contact" className="container mx-auto px-4 py-16 sm:py-20 md:py-24 lg:py-32">
