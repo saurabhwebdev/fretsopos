@@ -306,6 +306,9 @@ export default function Home() {
             { icon: Package, title: 'Stock Movement Tracking', description: 'Complete audit trail of inventory changes - sales, purchases, adjustments, returns, damage, theft & corrections with quantity tracking.' },
             { icon: BarChart3, title: 'Supplier Management', description: 'Manage supplier contacts, payment terms, credit limits, lead times, product associations, order history & Excel import/export capabilities.' },
             { icon: Package, title: 'Business Analytics', description: 'Today\'s sales & transaction stats, revenue trends, top products/customers, payment method breakdowns, inventory insights & comprehensive reports.' },
+            { icon: Mail, title: 'Email Integration & Notifications', description: 'Connect Gmail, Outlook, Yahoo or custom SMTP. Send automated email notifications for appointments, vaccinations, invoices & reminders with professional templates.' },
+            { icon: Settings, title: 'Automated Reminder System', description: 'Auto-send email reminders for upcoming appointments & overdue vaccinations. Configurable timing, custom templates & delivery tracking with test functionality.' },
+            { icon: Receipt, title: 'Advanced Reporting & Analytics', description: 'Comprehensive business reports with sales analysis, inventory insights, customer behavior, revenue trends, product performance & custom date range exports.' },
           ].map((feature, index) => {
             const Icon = feature.icon as any;
             return (
@@ -358,6 +361,12 @@ export default function Home() {
               { title: 'Dark Mode Support', description: 'Beautiful dark theme for comfortable viewing in any lighting condition with consistent styling across all pages' },
               { title: 'Responsive Design', description: 'Works perfectly on desktop, tablet & mobile devices with adaptive layouts, touch-friendly controls & mobile-optimized views' },
               { title: 'Search & Filter Everywhere', description: 'Powerful search across products, customers, pets, vaccinations, certificates with multiple filter options & date ranges' },
+              { title: 'Email Notifications & Reminders', description: 'Automated email system with Gmail/Outlook/Yahoo integration. Send appointment reminders, vaccination alerts, invoices & custom notifications with professional templates' },
+              { title: 'SMTP Configuration', description: 'Easy email setup with support for Gmail, Outlook, Yahoo or custom SMTP servers. Secure app password authentication, test email functionality & connection validation' },
+              { title: 'Automated Appointment Reminders', description: 'Schedule automatic email reminders for upcoming appointments. Configurable send timing, professional templates & reduce no-shows with timely notifications' },
+              { title: 'Vaccination Due Alerts', description: 'Auto-send email alerts for upcoming & overdue pet vaccinations. Keep pet parents informed with 30-day advance notices & overdue reminders via email' },
+              { title: 'Advanced Business Reports', description: 'Generate comprehensive reports including sales analysis, inventory status, customer insights, revenue trends, product performance & profit margins with Excel export' },
+              { title: 'Email Delivery Tracking', description: 'Monitor email delivery status for all notifications. Test email configuration, view send history & troubleshoot delivery issues with detailed logging' },
             ].map((benefit, index) => (
               <div key={index} className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4 sm:p-5 hover:border-[#E50914] dark:hover:border-[#E50914] hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 hover:scale-105">
                 <div className="flex items-start gap-2.5 sm:gap-3">
