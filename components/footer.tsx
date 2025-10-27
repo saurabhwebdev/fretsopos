@@ -20,7 +20,7 @@ export default function Footer() {
               <div className="flex items-center gap-3 pt-2">
                 <a 
                   href="mailto:fretsoindia@gmail.com" 
-                  className="text-[#E50914] dark:text-gray-300 hover:text-[#C40812] dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-[#E50914] dark:hover:text-[#E50914] transition-colors"
                   aria-label="Email"
                 >
                   <Mail className="w-5 h-5" />
@@ -29,7 +29,7 @@ export default function Footer() {
                   href="https://www.instagram.com/fretsoindia?igsh=dThidXRhcnVmYTh1&utm_source=qr" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-[#E50914] dark:text-gray-300 hover:text-[#C40812] dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-[#E50914] dark:hover:text-[#E50914] transition-colors"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
@@ -38,7 +38,7 @@ export default function Footer() {
                   href="https://facebook.com" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-[#E50914] dark:text-gray-300 hover:text-[#C40812] dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-[#E50914] dark:hover:text-[#E50914] transition-colors"
                   aria-label="Facebook"
                 >
                   <Facebook className="w-5 h-5" />
@@ -47,7 +47,7 @@ export default function Footer() {
                   href="https://www.linkedin.com/company/fretsoindia/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-[#E50914] dark:text-gray-300 hover:text-[#C40812] dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-[#E50914] dark:hover:text-[#E50914] transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="w-5 h-5" />
@@ -56,7 +56,7 @@ export default function Footer() {
                   href="https://wa.me/918087098711" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-[#E50914] dark:text-gray-300 hover:text-[#C40812] dark:hover:text-white transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-[#E50914] dark:hover:text-[#E50914] transition-colors"
                   aria-label="WhatsApp"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
