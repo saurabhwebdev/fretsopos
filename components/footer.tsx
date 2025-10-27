@@ -148,10 +148,10 @@ export default function Footer() {
                 © 2025 Fretso. All rights reserved. Made with ❤️ for India's pet care industry.
               </p>
               <div className="flex gap-6">
-                <Link href="/#" className="text-xs sm:text-sm text-muted-foreground hover:text-[#E50914] transition-colors">
+                <Link href="/privacy" className="text-xs sm:text-sm text-muted-foreground hover:text-[#E50914] transition-colors">
                   Privacy Policy
                 </Link>
-                <Link href="/#" className="text-xs sm:text-sm text-muted-foreground hover:text-[#E50914] transition-colors">
+                <Link href="/terms" className="text-xs sm:text-sm text-muted-foreground hover:text-[#E50914] transition-colors">
                   Terms of Service
                 </Link>
               </div>
