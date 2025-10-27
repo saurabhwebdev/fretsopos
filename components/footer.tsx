@@ -5,24 +5,7 @@ import FretsoLogo from '@/components/fretso-logo';
 
 export default function Footer() {
   return (
-    <>
-      {/* Footer Divider */}
-      <div className="relative py-8 sm:py-12">
-        <div className="absolute inset-0 flex items-center" aria-hidden="true">
-          <div className="w-full border-t border-gray-200 dark:border-gray-800"></div>
-        </div>
-        <div className="relative flex justify-center">
-          <div className="bg-background px-4">
-            <div className="flex gap-2 items-center">
-              <div className="w-2 h-2 rounded-full bg-[#E50914]"></div>
-              <div className="w-2 h-2 rounded-full bg-[#E50914]"></div>
-              <div className="w-2 h-2 rounded-full bg-[#E50914]"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <footer className="bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background border-t border-gray-100 dark:border-gray-800">
+    <footer className="bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background border-t border-gray-100 dark:border-gray-800 mt-16">
         <div className="container mx-auto px-4 py-12 sm:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {/* Company Info */}
@@ -176,6 +159,5 @@ export default function Footer() {
           </div>
         </div>
       </footer>
-    </>
   );
 }
