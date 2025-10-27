@@ -170,4 +170,9 @@ export const pagesSEO = {
     description: "Learn about Fretso's mission to empower India's pet care industry. Discover our story, vision, and commitment to helping pet businesses thrive with purpose-built management software.",
     keywords: ["about Fretso", "pet software company India", "Fretso vision", "pet business solutions", "pet care technology"],
   },
+  support: {
+    title: "Support & Help Center - Get Help with Fretso",
+    description: "Access guides, video tutorials, documentation, and contact our support team. Get help with setup, features, troubleshooting, and more. Multiple support channels available.",
+    keywords: ["Fretso support", "pet software help", "Fretso tutorials", "customer support", "help center", "user guides"],
+  },
 };
