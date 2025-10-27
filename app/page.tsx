@@ -74,6 +74,14 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Scroll to section
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   // Handle form submission
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -200,7 +208,7 @@ export default function Home() {
         <div className="relative w-full lg:w-1/2 h-[45vh] sm:h-[55vh] lg:min-h-screen order-1 lg:order-none overflow-hidden">
           {/* Slide 1 - Dog Image */}
           <div 
-            className={`absolute inset-0 w-full h-full transition-all duration-[1500ms] ${
+            className={`absolute inset-0 w-full h-full transition-all ${
               currentHeroSlide === 0 ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
@@ -208,13 +216,14 @@ export default function Home() {
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
+              transitionDuration: '1500ms',
               transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
             }}
           />
           
           {/* Slide 2 - Image */}
           <div 
-            className={`absolute inset-0 w-full h-full bg-[#E50914] transition-all duration-[1500ms] ${
+            className={`absolute inset-0 w-full h-full bg-[#E50914] transition-all ${
               currentHeroSlide === 1 ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
@@ -222,13 +231,14 @@ export default function Home() {
               backgroundSize: 'contain',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
+              transitionDuration: '1500ms',
               transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
             }}
           />
           
           {/* Slide 3 - Bird Image */}
           <div 
-            className={`absolute inset-0 w-full h-full bg-[#E50914] transition-all duration-[1500ms] ${
+            className={`absolute inset-0 w-full h-full bg-[#E50914] transition-all ${
               currentHeroSlide === 2 ? 'opacity-100' : 'opacity-0'
             }`}
             style={{
@@ -236,6 +246,7 @@ export default function Home() {
               backgroundSize: 'contain',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
+              transitionDuration: '1500ms',
               transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
             }}
           />
