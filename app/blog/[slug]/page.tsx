@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllBlogPosts, getBlogPostBySlug } from '@/lib/blog';
-import Navbar from '@/components/shared/Navbar';
-import Footer from '@/components/shared/Footer';
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
 
 export async function generateStaticParams() {
   const posts = getAllBlogPosts();

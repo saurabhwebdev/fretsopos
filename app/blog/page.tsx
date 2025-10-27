@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { getAllBlogPosts } from '@/lib/blog';
-import Navbar from '@/components/shared/Navbar';
-import Footer from '@/components/shared/Footer';
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
 
 export const metadata = {
   title: 'Blog - Fretso',
