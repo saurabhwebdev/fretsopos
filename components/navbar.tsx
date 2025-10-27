@@ -73,8 +73,14 @@ export default function Navbar() {
             <button onClick={() => scrollToSection('features')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 py-1.5 transition-colors duration-300">
               Features
             </button>
+            <button onClick={() => scrollToSection('benefits')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 py-1.5 transition-colors duration-300">
+              Benefits
+            </button>
             <button onClick={() => scrollToSection('pricing')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 py-1.5 transition-colors duration-300">
               Pricing
+            </button>
+            <button onClick={() => scrollToSection('testimonials')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 py-1.5 transition-colors duration-300">
+              Testimonials
             </button>
             <Link href="/about" className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 py-1.5 transition-colors duration-300">
               About
