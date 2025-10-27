@@ -88,6 +88,9 @@ export default function Navbar() {
             <Link href="/support" className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 py-1.5 transition-colors duration-300">
               Support
             </Link>
+            <Link href="/blog" className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 py-1.5 transition-colors duration-300">
+              Blog
+            </Link>
             <button onClick={() => scrollToSection('faq')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 py-1.5 transition-colors duration-300">
               FAQ
             </button>
@@ -167,6 +170,13 @@ export default function Navbar() {
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Support
+                  </Link>
+                  <Link 
+                    href="/blog"
+                    className="text-base font-medium text-[#E50914] dark:text-white px-4 py-3 hover:text-[#C40812] dark:hover:text-[#E50914] transition-colors duration-200 text-left border-b border-gray-100 dark:border-gray-800 block"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    Blog
                   </Link>
                   <div className="pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
                     <Button 
