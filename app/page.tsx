@@ -39,6 +39,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -195,6 +196,15 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
+  // Auto-rotate hero slides
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroSlide((prev) => (prev + 1) % 3); // 3 slides: dog image, 0.png, and bird
+    }, 6000); // Change every 6 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       {/* JSON-LD Schema */}
@@ -304,16 +314,50 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="hero-section flex flex-col lg:flex-row lg:min-h-screen">
-        {/* Left Side - Image */}
-        <div 
-          className="w-full lg:w-1/2 h-[45vh] sm:h-[55vh] lg:min-h-screen order-1 lg:order-none"
-          style={{
-            backgroundImage: 'url(/herobg.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
+        {/* Left Side - Image Slider */}
+        <div className="relative w-full lg:w-1/2 h-[45vh] sm:h-[55vh] lg:min-h-screen order-1 lg:order-none overflow-hidden">
+          {/* Slide 1 - Dog Image */}
+          <div 
+            className={`absolute inset-0 w-full h-full transition-all duration-[1500ms] ${
+              currentHeroSlide === 0 ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              backgroundImage: 'url(/herobg.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
+          />
+          
+          {/* Slide 2 - Image */}
+          <div 
+            className={`absolute inset-0 w-full h-full bg-[#E50914] transition-all duration-[1500ms] ${
+              currentHeroSlide === 1 ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              backgroundImage: 'url(/0.png)',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
+          />
+          
+          {/* Slide 3 - Bird Image */}
+          <div 
+            className={`absolute inset-0 w-full h-full bg-[#E50914] transition-all duration-[1500ms] ${
+              currentHeroSlide === 2 ? 'opacity-100' : 'opacity-0'
+            }`}
+            style={{
+              backgroundImage: 'url(/bird.png)',
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
+          />
+        </div>
         
         {/* Right Side - Content */}
         <div className="w-full lg:w-1/2 flex items-center justify-center bg-white dark:bg-background p-8 sm:p-10 lg:p-16 order-2 lg:order-none">
