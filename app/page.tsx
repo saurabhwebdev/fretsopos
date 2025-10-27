@@ -227,24 +227,24 @@ export default function Home() {
             <FretsoLogo size="sm" className={`transition-colors duration-300 ${logoColor === 'white' ? 'text-white dark:text-white' : 'text-[#E50914] dark:text-[#E50914]'}`} />
             
             {/* Nav Links - Desktop */}
-            <div className="hidden md:flex items-center gap-4 lg:gap-8">
-              <button onClick={() => scrollToSection('features')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white bg-white/90 dark:bg-transparent dark:hover:text-[#E50914] px-3 lg:px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-white/10 hover:shadow-lg transition-all duration-300">
+            <div className="hidden md:flex items-center gap-2 lg:gap-3">
+              <button onClick={() => scrollToSection('features')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 lg:px-3 py-1.5 transition-colors duration-300">
                 Features
               </button>
-              <button onClick={() => scrollToSection('benefits')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white bg-white/90 dark:bg-transparent dark:hover:text-[#E50914] px-3 lg:px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-white/10 hover:shadow-lg transition-all duration-300">
+              <button onClick={() => scrollToSection('benefits')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 lg:px-3 py-1.5 transition-colors duration-300">
                 Benefits
               </button>
-              <button onClick={() => scrollToSection('pricing')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white bg-white/90 dark:bg-transparent dark:hover:text-[#E50914] px-3 lg:px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-white/10 hover:shadow-lg transition-all duration-300">
+              <button onClick={() => scrollToSection('pricing')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 lg:px-3 py-1.5 transition-colors duration-300">
                 Pricing
               </button>
-              <button onClick={() => scrollToSection('testimonials')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white bg-white/90 dark:bg-transparent dark:hover:text-[#E50914] px-3 lg:px-4 py-2 rounded-lg hover:bg-white dark:hover:bg-white/10 hover:shadow-lg transition-all duration-300">
+              <button onClick={() => scrollToSection('testimonials')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 lg:px-3 py-1.5 transition-colors duration-300">
                 Testimonials
               </button>
               <ThemeToggle />
               <Button 
                 size="sm"
                 onClick={() => scrollToSection('contact')}
-                className="bg-white hover:bg-white hover:shadow-lg hover:scale-105 text-[#E50914] dark:bg-[#E50914] dark:text-white dark:hover:bg-[#C40812] font-semibold transition-all duration-300 text-xs lg:text-sm"
+                className="bg-white hover:bg-white hover:shadow-lg hover:scale-105 text-[#E50914] dark:bg-[#E50914] dark:text-white dark:hover:bg-[#C40812] font-semibold transition-all duration-300 text-xs lg:text-sm ml-2"
               >
                 Contact Us
               </Button>
