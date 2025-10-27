@@ -68,17 +68,28 @@ export default function TawkChat() {
       #tawk-bubble-container {
         bottom: 20px !important;
         right: 20px !important;
+        transform: scale(0.85) !important;
+        transform-origin: bottom right !important;
       }
       
-      /* Make bubble more minimal */
+      /* Make bubble smaller and more minimal */
       .tawk-button {
         box-shadow: 0 4px 12px rgba(229, 9, 20, 0.3) !important;
       }
       
-      /* Hide status text */
+      /* Hide status text and badges - "We are here" etc */
       .tawk-text-truncate,
       .tawk-badge,
-      .tawk-header-text {
+      .tawk-header-text,
+      .tawk-bubble-text,
+      .tawk-name,
+      .tawk-status-text,
+      .tawk-custom-color-container {
+        display: none !important;
+      }
+      
+      /* Hide the status bubble completely */
+      .tawk-bubble {
         display: none !important;
       }
       
@@ -88,10 +99,12 @@ export default function TawkChat() {
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
       }
       
-      /* Modern minimal chat window */
+      /* Smaller chat window */
       .tawk-min-container {
         border-radius: 12px !important;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
+        width: 350px !important;
+        height: 500px !important;
       }
       
       /* Adjust for mobile */
@@ -99,6 +112,12 @@ export default function TawkChat() {
         #tawk-bubble-container {
           bottom: 10px !important;
           right: 10px !important;
+          transform: scale(0.8) !important;
+        }
+        
+        .tawk-min-container {
+          width: 320px !important;
+          height: 450px !important;
         }
       }
     `}</style>
