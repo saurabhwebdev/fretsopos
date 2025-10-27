@@ -1,14 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Target, Eye, Heart, Zap, Users, Globe, Linkedin, Instagram } from 'lucide-react';
+import { Target, Eye, Heart, Zap, Users, Globe, Linkedin, Instagram, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 
 export default function AboutPage() {
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
   const teamMembers = [
     {
       name: "Saurabh",
@@ -328,6 +330,93 @@ export default function AboutPage() {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 sm:py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+              <p className="text-base sm:text-lg text-muted-foreground">
+                Everything you need to know about Fretso
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              {[
+                {
+                  question: "How long has Fretso been in the market?",
+                  answer: "Fretso has been serving India's pet care industry with continuous improvements and updates based on real customer feedback. We've evolved from understanding the challenges faced by pet business owners to building a comprehensive solution that addresses their unique needs."
+                },
+                {
+                  question: "What makes Fretso different from other business management software?",
+                  answer: "Unlike generic business software, Fretso is purpose-built exclusively for pet businesses. Every feature—from pet vaccination tracking to breed-specific records—is designed with pet shops, spas, and clinics in mind. We understand the Indian pet care market's unique requirements including GST compliance, multi-currency support, and local language options."
+                },
+                {
+                  question: "Can Fretso scale as my business grows?",
+                  answer: "Absolutely! Fretso grows with you. Whether you're a single-location pet shop or expanding to multiple branches, our flexible pricing and features scale according to your needs. You can start small and add more users, locations, and features as your business expands."
+                },
+                {
+                  question: "Do you integrate with other systems?",
+                  answer: "We offer data import/export capabilities in standard formats (Excel, CSV) that work with most accounting and business systems. Our team can also discuss custom integration requirements for larger businesses with specific needs."
+                },
+                {
+                  question: "What training and resources do you provide?",
+                  answer: "We provide comprehensive onboarding including live training sessions, video tutorials, detailed documentation, and ongoing support. Your team will receive hands-on training to ensure everyone is comfortable using Fretso. We also offer regular webinars and updates on new features."
+                },
+                {
+                  question: "How often do you update Fretso?",
+                  answer: "We release updates regularly based on customer feedback, bug fixes, and new feature additions. All updates are automatically available to you at no extra cost. We announce major updates in advance and provide release notes detailing all improvements."
+                },
+                {
+                  question: "Is Fretso suitable for mobile use?",
+                  answer: "Yes! Fretso is fully responsive and works seamlessly on desktops, tablets, and mobile devices. You can manage your business, check inventory, process sales, and view reports from anywhere with an internet connection."
+                },
+                {
+                  question: "What happens if I have a technical issue?",
+                  answer: "Our support team is here to help! You can reach us via email, phone, WhatsApp, or live chat during business hours. We prioritize quick response times and will work with you until your issue is resolved. Most common questions are answered in our knowledge base for instant self-help."
+                }
+              ].map((faq, index) => (
+                <Card key={index} className="border border-gray-200 dark:border-gray-800 hover:border-[#E50914] transition-colors overflow-hidden">
+                  <button
+                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                    className="w-full text-left p-6 flex items-center justify-between gap-4 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+                  >
+                    <h3 className="text-base sm:text-lg font-semibold pr-8">{faq.question}</h3>
+                    <ChevronDown 
+                      className={`w-5 h-5 text-[#E50914] flex-shrink-0 transition-transform duration-300 ${
+                        openFaqIndex === index ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  <div 
+                    className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                      openFaqIndex === index ? 'max-h-96' : 'max-h-0'
+                    }`}
+                  >
+                    <div className="px-6 pb-6 pt-0">
+                      <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <p className="text-sm text-muted-foreground mb-4">
+                Have more questions about Fretso?
+              </p>
+              <Link href="/#contact">
+                <Button className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold px-8 py-6">
+                  Get in Touch
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

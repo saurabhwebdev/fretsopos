@@ -82,6 +82,9 @@ export default function Navbar() {
             <button onClick={() => scrollToSection('testimonials')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 lg:px-3 py-1.5 transition-colors duration-300">
               Testimonials
             </button>
+            <button onClick={() => scrollToSection('faq')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 lg:px-3 py-1.5 transition-colors duration-300">
+              FAQ
+            </button>
             <Link href="/about" className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 lg:px-3 py-1.5 transition-colors duration-300">
               About
             </Link>
@@ -141,6 +144,12 @@ export default function Navbar() {
                     className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
                   >
                     Testimonials
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection('faq')}
+                    className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform"
+                  >
+                    FAQ
                   </button>
                   <Link 
                     href="/about"

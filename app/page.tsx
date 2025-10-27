@@ -12,7 +12,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import FretsoLogo from '@/components/fretso-logo';
 import { ThemeToggle } from '@/components/theme-toggle';
-import { CheckCircle2, BarChart3, Package, Calendar, Users, Instagram, Facebook, Linkedin, ArrowUp, Receipt, Wrench, Settings, Mail, Star, Quote } from 'lucide-react';
+import { CheckCircle2, BarChart3, Package, Calendar, Users, Instagram, Facebook, Linkedin, ArrowUp, Receipt, Wrench, Settings, Mail, Star, Quote, ChevronDown } from 'lucide-react';
 
 export default function Home() {
   // Rotating text for "Made for India" in different Indian languages
@@ -40,6 +40,7 @@ export default function Home() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -660,6 +661,92 @@ export default function Home() {
                 </svg>
               </button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+            <p className="text-base sm:text-lg text-muted-foreground">
+              Got questions? We've got answers.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                question: "Is my data safe with Fretso?",
+                answer: "Absolutely! We take data security very seriously. Your data is encrypted both in transit and at rest. We use industry-standard security protocols and regularly backup all data. Your business information, customer records, and transaction history are stored securely on our cloud servers with multiple layers of protection."
+              },
+              {
+                question: "Do you offer installation and setup support?",
+                answer: "Yes! We provide complete onboarding support. Our team will guide you through the installation process, help you set up your initial inventory, import existing customer data, and train your staff on how to use Fretso effectively. We ensure you're fully comfortable with the system before going live."
+              },
+              {
+                question: "What if I need updates or new features?",
+                answer: "All updates and new features are automatically included in your subscription at no extra cost. We continuously improve Fretso based on customer feedback and industry trends. You'll always have access to the latest version with bug fixes, performance improvements, and new functionality."
+              },
+              {
+                question: "Can I try Fretso before committing?",
+                answer: "Yes! We offer a free trial period so you can test all features with your actual business data. No credit card required during the trial. Contact us to get started, and we'll set you up with a demo account where you can explore everything Fretso has to offer."
+              },
+              {
+                question: "What kind of customer support do you provide?",
+                answer: "We provide comprehensive support through multiple channels - email, phone, WhatsApp, and live chat. Our support team is available during business hours to help with any questions or issues. We also have detailed documentation, video tutorials, and an active community forum."
+              },
+              {
+                question: "Will Fretso work for my specific type of pet business?",
+                answer: "Fretso is designed to work for all types of pet businesses - pet shops, grooming salons, pet spas, veterinary clinics, and multi-location chains. Our flexible system adapts to your specific needs whether you sell products, offer services, or both. We can customize features based on your business requirements."
+              },
+              {
+                question: "Can I export my data if I want to switch systems?",
+                answer: "Yes! Your data is always yours. You can export all your data (customers, pets, inventory, transactions, etc.) in standard formats like Excel/CSV at any time. We believe in data portability and will never lock you in. If you decide to move to another system, we'll help you export everything smoothly."
+              },
+              {
+                question: "How does billing work? Are there any hidden fees?",
+                answer: "Our pricing is completely transparent with no hidden fees. You'll receive a custom quote based on your specific needs (business size, features, users, etc.). Payment is typically monthly or annually. What you see in your quote is exactly what you pay - no surprises, no additional charges for updates or standard support."
+              }
+            ].map((faq, index) => (
+              <Card key={index} className="border border-gray-200 dark:border-gray-800 hover:border-[#E50914] transition-colors overflow-hidden">
+                <button
+                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                  className="w-full text-left p-6 flex items-center justify-between gap-4 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+                >
+                  <h3 className="text-base sm:text-lg font-semibold pr-8">{faq.question}</h3>
+                  <ChevronDown 
+                    className={`w-5 h-5 text-[#E50914] flex-shrink-0 transition-transform duration-300 ${
+                      openFaqIndex === index ? 'rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                <div 
+                  className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                    openFaqIndex === index ? 'max-h-96' : 'max-h-0'
+                  }`}
+                >
+                  <div className="px-6 pb-6 pt-0">
+                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-sm text-muted-foreground mb-4">
+              Still have questions? We're here to help!
+            </p>
+            <Button 
+              onClick={() => scrollToSection('contact')}
+              className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold px-8 py-6"
+            >
+              Contact Us
+            </Button>
           </div>
         </div>
       </section>
