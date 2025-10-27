@@ -1,29 +1,55 @@
 'use client';
 
 import React from 'react';
-import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, Target, Eye, Heart, Zap, Users, Globe } from 'lucide-react';
+import { Target, Eye, Heart, Zap, Users, Globe, Linkedin, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
 
 export default function AboutPage() {
+  const teamMembers = [
+    {
+      name: "Saurabh",
+      role: "Founder & CEO",
+      description: "Leading Fretso's vision to empower India's pet care industry",
+      linkedin: "#",
+      instagram: "#",
+      initials: "S"
+    },
+    {
+      name: "Ashutosh",
+      role: "Head of Outreach",
+      description: "Building partnerships and expanding Fretso's reach across India",
+      linkedin: "#",
+      instagram: "#",
+      initials: "A"
+    },
+    {
+      name: "Himanshu",
+      role: "Tech Head",
+      description: "Architecting innovative solutions for pet business management",
+      linkedin: "#",
+      instagram: "#",
+      initials: "H"
+    },
+    {
+      name: "Ritesh",
+      role: "Social Media & Support Head",
+      description: "Ensuring exceptional customer experience and community engagement",
+      linkedin: "#",
+      instagram: "#",
+      initials: "R"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b">
-        <div className="container mx-auto px-4 py-6">
-          <Link href="/">
-            <Button variant="ghost" className="gap-2">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </Button>
-          </Link>
-        </div>
-      </header>
+      <Navbar />
 
       {/* Hero Section */}
-      <section className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-[#E50914]/5 to-transparent">
+      <section className="pt-32 pb-16 sm:pt-36 sm:pb-20 md:pt-40 md:pb-24 bg-gradient-to-br from-[#E50914]/5 to-transparent">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
@@ -199,6 +225,62 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section className="py-16 sm:py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">Meet Our Team</h2>
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
+                The passionate individuals behind Fretso's success
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {teamMembers.map((member, index) => (
+                <Card key={index} className="border border-gray-200 dark:border-gray-800 hover:border-[#E50914] hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6 text-center">
+                    {/* Avatar */}
+                    <div className="w-24 h-24 bg-[#E50914]/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <span className="text-3xl font-bold text-[#E50914]">{member.initials}</span>
+                    </div>
+                    
+                    {/* Name & Role */}
+                    <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                    <p className="text-sm text-[#E50914] font-medium mb-3">{member.role}</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                      {member.description}
+                    </p>
+                    
+                    {/* Social Links */}
+                    <div className="flex items-center justify-center gap-3">
+                      <a 
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 dark:text-gray-400 hover:text-[#E50914] dark:hover:text-[#E50914] transition-colors"
+                        aria-label="LinkedIn"
+                      >
+                        <Linkedin className="w-5 h-5" />
+                      </a>
+                      <a 
+                        href={member.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 dark:text-gray-400 hover:text-[#E50914] dark:hover:text-[#E50914] transition-colors"
+                        aria-label="Instagram"
+                      >
+                        <Instagram className="w-5 h-5" />
+                      </a>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Fretso */}
       <section className="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background">
         <div className="container mx-auto px-4">
@@ -276,6 +358,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
