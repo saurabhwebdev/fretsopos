@@ -9,6 +9,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
+import FretsoLogo from '@/components/fretso-logo';
 import { CheckCircle2, BarChart3, Package, Calendar, Users, Instagram, Facebook, Linkedin, ArrowUp, Receipt, Wrench, Settings, Mail, Star, Quote, ChevronDown } from 'lucide-react';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
