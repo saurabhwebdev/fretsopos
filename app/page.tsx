@@ -240,6 +240,9 @@ export default function Home() {
               <button onClick={() => scrollToSection('testimonials')} className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 lg:px-3 py-1.5 transition-colors duration-300">
                 Testimonials
               </button>
+              <a href="/about" className="text-xs lg:text-sm font-medium text-[#E50914] dark:text-white hover:text-[#C40812] dark:hover:text-[#E50914] px-2 lg:px-3 py-1.5 transition-colors duration-300">
+                About
+              </a>
               <ThemeToggle />
               <Button 
                 size="sm"
@@ -297,6 +300,12 @@ export default function Home() {
                     >
                       Testimonials
                     </button>
+                    <a 
+                      href="/about"
+                      className="text-base font-medium text-[#E50914] bg-gray-50 dark:bg-gray-800 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 hover:shadow-md transition-all duration-300 text-left transform block"
+                    >
+                      About Us
+                    </a>
                     <Button 
                       size="lg" 
                       onClick={() => scrollToSection('contact')}

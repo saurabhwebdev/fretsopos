@@ -165,4 +165,9 @@ export const pagesSEO = {
     description: "Ready to transform your pet business? Contact us to get started with Fretso today.",
     keywords: ["contact Fretso", "pet software demo", "get started"],
   },
+  about: {
+    title: "About Us - Our Vision, Mission & Values",
+    description: "Learn about Fretso's mission to empower India's pet care industry. Discover our story, vision, and commitment to helping pet businesses thrive with purpose-built management software.",
+    keywords: ["about Fretso", "pet software company India", "Fretso vision", "pet business solutions", "pet care technology"],
+  },
 };
