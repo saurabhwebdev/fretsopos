@@ -631,7 +631,7 @@ export default function Home() {
               <Mail className="w-7 h-7 sm:w-8 sm:h-8" />
             </a>
             <a 
-              href="https://instagram.com" 
+              href="https://www.instagram.com/fretsoindia?igsh=dThidXRhcnVmYTh1&utm_source=qr" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-white hover:text-white/80 transition-colors"
@@ -788,7 +788,7 @@ export default function Home() {
                 <Mail className="w-5 h-5" />
               </a>
               <a 
-                href="https://instagram.com" 
+                href="https://www.instagram.com/fretsoindia?igsh=dThidXRhcnVmYTh1&utm_source=qr" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[#E50914] dark:text-gray-300 hover:text-[#C40812] dark:hover:text-white transition-colors"
