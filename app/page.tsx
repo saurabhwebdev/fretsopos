@@ -169,6 +169,24 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  // Listen for Tally form submission and open demo
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const handleTallySubmit = (event: any) => {
+        // Open demo app after form submission
+        setTimeout(() => {
+          window.open('https://app.fretso.in', '_blank', 'noopener,noreferrer');
+        }, 1000);
+      };
+
+      window.addEventListener('Tally.FormSubmitted', handleTallySubmit);
+
+      return () => {
+        window.removeEventListener('Tally.FormSubmitted', handleTallySubmit);
+      };
+    }
+  }, []);
+
   return (
     <>
       {/* JSON-LD Schema */}
