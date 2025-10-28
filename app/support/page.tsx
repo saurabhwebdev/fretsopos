@@ -6,50 +6,15 @@ import { Book, Video, Mail, MessageCircle, Phone, FileText, Search, HelpCircle, 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 
 export default function SupportPage() {
-  const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Handle form submission (reused from home page)
-  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    const formData = new FormData(e.currentTarget);
-
-    try {
-      const response = await fetch('https://formspree.io/f/mqagkzle', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        (e.target as HTMLFormElement).reset();
-        setTimeout(() => {
-          setIsContactDialogOpen(false);
-          setSubmitStatus('idle');
-        }, 2000);
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
+  // Navigate to home page contact section
+  const handleContactClick = () => {
+    window.location.href = '/#contact';
   };
 
   const quickLinks = [
@@ -237,81 +202,13 @@ export default function SupportPage() {
                         {channel.description}
                       </p>
                       {channel.link === '#contact-form' ? (
-                        <Dialog open={isContactDialogOpen} onOpenChange={setIsContactDialogOpen}>
-                          <DialogTrigger asChild>
-                            <Button variant="outline" className="w-full">
-                              {channel.action}
-                            </Button>
-                          </DialogTrigger>
-                          <DialogContent className="sm:max-w-[500px]">
-                            <DialogHeader>
-                              <DialogTitle className="text-2xl font-bold text-[#E50914]">Get in Touch</DialogTitle>
-                              <DialogDescription>
-                                Fill out the form below and we'll get back to you shortly.
-                              </DialogDescription>
-                            </DialogHeader>
-                            <form onSubmit={handleFormSubmit} className="space-y-4 mt-4">
-                              <div className="space-y-2">
-                                <Label htmlFor="name">Name *</Label>
-                                <Input
-                                  id="name"
-                                  name="name"
-                                  placeholder="Your name"
-                                  required
-                                  className="w-full"
-                                />
-                              </div>
-                              <div className="space-y-2">
-                                <Label htmlFor="email">Email *</Label>
-                                <Input
-                                  id="email"
-                                  name="email"
-                                  type="email"
-                                  placeholder="your@email.com"
-                                  required
-                                  className="w-full"
-                                />
-                              </div>
-                              <div className="space-y-2">
-                                <Label htmlFor="phone">Phone</Label>
-                                <Input
-                                  id="phone"
-                                  name="phone"
-                                  type="tel"
-                                  placeholder="Your phone number"
-                                  className="w-full"
-                                />
-                              </div>
-                              <div className="space-y-2">
-                                <Label htmlFor="message">Message *</Label>
-                                <Textarea
-                                  id="message"
-                                  name="message"
-                                  placeholder="How can we help you?"
-                                  required
-                                  className="w-full min-h-[100px]"
-                                />
-                              </div>
-                              {submitStatus === 'success' && (
-                                <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm">
-                                  ✓ Thank you! We'll get back to you soon.
-                                </div>
-                              )}
-                              {submitStatus === 'error' && (
-                                <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
-                                  Something went wrong. Please try again or email us directly.
-                                </div>
-                              )}
-                              <Button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="w-full bg-[#E50914] hover:bg-[#C40812] text-white font-semibold py-6"
-                              >
-                                {isSubmitting ? 'Sending...' : 'Send Message'}
-                              </Button>
-                            </form>
-                          </DialogContent>
-                        </Dialog>
+                        <Button 
+                          variant="outline" 
+                          className="w-full"
+                          onClick={handleContactClick}
+                        >
+                          {channel.action}
+                        </Button>
                       ) : (
                         <a href={channel.link} target={channel.link.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
                           <Button variant="outline" className="w-full">
@@ -372,13 +269,13 @@ export default function SupportPage() {
               Can't find what you're looking for? Our support team is here to assist you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Dialog open={isContactDialogOpen} onOpenChange={setIsContactDialogOpen}>
-                <DialogTrigger asChild>
-                  <Button size="lg" className="bg-white hover:bg-gray-100 text-[#E50914] font-semibold px-8 py-6 text-base">
-                    Contact Support
-                  </Button>
-                </DialogTrigger>
-              </Dialog>
+              <Button 
+                size="lg" 
+                className="bg-white hover:bg-gray-100 text-[#E50914] font-semibold px-8 py-6 text-base"
+                onClick={handleContactClick}
+              >
+                Contact Support
+              </Button>
               <Link href="/#faq">
                 <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold px-8 py-6 text-base w-full sm:w-auto">
                   View FAQ
