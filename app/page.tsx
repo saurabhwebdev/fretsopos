@@ -38,6 +38,9 @@ export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [isDemoDialogOpen, setIsDemoDialogOpen] = useState(false);
+  const [isDemoFormSubmitting, setIsDemoFormSubmitting] = useState(false);
+  const [demoFormStatus, setDemoFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -113,6 +116,44 @@ export default function Home() {
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
+    }
+  };
+
+  // Handle demo form submission
+  const handleDemoFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsDemoFormSubmitting(true);
+    setDemoFormStatus('idle');
+
+    const formData = new FormData(e.currentTarget);
+    // Add a note that this is a demo request
+    formData.append('demo_request', 'true');
+
+    try {
+      const response = await fetch('https://formspree.io/f/mqagkzle', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setDemoFormStatus('success');
+        (e.target as HTMLFormElement).reset();
+        // Wait 1 second then open demo in new tab
+        setTimeout(() => {
+          window.open('https://app.fretso.in', '_blank');
+          setIsDemoDialogOpen(false);
+          setDemoFormStatus('idle');
+        }, 1000);
+      } else {
+        setDemoFormStatus('error');
+      }
+    } catch (error) {
+      setDemoFormStatus('error');
+    } finally {
+      setIsDemoFormSubmitting(false);
     }
   };
 
@@ -696,6 +737,148 @@ export default function Home() {
             <span className="text-[#E50914] text-xl sm:text-2xl">✦</span>
           </div>
           <div className="h-px w-16 sm:w-32 bg-gradient-to-l from-transparent to-[#E50914]"></div>
+        </div>
+      </div>
+
+      {/* Product Demo Section */}
+      <section id="demo" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12 px-4">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">Experience Fretso in Action</h3>
+            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+              See how Fretso can transform your pet business. Try our interactive demo and explore all the features.
+            </p>
+          </div>
+          
+          <div className="bg-gradient-to-br from-[#E50914]/5 to-[#E50914]/10 dark:from-[#E50914]/10 dark:to-[#E50914]/20 rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 border border-[#E50914]/20">
+            <div className="max-w-3xl mx-auto text-center space-y-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-[#E50914]/10 rounded-full mb-4">
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              
+              <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
+                Ready to See How It Works?
+              </h4>
+              
+              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                Get instant access to our live demo. Fill in your details below and we'll take you straight to the interactive demo where you can explore:
+              </p>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-left pt-4">
+                <div className="flex items-start gap-2.5 p-3 bg-white/50 dark:bg-gray-900/50 rounded-lg">
+                  <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">Complete POS system with real transactions</span>
+                </div>
+                <div className="flex items-start gap-2.5 p-3 bg-white/50 dark:bg-gray-900/50 rounded-lg">
+                  <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">Inventory & stock management features</span>
+                </div>
+                <div className="flex items-start gap-2.5 p-3 bg-white/50 dark:bg-gray-900/50 rounded-lg">
+                  <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">Appointment scheduling system</span>
+                </div>
+                <div className="flex items-start gap-2.5 p-3 bg-white/50 dark:bg-gray-900/50 rounded-lg">
+                  <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300">Customer & pet management CRM</span>
+                </div>
+              </div>
+              
+              <Dialog open={isDemoDialogOpen} onOpenChange={setIsDemoDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button 
+                    size="lg"
+                    className="bg-[#E50914] hover:bg-[#C40812] active:scale-95 text-white font-semibold px-12 sm:px-14 py-7 sm:py-7 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto mt-4"
+                  >
+                    Try Live Demo Now
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[500px]">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-bold text-[#E50914]">Access Demo</DialogTitle>
+                    <DialogDescription>
+                      Fill in your details to access the live demo. We'll open it in a new tab for you.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <form onSubmit={handleDemoFormSubmit} className="space-y-4 mt-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="demo-name">Name *</Label>
+                      <Input
+                        id="demo-name"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                        className="w-full"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="demo-email">Email *</Label>
+                      <Input
+                        id="demo-email"
+                        name="email"
+                        type="email"
+                        placeholder="your@email.com"
+                        required
+                        className="w-full"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="demo-phone">Phone</Label>
+                      <Input
+                        id="demo-phone"
+                        name="phone"
+                        type="tel"
+                        placeholder="Your phone number"
+                        className="w-full"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="demo-business">Business Name</Label>
+                      <Input
+                        id="demo-business"
+                        name="business"
+                        placeholder="Your pet business name"
+                        className="w-full"
+                      />
+                    </div>
+                    {demoFormStatus === 'success' && (
+                      <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm">
+                        ✓ Thank you! Opening demo now...
+                      </div>
+                    )}
+                    {demoFormStatus === 'error' && (
+                      <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
+                        Something went wrong. Please try again or contact us directly.
+                      </div>
+                    )}
+                    <Button
+                      type="submit"
+                      disabled={isDemoFormSubmitting}
+                      className="w-full bg-[#E50914] hover:bg-[#C40812] text-white font-semibold py-6"
+                    >
+                      {isDemoFormSubmitting ? 'Processing...' : 'Access Demo'}
+                    </Button>
+                  </form>
+                </DialogContent>
+              </Dialog>
+              
+              <p className="text-xs sm:text-sm text-muted-foreground pt-2">
+                💡 No credit card required. Explore all features instantly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Decorative Divider */}
+      <div className="relative py-8 sm:py-12">
+        <div className="absolute inset-0 flex items-center" aria-hidden="true">
+          <div className="w-full border-t border-gray-200 dark:border-gray-800"></div>
+        </div>
+        <div className="relative flex justify-center">
+          <span className="bg-background px-6 text-3xl">✦</span>
         </div>
       </div>
 
