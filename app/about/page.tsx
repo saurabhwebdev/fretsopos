@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Target, Eye, Heart, Zap, Users, Globe, Linkedin, Instagram, ChevronDown } from 'lucide-react';
+import { Target, Eye, Heart, Zap, Users, Globe, Linkedin, Mail, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Navbar from '@/components/navbar';
@@ -17,7 +17,7 @@ export default function AboutPage() {
       role: "Founder & CEO",
       description: "Leading Fretso's vision to empower India's pet care industry",
       linkedin: "#",
-      instagram: "#",
+      gmail: "mailto:fretsoindia@gmail.com",
       initials: "S"
     },
     {
@@ -25,7 +25,7 @@ export default function AboutPage() {
       role: "Head of Outreach",
       description: "Building partnerships and expanding Fretso's reach across India",
       linkedin: "#",
-      instagram: "#",
+      gmail: "mailto:fretsoindia@gmail.com",
       initials: "A"
     },
     {
@@ -33,7 +33,7 @@ export default function AboutPage() {
       role: "Tech Head",
       description: "Architecting innovative solutions for pet business management",
       linkedin: "#",
-      instagram: "#",
+      gmail: "mailto:fretsoindia@gmail.com",
       initials: "H"
     },
     {
@@ -41,7 +41,7 @@ export default function AboutPage() {
       role: "Social Media & Support Head",
       description: "Ensuring exceptional customer experience and community engagement",
       linkedin: "#",
-      instagram: "#",
+      gmail: "mailto:fretsoindia@gmail.com",
       initials: "R"
     }
   ];
@@ -266,13 +266,11 @@ export default function AboutPage() {
                         <Linkedin className="w-5 h-5" />
                       </a>
                       <a 
-                        href={member.instagram}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href={member.gmail}
                         className="text-gray-600 dark:text-gray-400 hover:text-[#E50914] dark:hover:text-[#E50914] transition-colors"
-                        aria-label="Instagram"
+                        aria-label="Email"
                       >
-                        <Instagram className="w-5 h-5" />
+                        <Mail className="w-5 h-5" />
                       </a>
                     </div>
                   </CardContent>
