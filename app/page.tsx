@@ -86,13 +86,12 @@ export default function Home() {
     }
   };
 
-  // Handle demo button click - open Tally form
+  // Handle demo button click - open Tally demo form with redirect
   const handleDemoClick = () => {
     if (typeof window !== 'undefined' && (window as any).Tally) {
-      (window as any).Tally.openPopup('31ZpZQ', {
+      (window as any).Tally.openPopup('3xkvVo', {
         layout: 'modal',
         width: 500,
-        autoClose: 3000,
       });
     }
   };
@@ -167,24 +166,6 @@ export default function Home() {
     }, 6000); // Change every 6 seconds
 
     return () => clearInterval(interval);
-  }, []);
-
-  // Listen for Tally form submission and open demo
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const handleTallySubmit = (event: any) => {
-        // Open demo app after form submission
-        setTimeout(() => {
-          window.open('https://app.fretso.in', '_blank', 'noopener,noreferrer');
-        }, 1000);
-      };
-
-      window.addEventListener('Tally.FormSubmitted', handleTallySubmit);
-
-      return () => {
-        window.removeEventListener('Tally.FormSubmitted', handleTallySubmit);
-      };
-    }
   }, []);
 
   return (
