@@ -38,7 +38,7 @@ export default function Home() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-  const [isDemoDialogOpen, setIsDemoDialogOpen] = useState(false);
+  const [isDemoRequest, setIsDemoRequest] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -90,6 +90,12 @@ export default function Home() {
     setSubmitStatus('idle');
 
     const formData = new FormData(e.currentTarget);
+    
+    // If this is a demo request, add a note
+    if (isDemoRequest) {
+      formData.append('_subject', 'Demo Access Request - Fretso');
+      formData.append('request_type', 'Demo Access');
+    }
 
     try {
       const response = await fetch('https://formspree.io/f/mqagkzle', {
@@ -103,10 +109,22 @@ export default function Home() {
       if (response.ok) {
         setSubmitStatus('success');
         (e.target as HTMLFormElement).reset();
-        setTimeout(() => {
-          setIsContactDialogOpen(false);
-          setSubmitStatus('idle');
-        }, 2000);
+        
+        // If demo request, open demo after short delay
+        if (isDemoRequest) {
+          setTimeout(() => {
+            window.open('https://app.fretso.in', '_blank', 'noopener,noreferrer');
+            setIsContactDialogOpen(false);
+            setSubmitStatus('idle');
+            setIsDemoRequest(false);
+          }, 1500);
+        } else {
+          // Regular contact form - just close
+          setTimeout(() => {
+            setIsContactDialogOpen(false);
+            setSubmitStatus('idle');
+          }, 2000);
+        }
       } else {
         setSubmitStatus('error');
       }
@@ -117,48 +135,10 @@ export default function Home() {
     }
   };
 
-  // Handle demo button click - open contact form then demo
+  // Handle demo button click - open contact form in demo mode
   const handleDemoClick = () => {
-    setIsDemoDialogOpen(true);
-  };
-
-  // Handle demo form submission - use same contact form but open demo after
-  const handleDemoFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    const formData = new FormData(e.currentTarget);
-    // Add a note that this is a demo request
-    formData.append('demo_request', 'true');
-    formData.append('subject', 'Demo Access Request');
-
-    try {
-      const response = await fetch('https://formspree.io/f/mqagkzle', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        (e.target as HTMLFormElement).reset();
-        // Wait 1.5 seconds then open demo in new tab
-        setTimeout(() => {
-          window.open('https://app.fretso.in', '_blank', 'noopener,noreferrer');
-          setIsDemoDialogOpen(false);
-          setSubmitStatus('idle');
-        }, 1500);
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
+    setIsDemoRequest(true);
+    setIsContactDialogOpen(true);
   };
 
   const testimonials = [
@@ -790,83 +770,13 @@ export default function Home() {
                 </div>
               </div>
               
-              <Dialog open={isDemoDialogOpen} onOpenChange={setIsDemoDialogOpen}>
-                <DialogTrigger asChild>
-                  <Button 
-                    size="lg"
-                    className="bg-[#E50914] hover:bg-[#C40812] active:scale-95 text-white font-semibold px-12 sm:px-14 py-7 sm:py-7 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto mt-4"
-                  >
-                    Try Live Demo Now
-                  </Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[500px]">
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold text-[#E50914]">Access Live Demo</DialogTitle>
-                    <DialogDescription>
-                      Fill in your details below and we'll give you instant access to our interactive demo.
-                    </DialogDescription>
-                  </DialogHeader>
-                  <form onSubmit={handleDemoFormSubmit} className="space-y-4 mt-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="demo-name">Name *</Label>
-                      <Input
-                        id="demo-name"
-                        name="name"
-                        placeholder="Your name"
-                        required
-                        className="w-full"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="demo-email">Email *</Label>
-                      <Input
-                        id="demo-email"
-                        name="email"
-                        type="email"
-                        placeholder="your@email.com"
-                        required
-                        className="w-full"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="demo-phone">Phone</Label>
-                      <Input
-                        id="demo-phone"
-                        name="phone"
-                        type="tel"
-                        placeholder="Your phone number"
-                        className="w-full"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="demo-business">Business Name</Label>
-                      <Input
-                        id="demo-business"
-                        name="business"
-                        placeholder="Your pet business name"
-                        className="w-full"
-                      />
-                    </div>
-                    {submitStatus === 'success' && (
-                      <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm">
-                        ✓ Thank you! Opening demo now...
-                      </div>
-                    )}
-                    {submitStatus === 'error' && (
-                      <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
-                        Something went wrong. Please try again or contact us directly.
-                      </div>
-                    )}
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full bg-[#E50914] hover:bg-[#C40812] text-white font-semibold py-6"
-                    >
-                      {isSubmitting ? 'Processing...' : 'Access Demo'}
-                    </Button>
-                  </form>
-                </DialogContent>
-              </Dialog>
+              <Button 
+                size="lg"
+                onClick={handleDemoClick}
+                className="bg-[#E50914] hover:bg-[#C40812] active:scale-95 text-white font-semibold px-12 sm:px-14 py-7 sm:py-7 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto mt-4"
+              >
+                Try Live Demo Now
+              </Button>
               
               <p className="text-xs sm:text-sm text-muted-foreground pt-2">
                 💡 No credit card required. Explore all features instantly.
@@ -945,7 +855,10 @@ export default function Home() {
             </a>
           </div>
           
-          <Dialog open={isContactDialogOpen} onOpenChange={setIsContactDialogOpen}>
+          <Dialog open={isContactDialogOpen} onOpenChange={(open) => {
+            setIsContactDialogOpen(open);
+            if (!open) setIsDemoRequest(false); // Reset demo mode when closing
+          }}>
             <DialogTrigger asChild>
               <Button 
                 size="lg" 
@@ -956,9 +869,13 @@ export default function Home() {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[500px]">
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-[#E50914]">Get in Touch</DialogTitle>
+                <DialogTitle className="text-2xl font-bold text-[#E50914]">
+                  {isDemoRequest ? 'Access Live Demo' : 'Get in Touch'}
+                </DialogTitle>
                 <DialogDescription>
-                  Fill out the form below and we'll get back to you shortly.
+                  {isDemoRequest 
+                    ? 'Fill in your details below and we\'ll give you instant access to our interactive demo.'
+                    : 'Fill out the form below and we\'ll get back to you shortly.'}
                 </DialogDescription>
               </DialogHeader>
               <form onSubmit={handleFormSubmit} className="space-y-4 mt-4">
@@ -1014,7 +931,9 @@ export default function Home() {
                 </div>
                 {submitStatus === 'success' && (
                   <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm">
-                    ✓ Thank you! We'll get back to you soon.
+                    {isDemoRequest 
+                      ? '✓ Thank you! Opening demo now...'
+                      : '✓ Thank you! We\'ll get back to you soon.'}
                   </div>
                 )}
                 {submitStatus === 'error' && (
@@ -1027,7 +946,7 @@ export default function Home() {
                   disabled={isSubmitting}
                   className="w-full bg-[#E50914] hover:bg-[#C40812] text-white font-semibold py-6"
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                  {isSubmitting ? 'Processing...' : (isDemoRequest ? 'Access Demo' : 'Send Message')}
                 </Button>
               </form>
             </DialogContent>
