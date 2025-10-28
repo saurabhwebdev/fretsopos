@@ -734,55 +734,73 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="bg-gradient-to-br from-[#E50914]/5 to-[#E50914]/10 dark:from-[#E50914]/10 dark:to-[#E50914]/20 rounded-2xl sm:rounded-3xl p-8 sm:p-12 md:p-16 border border-[#E50914]/20">
-            <div className="max-w-3xl mx-auto text-center space-y-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-[#E50914]/10 rounded-full mb-4">
+          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 dark:bg-black">
+            <CardHeader className="text-center p-6 sm:p-10">
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-[#E50914]/10 rounded-full mx-auto mb-4">
                 <svg className="w-8 h-8 sm:w-10 sm:h-10 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              
-              <h4 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
-                Ready to See How It Works?
-              </h4>
-              
-              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                Get instant access to our live demo. Fill in your details below and we'll take you straight to the interactive demo where you can explore:
-              </p>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-left pt-4">
-                <div className="flex items-start gap-2.5 p-3 bg-white/50 dark:bg-gray-900/50 rounded-lg">
-                  <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Complete POS system with real transactions</span>
+              <CardTitle className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-[#E50914]">Live Demo Access</CardTitle>
+              <CardDescription className="text-sm sm:text-base lg:text-lg text-muted-foreground dark:text-gray-400">
+                Try all features with our interactive demo
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="p-6 sm:p-10">
+              <div className="space-y-6">
+                <div className="text-center space-y-4">
+                  <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300">
+                    Get instant access to our live demo. Fill in your details and we'll take you straight to the interactive demo where you can explore:
+                  </p>
                 </div>
-                <div className="flex items-start gap-2.5 p-3 bg-white/50 dark:bg-gray-900/50 rounded-lg">
-                  <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Inventory & stock management features</span>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4">
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">POS System</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Complete checkout with real transactions</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Inventory Management</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Stock tracking & management</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Appointments</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Scheduling & booking system</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Customer CRM</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Pet & customer management</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-start gap-2.5 p-3 bg-white/50 dark:bg-gray-900/50 rounded-lg">
-                  <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Appointment scheduling system</span>
-                </div>
-                <div className="flex items-start gap-2.5 p-3 bg-white/50 dark:bg-gray-900/50 rounded-lg">
-                  <CheckCircle2 className="w-5 h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">Customer & pet management CRM</span>
+                
+                <div className="pt-6 text-center">
+                  <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mb-6">
+                    💡 No credit card required. Explore all features instantly.
+                  </p>
+                  <Button 
+                    size="lg"
+                    onClick={handleDemoClick}
+                    className="bg-[#E50914] hover:bg-[#C40812] active:scale-95 text-white font-semibold px-10 sm:px-10 py-6 sm:py-6 text-base sm:text-base w-full sm:w-auto transition-all duration-200 shadow-lg"
+                  >
+                    Try Live Demo Now
+                  </Button>
                 </div>
               </div>
-              
-              <Button 
-                size="lg"
-                onClick={handleDemoClick}
-                className="bg-[#E50914] hover:bg-[#C40812] active:scale-95 text-white font-semibold px-12 sm:px-14 py-7 sm:py-7 text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto mt-4"
-              >
-                Try Live Demo Now
-              </Button>
-              
-              <p className="text-xs sm:text-sm text-muted-foreground pt-2">
-                💡 No credit card required. Explore all features instantly.
-              </p>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
