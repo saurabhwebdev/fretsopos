@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Script from 'next/script';
 import { Book, Video, Mail, MessageCircle, Phone, FileText, Search, HelpCircle, BookOpen, PlayCircle, Download, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,9 +13,15 @@ import Footer from '@/components/footer';
 export default function SupportPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Navigate to home page contact section
+  // Open Tally form popup
   const handleContactClick = () => {
-    window.location.href = '/#contact';
+    if (typeof window !== 'undefined' && (window as any).Tally) {
+      (window as any).Tally.openPopup('31ZpZQ', {
+        layout: 'modal',
+        width: 500,
+        autoClose: 3000,
+      });
+    }
   };
 
   const quickLinks = [
@@ -87,6 +94,14 @@ export default function SupportPage() {
   ];
 
   return (
+    <>
+      {/* Tally Forms Script */}
+      <Script
+        id="tally-js"
+        src="https://tally.so/widgets/embed.js"
+        strategy="lazyOnload"
+      />
+      
     <div className="min-h-screen bg-background">
       <Navbar />
 
@@ -288,5 +303,6 @@ export default function SupportPage() {
 
       <Footer />
     </div>
+    </>
   );
 }

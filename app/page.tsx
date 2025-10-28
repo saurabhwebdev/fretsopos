@@ -5,10 +5,6 @@ import Script from 'next/script';
 import { seoConfig } from '@/config/seo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import FretsoLogo from '@/components/fretso-logo';
 import { CheckCircle2, BarChart3, Package, Calendar, Users, Instagram, Facebook, Linkedin, ArrowUp, Receipt, Wrench, Settings, Mail, Star, Quote, ChevronDown } from 'lucide-react';
 import Navbar from '@/components/navbar';
@@ -32,13 +28,9 @@ export default function Home() {
 
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [isContactDialogOpen, setIsContactDialogOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-  const [isDemoRequest, setIsDemoRequest] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -83,62 +75,26 @@ export default function Home() {
     }
   };
 
-  // Handle form submission
-  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    const formData = new FormData(e.currentTarget);
-    
-    // If this is a demo request, add a note
-    if (isDemoRequest) {
-      formData.append('_subject', 'Demo Access Request - Fretso');
-      formData.append('request_type', 'Demo Access');
-    }
-
-    try {
-      const response = await fetch('https://formspree.io/f/mqagkzle', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+  // Handle contact button click - open Tally form
+  const handleContactClick = () => {
+    if (typeof window !== 'undefined' && (window as any).Tally) {
+      (window as any).Tally.openPopup('31ZpZQ', {
+        layout: 'modal',
+        width: 500,
+        autoClose: 3000,
       });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        (e.target as HTMLFormElement).reset();
-        
-        // If demo request, open demo after short delay
-        if (isDemoRequest) {
-          setTimeout(() => {
-            window.open('https://app.fretso.in', '_blank', 'noopener,noreferrer');
-            setIsContactDialogOpen(false);
-            setSubmitStatus('idle');
-            setIsDemoRequest(false);
-          }, 1500);
-        } else {
-          // Regular contact form - just close
-          setTimeout(() => {
-            setIsContactDialogOpen(false);
-            setSubmitStatus('idle');
-          }, 2000);
-        }
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
-  // Handle demo button click - open contact form in demo mode
+  // Handle demo button click - open Tally form
   const handleDemoClick = () => {
-    setIsDemoRequest(true);
-    setIsContactDialogOpen(true);
+    if (typeof window !== 'undefined' && (window as any).Tally) {
+      (window as any).Tally.openPopup('31ZpZQ', {
+        layout: 'modal',
+        width: 500,
+        autoClose: 3000,
+      });
+    }
   };
 
   const testimonials = [
@@ -222,6 +178,13 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(seoConfig.organization),
         }}
+      />
+      
+      {/* Tally Forms Script */}
+      <Script
+        id="tally-js"
+        src="https://tally.so/widgets/embed.js"
+        strategy="lazyOnload"
       />
       
     <div className="min-h-screen bg-background">
@@ -873,102 +836,13 @@ export default function Home() {
             </a>
           </div>
           
-          <Dialog open={isContactDialogOpen} onOpenChange={(open) => {
-            setIsContactDialogOpen(open);
-            if (!open) setIsDemoRequest(false); // Reset demo mode when closing
-          }}>
-            <DialogTrigger asChild>
-              <Button 
-                size="lg" 
-                className="bg-white hover:bg-gray-100 active:scale-95 text-[#E50914] font-semibold px-12 sm:px-14 py-7 sm:py-7 text-lg sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto max-w-xs"
-              >
-                Contact Us
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[500px]">
-              <DialogHeader>
-                <DialogTitle className="text-2xl font-bold text-[#E50914]">
-                  {isDemoRequest ? 'Access Live Demo' : 'Get in Touch'}
-                </DialogTitle>
-                <DialogDescription>
-                  {isDemoRequest 
-                    ? 'Fill in your details below and we\'ll give you instant access to our interactive demo.'
-                    : 'Fill out the form below and we\'ll get back to you shortly.'}
-                </DialogDescription>
-              </DialogHeader>
-              <form onSubmit={handleFormSubmit} className="space-y-4 mt-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Name *</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    placeholder="Your name"
-                    required
-                    className="w-full"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="your@email.com"
-                    required
-                    className="w-full"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone</Label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    placeholder="Your phone number"
-                    className="w-full"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="business">Business Name</Label>
-                  <Input
-                    id="business"
-                    name="business"
-                    placeholder="Your pet business name"
-                    className="w-full"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Tell us about your requirements..."
-                    required
-                    className="w-full min-h-[100px]"
-                  />
-                </div>
-                {submitStatus === 'success' && (
-                  <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm">
-                    {isDemoRequest 
-                      ? '✓ Thank you! Opening demo now...'
-                      : '✓ Thank you! We\'ll get back to you soon.'}
-                  </div>
-                )}
-                {submitStatus === 'error' && (
-                  <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
-                    Something went wrong. Please try again or email us directly.
-                  </div>
-                )}
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-[#E50914] hover:bg-[#C40812] text-white font-semibold py-6"
-                >
-                  {isSubmitting ? 'Processing...' : (isDemoRequest ? 'Access Demo' : 'Send Message')}
-                </Button>
-              </form>
-            </DialogContent>
-          </Dialog>
+          <Button 
+            size="lg" 
+            onClick={handleContactClick}
+            className="bg-white hover:bg-gray-100 active:scale-95 text-[#E50914] font-semibold px-12 sm:px-14 py-7 sm:py-7 text-lg sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto max-w-xs"
+          >
+            Contact Us
+          </Button>
         </div>
       </section>
 
