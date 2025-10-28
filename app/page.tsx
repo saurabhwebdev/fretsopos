@@ -39,8 +39,6 @@ export default function Home() {
   const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [isDemoDialogOpen, setIsDemoDialogOpen] = useState(false);
-  const [isDemoFormSubmitting, setIsDemoFormSubmitting] = useState(false);
-  const [demoFormStatus, setDemoFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -119,15 +117,21 @@ export default function Home() {
     }
   };
 
-  // Handle demo form submission
+  // Handle demo button click - open contact form then demo
+  const handleDemoClick = () => {
+    setIsDemoDialogOpen(true);
+  };
+
+  // Handle demo form submission - use same contact form but open demo after
   const handleDemoFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsDemoFormSubmitting(true);
-    setDemoFormStatus('idle');
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
 
     const formData = new FormData(e.currentTarget);
     // Add a note that this is a demo request
     formData.append('demo_request', 'true');
+    formData.append('subject', 'Demo Access Request');
 
     try {
       const response = await fetch('https://formspree.io/f/mqagkzle', {
@@ -139,21 +143,21 @@ export default function Home() {
       });
 
       if (response.ok) {
-        setDemoFormStatus('success');
+        setSubmitStatus('success');
         (e.target as HTMLFormElement).reset();
-        // Wait 1 second then open demo in new tab
+        // Wait 1.5 seconds then open demo in new tab
         setTimeout(() => {
-          window.open('https://app.fretso.in', '_blank');
+          window.open('https://app.fretso.in', '_blank', 'noopener,noreferrer');
           setIsDemoDialogOpen(false);
-          setDemoFormStatus('idle');
-        }, 1000);
+          setSubmitStatus('idle');
+        }, 1500);
       } else {
-        setDemoFormStatus('error');
+        setSubmitStatus('error');
       }
     } catch (error) {
-      setDemoFormStatus('error');
+      setSubmitStatus('error');
     } finally {
-      setIsDemoFormSubmitting(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -797,9 +801,9 @@ export default function Home() {
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[500px]">
                   <DialogHeader>
-                    <DialogTitle className="text-2xl font-bold text-[#E50914]">Access Demo</DialogTitle>
+                    <DialogTitle className="text-2xl font-bold text-[#E50914]">Access Live Demo</DialogTitle>
                     <DialogDescription>
-                      Fill in your details to access the live demo. We'll open it in a new tab for you.
+                      Fill in your details below and we'll give you instant access to our interactive demo.
                     </DialogDescription>
                   </DialogHeader>
                   <form onSubmit={handleDemoFormSubmit} className="space-y-4 mt-4">
@@ -843,22 +847,22 @@ export default function Home() {
                         className="w-full"
                       />
                     </div>
-                    {demoFormStatus === 'success' && (
+                    {submitStatus === 'success' && (
                       <div className="p-3 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm">
                         ✓ Thank you! Opening demo now...
                       </div>
                     )}
-                    {demoFormStatus === 'error' && (
+                    {submitStatus === 'error' && (
                       <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-800 text-sm">
                         Something went wrong. Please try again or contact us directly.
                       </div>
                     )}
                     <Button
                       type="submit"
-                      disabled={isDemoFormSubmitting}
+                      disabled={isSubmitting}
                       className="w-full bg-[#E50914] hover:bg-[#C40812] text-white font-semibold py-6"
                     >
-                      {isDemoFormSubmitting ? 'Processing...' : 'Access Demo'}
+                      {isSubmitting ? 'Processing...' : 'Access Demo'}
                     </Button>
                   </form>
                 </DialogContent>

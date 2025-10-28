@@ -94,6 +94,13 @@ export default function Navbar() {
             <ThemeToggle />
             <Button 
               size="sm"
+              onClick={() => scrollToSection('demo')}
+              className="bg-[#E50914] hover:bg-[#C40812] hover:shadow-lg hover:scale-105 text-white dark:bg-[#E50914] dark:text-white dark:hover:bg-[#C40812] font-semibold transition-all duration-300 text-xs lg:text-sm ml-1"
+            >
+              Demo
+            </Button>
+            <Button 
+              size="sm"
               onClick={() => scrollToSection('contact')}
               className="bg-white hover:bg-white hover:shadow-lg hover:scale-105 text-[#E50914] dark:bg-[#E50914] dark:text-white dark:hover:bg-[#C40812] font-semibold transition-all duration-300 text-xs lg:text-sm ml-1"
             >
@@ -168,11 +175,18 @@ export default function Navbar() {
                   >
                     Support
                   </Link>
-                  <div className="pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
+                  <div className="pt-4 mt-4 border-t border-gray-200 dark:border-gray-700 space-y-3">
+                    <Button 
+                      size="lg" 
+                      onClick={() => scrollToSection('demo')}
+                      className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold w-full transition-colors duration-200"
+                    >
+                      Try Demo
+                    </Button>
                     <Button 
                       size="lg" 
                       onClick={() => scrollToSection('contact')}
-                      className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold w-full transition-colors duration-200"
+                      className="bg-white hover:bg-gray-100 text-[#E50914] border-2 border-[#E50914] font-semibold w-full transition-colors duration-200"
                     >
                       Contact Us
                     </Button>
