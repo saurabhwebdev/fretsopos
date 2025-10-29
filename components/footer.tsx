@@ -90,6 +90,11 @@ export default function Footer() {
                     FAQ
                   </Link>
                 </li>
+                <li>
+                  <Link href="/blog" className="text-sm text-muted-foreground hover:text-[#E50914] transition-colors">
+                    Blog
+                  </Link>
+                </li>
               </ul>
             </div>
 
