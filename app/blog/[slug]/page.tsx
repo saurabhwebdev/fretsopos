@@ -142,23 +142,24 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             prose-pre:bg-muted prose-pre:border prose-pre:border-border
             prose-img:rounded-xl prose-img:shadow-lg
           ">
-          <PortableText 
-            value={post.body}
-            components={{
-              types: {
-                image: ({ value }) => (
-                  <div className="relative w-full h-96 my-8">
-                    <Image
-                      src={urlFor(value).width(800).height(600).url()}
-                      alt={value.alt || 'Blog post image'}
-                      fill
-                      className="object-cover rounded-lg"
-                    />
-                  </div>
-                ),
-              },
-            }}
-          />
+            <PortableText 
+              value={post.body}
+              components={{
+                types: {
+                  image: ({ value }) => (
+                    <div className="relative w-full h-96 my-8">
+                      <Image
+                        src={urlFor(value).width(800).height(600).url()}
+                        alt={value.alt || 'Blog post image'}
+                        fill
+                        className="object-cover rounded-lg"
+                      />
+                    </div>
+                  ),
+                },
+              }}
+            />
+          </div>
         </div>
       </article>
       <Footer />
