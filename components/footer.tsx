@@ -19,7 +19,7 @@ export default function Footer() {
               {/* Social Media */}
               <div className="flex items-center gap-3 pt-2">
                 <a 
-                  href="mailto:fretsoindia@gmail.com" 
+                  href="mailto:hello@fretso.in" 
                   className="text-gray-600 dark:text-gray-300 hover:text-[#E50914] dark:hover:text-[#E50914] transition-colors"
                   aria-label="Email"
                 >
@@ -53,7 +53,7 @@ export default function Footer() {
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a 
-                  href="https://wa.me/918087098711" 
+                  href="https://wa.me/918282867803"
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-300 hover:text-[#E50914] dark:hover:text-[#E50914] transition-colors"
@@ -121,14 +121,14 @@ export default function Footer() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-2">
                   <Mail className="w-4 h-4 text-[#E50914] mt-0.5 flex-shrink-0" />
-                  <a href="mailto:fretsoindia@gmail.com" className="text-sm text-muted-foreground hover:text-[#E50914] transition-colors break-all">
-                    fretsoindia@gmail.com
+                  <a href="mailto:hello@fretso.in" className="text-sm text-muted-foreground hover:text-[#E50914] transition-colors break-all">
+                    hello@fretso.in
                   </a>
                 </li>
                 <li className="flex items-start gap-2">
                   <Phone className="w-4 h-4 text-[#E50914] mt-0.5 flex-shrink-0" />
-                  <a href="tel:+918087098711" className="text-sm text-muted-foreground hover:text-[#E50914] transition-colors">
-                    +91 80870 98711
+                  <a href="tel:+918282867803" className="text-sm text-muted-foreground hover:text-[#E50914] transition-colors">
+                    +91 82828 67803
                   </a>
                 </li>
                 <li className="flex items-start gap-2">

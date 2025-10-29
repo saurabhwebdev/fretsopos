@@ -67,22 +67,22 @@ export default function SupportPage() {
       icon: Mail,
       title: "Email Support",
       description: "Get help via email within 24 hours",
-      action: "fretsoindia@gmail.com",
-      link: "mailto:fretsoindia@gmail.com"
+      action: "hello@fretso.in",
+      link: "mailto:hello@fretso.in"
     },
     {
       icon: Phone,
       title: "Phone Support",
       description: "Call us during business hours",
-      action: "+91 80870 98711",
-      link: "tel:+918087098711"
+      action: "+91 82828 67803",
+      link: "tel:+918282867803"
     },
     {
       icon: MessageCircle,
       title: "WhatsApp",
       description: "Quick support via WhatsApp",
       action: "Chat Now",
-      link: "https://wa.me/918087098711"
+      link: "https://wa.me/918282867803"
     },
     {
       icon: HelpCircle,

@@ -17,7 +17,7 @@ export default function AboutPage() {
       role: "Founder & CEO",
       description: "Leading Fretso's vision to empower India's pet care industry",
       linkedin: "#",
-      gmail: "mailto:fretsoindia@gmail.com",
+      gmail: "mailto:hello@fretso.in",
       initials: "S"
     },
     {
@@ -25,7 +25,7 @@ export default function AboutPage() {
       role: "Head of Outreach",
       description: "Building partnerships and expanding Fretso's reach across India",
       linkedin: "#",
-      gmail: "mailto:fretsoindia@gmail.com",
+      gmail: "mailto:hello@fretso.in",
       initials: "A"
     },
     {
@@ -33,7 +33,7 @@ export default function AboutPage() {
       role: "Tech Head",
       description: "Architecting innovative solutions for pet business management",
       linkedin: "#",
-      gmail: "mailto:fretsoindia@gmail.com",
+      gmail: "mailto:hello@fretso.in",
       initials: "H"
     },
     {
@@ -41,7 +41,7 @@ export default function AboutPage() {
       role: "Social Media & Support Head",
       description: "Ensuring exceptional customer experience and community engagement",
       linkedin: "#",
-      gmail: "mailto:fretsoindia@gmail.com",
+      gmail: "mailto:hello@fretso.in",
       initials: "R"
     }
   ];

@@ -266,9 +266,9 @@ export default function TermsPage() {
                 If you have questions about these Terms of Service, please contact us:
               </p>
               <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
-                <p className="text-gray-700 dark:text-gray-300 mb-2"><strong>Email:</strong> fretsoindia@gmail.com</p>
-                <p className="text-gray-700 dark:text-gray-300 mb-2"><strong>Phone:</strong> +91 80870 98711</p>
-                <p className="text-gray-700 dark:text-gray-300 mb-2"><strong>WhatsApp:</strong> +91 80870 98711</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-2"><strong>Email:</strong> hello@fretso.in</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-2"><strong>Phone:</strong> +91 82828 67803</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-2"><strong>WhatsApp:</strong> +91 82828 67803</p>
                 <p className="text-gray-700 dark:text-gray-300"><strong>Address:</strong> India</p>
               </div>
             </section>

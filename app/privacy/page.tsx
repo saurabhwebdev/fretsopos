@@ -155,7 +155,7 @@ export default function PrivacyPage() {
                 <li><strong>Withdraw Consent:</strong> Withdraw consent for data processing where consent was the basis</li>
               </ul>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                To exercise these rights, please contact us at fretsoindia@gmail.com.
+                To exercise these rights, please contact us at hello@fretso.in.
               </p>
             </section>
 
@@ -200,8 +200,8 @@ export default function PrivacyPage() {
                 If you have questions or concerns about this Privacy Policy or our data practices, please contact us:
               </p>
               <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
-                <p className="text-gray-700 dark:text-gray-300 mb-2"><strong>Email:</strong> fretsoindia@gmail.com</p>
-                <p className="text-gray-700 dark:text-gray-300 mb-2"><strong>Phone:</strong> +91 80870 98711</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-2"><strong>Email:</strong> hello@fretso.in</p>
+                <p className="text-gray-700 dark:text-gray-300 mb-2"><strong>Phone:</strong> +91 82828 67803</p>
                 <p className="text-gray-700 dark:text-gray-300"><strong>Address:</strong> India</p>
               </div>
             </section>

@@ -789,7 +789,7 @@ export default function Home() {
           {/* Social Media Icons */}
           <div className="flex items-center justify-center gap-6 pt-4">
             <a 
-              href="mailto:fretsoindia@gmail.com" 
+              href="mailto:hello@fretso.in"
               className="text-white hover:text-white/80 transition-colors"
               aria-label="Email"
             >
@@ -823,7 +823,7 @@ export default function Home() {
               <Linkedin className="w-7 h-7 sm:w-8 sm:h-8" />
             </a>
             <a 
-              href="https://wa.me/918087098711" 
+              href="https://wa.me/918282867803"
               target="_blank" 
               rel="noopener noreferrer"
               className="text-white hover:text-white/80 transition-colors"
