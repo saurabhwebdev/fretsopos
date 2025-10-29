@@ -1,5 +1,11 @@
 require('dotenv').config({ path: '.env.local' });
 const { createClient } = require('@sanity/client');
+const crypto = require('crypto');
+
+// Helper function to generate unique keys
+function generateKey() {
+  return crypto.randomBytes(12).toString('hex');
+}
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
