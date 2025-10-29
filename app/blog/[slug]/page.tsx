@@ -53,64 +53,95 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white dark:from-background dark:via-background dark:to-background">
       <Navbar />
-      <article className="container mx-auto px-4 pt-32 pb-16">
-        {/* Back Button */}
-        <Link
-          href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-[#E50914] transition-colors mb-8"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Back to Blog
-        </Link>
-
-        {/* Article Header */}
-        <header className="max-w-4xl mx-auto mb-12">
-          <div className="flex flex-wrap gap-2 mb-4">
-            {post.categories?.map((category, index) => (
-              <span
-                key={index}
-                className="text-xs px-3 py-1 bg-[#E50914]/10 text-[#E50914] rounded-full"
-              >
-                {category}
-              </span>
-            ))}
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            {post.title}
-          </h1>
-          
-          <div className="flex items-center gap-4 text-muted-foreground mb-8">
-            <span className="font-medium">{post.author}</span>
-            <span>•</span>
-            <time dateTime={post.publishedAt}>
-              {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              })}
-            </time>
+      
+      {/* Hero Section with Gradient Background */}
+      <div className="bg-gradient-to-br from-[#E50914]/5 via-transparent to-transparent">
+        <article className="container mx-auto px-4 pt-32 pb-8">
+          {/* Back Button */}
+          <div className="max-w-4xl mx-auto mb-8">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-[#E50914] transition-all hover:gap-3"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back to Blog
+            </Link>
           </div>
 
-          {post.mainImage && (
-            <div className="relative w-full h-[400px] md:h-[500px] rounded-lg overflow-hidden mb-8">
-              <Image
-                src={urlFor(post.mainImage).width(1200).height(800).url()}
-                alt={post.title}
-                fill
-                className="object-cover"
-                priority
-              />
+          {/* Article Header */}
+          <header className="max-w-4xl mx-auto mb-16">
+            {/* Categories */}
+            {post.categories && post.categories.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-6">
+                {post.categories.map((category, index) => (
+                  <span
+                    key={index}
+                    className="text-xs font-medium px-4 py-1.5 bg-[#E50914]/10 text-[#E50914] rounded-full border border-[#E50914]/20 hover:bg-[#E50914]/20 transition-colors"
+                  >
+                    {category}
+                  </span>
+                ))}
+              </div>
+            )}
+            
+            {/* Title */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-[1.1] tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text">
+              {post.title}
+            </h1>
+            
+            {/* Meta Info */}
+            <div className="flex items-center gap-4 text-muted-foreground border-l-4 border-[#E50914] pl-4 py-2">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-[#E50914]/10 flex items-center justify-center">
+                  <span className="text-[#E50914] font-bold text-sm">{post.author.charAt(0)}</span>
+                </div>
+                <span className="font-medium text-foreground">{post.author}</span>
+              </div>
+              <span className="text-muted-foreground/50">•</span>
+              <time dateTime={post.publishedAt} className="text-sm">
+                {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                })}
+              </time>
+            </div>
+          </header>
+        </article>
+      </div>
+
+      {/* Article Body with Enhanced Styling */}
+      <article className="container mx-auto px-4 pb-16">
+        <div className="max-w-3xl mx-auto">
+          {/* Excerpt/Lead Paragraph */}
+          {post.excerpt && (
+            <div className="mb-12 p-6 bg-gradient-to-br from-[#E50914]/5 to-transparent border-l-4 border-[#E50914] rounded-r-lg">
+              <p className="text-lg text-muted-foreground leading-relaxed italic">
+                {post.excerpt}
+              </p>
             </div>
           )}
-        </header>
 
-        {/* Article Body */}
-        <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-p:text-base prose-p:leading-relaxed prose-p:mb-6 prose-strong:text-[#E50914] prose-strong:font-semibold prose-a:text-[#E50914] prose-a:no-underline hover:prose-a:underline prose-img:rounded-lg prose-li:text-base prose-ul:my-6 prose-ol:my-6">
+          {/* Main Content */}
+          <div className="prose prose-lg dark:prose-invert max-w-none
+            prose-headings:font-bold prose-headings:tracking-tight
+            prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-6 prose-h2:pb-3 prose-h2:border-b prose-h2:border-border/50
+            prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-4 prose-h3:text-[#E50914]
+            prose-p:text-[17px] prose-p:leading-[1.8] prose-p:mb-6 prose-p:text-foreground/90
+            prose-strong:text-[#E50914] prose-strong:font-semibold prose-strong:text-foreground
+            prose-a:text-[#E50914] prose-a:no-underline prose-a:font-medium hover:prose-a:underline prose-a:underline-offset-4
+            prose-ul:my-8 prose-ul:space-y-2
+            prose-ol:my-8 prose-ol:space-y-2
+            prose-li:text-[17px] prose-li:leading-relaxed prose-li:text-foreground/90 prose-li:pl-2
+            prose-blockquote:border-l-4 prose-blockquote:border-[#E50914] prose-blockquote:bg-[#E50914]/5 prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-blockquote:not-italic
+            prose-code:text-[#E50914] prose-code:bg-muted prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-sm prose-code:font-mono
+            prose-pre:bg-muted prose-pre:border prose-pre:border-border
+            prose-img:rounded-xl prose-img:shadow-lg
+          ">
           <PortableText 
             value={post.body}
             components={{

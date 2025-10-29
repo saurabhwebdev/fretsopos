@@ -36,73 +36,104 @@ export default async function BlogPage() {
   const posts = await getPosts()
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white dark:from-background dark:via-background dark:to-background">
       <Navbar />
-      <div className="container mx-auto px-4 pt-32 pb-16">
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#E50914] to-[#B20710] bg-clip-text text-transparent">
-            Fretso Blog
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            Insights, tips, and stories from the pet care industry
-          </p>
+      
+      {/* Hero Section */}
+      <div className="bg-gradient-to-br from-[#E50914]/5 via-transparent to-transparent border-b border-border/50">
+        <div className="container mx-auto px-4 pt-32 pb-16">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="inline-block mb-4">
+              <span className="text-sm font-medium px-4 py-1.5 bg-[#E50914]/10 text-[#E50914] rounded-full border border-[#E50914]/20">
+                Pet Business Insights
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
+              <span className="bg-gradient-to-r from-[#E50914] via-[#E50914] to-[#B20710] bg-clip-text text-transparent">
+                Fretso Blog
+              </span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Expert insights, practical tips, and success stories from India's leading pet care businesses
+            </p>
+          </div>
         </div>
+      </div>
+      
+      {/* Articles Section */}
+      <div className="container mx-auto px-4 py-16">
 
-        {/* Blog Posts Grid */}
         {posts.length === 0 ? (
           <div className="max-w-2xl mx-auto text-center py-16">
-            <p className="text-lg text-muted-foreground mb-4">
-              No blog posts yet. Check back soon!
+            <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#E50914]/10 flex items-center justify-center">
+              <svg className="w-8 h-8 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+            </div>
+            <p className="text-lg text-foreground font-medium mb-2">
+              No blog posts yet
             </p>
             <p className="text-sm text-muted-foreground">
-              Visit <Link href="/studio" className="text-[#E50914] hover:underline">/studio</Link> to create your first post
+              Check back soon for expert insights and pet care tips!
             </p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
               <Link
                 key={post._id}
                 href={`/blog/${post.slug.current}`}
-                className="group bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-800"
+                className="group bg-white dark:bg-gray-900 rounded-xl overflow-hidden border border-border/50 hover:border-[#E50914]/30 transition-all duration-300 hover:shadow-2xl hover:shadow-[#E50914]/10 hover:-translate-y-1"
               >
                 {post.mainImage && (
-                  <div className="relative h-48 w-full overflow-hidden">
+                  <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-[#E50914]/5 to-transparent">
                     <Image
                       src={urlFor(post.mainImage).width(600).height(400).url()}
                       alt={post.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                 )}
-                <div className="p-6">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
-                    <span>{post.author}</span>
-                    <span>•</span>
+                <div className="p-6 space-y-4">
+                  {/* Meta */}
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-5 h-5 rounded-full bg-[#E50914]/10 flex items-center justify-center">
+                        <span className="text-[#E50914] font-bold text-[10px]">{post.author.charAt(0)}</span>
+                      </div>
+                      <span className="font-medium">{post.author}</span>
+                    </div>
+                    <span className="text-muted-foreground/50">•</span>
                     <time dateTime={post.publishedAt}>
                       {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
+                        month: 'short',
                         day: 'numeric',
+                        year: 'numeric',
                       })}
                     </time>
                   </div>
-                  <h2 className="text-xl font-semibold mb-2 group-hover:text-[#E50914] transition-colors">
+                  
+                  {/* Title */}
+                  <h2 className="text-xl font-bold leading-snug group-hover:text-[#E50914] transition-colors line-clamp-2">
                     {post.title}
                   </h2>
+                  
+                  {/* Excerpt */}
                   {post.excerpt && (
-                    <p className="text-sm text-muted-foreground line-clamp-3">
+                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                       {post.excerpt}
                     </p>
                   )}
+                  
+                  {/* Categories */}
                   {post.categories && post.categories.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {post.categories.slice(0, 3).map((category, index) => (
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {post.categories.slice(0, 2).map((category, index) => (
                         <span
                           key={index}
-                          className="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-full"
+                          className="text-xs font-medium px-3 py-1 bg-[#E50914]/5 text-[#E50914]/80 rounded-full border border-[#E50914]/10"
                         >
                           {category}
                         </span>
