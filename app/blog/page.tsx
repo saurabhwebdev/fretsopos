@@ -2,6 +2,8 @@ import Link from 'next/link'
 import { client } from '@/lib/sanity.client'
 import { urlFor } from '@/lib/sanity.image'
 import Image from 'next/image'
+import Navbar from '@/components/navbar'
+import Footer from '@/components/footer'
 
 interface Post {
   _id: string
@@ -34,8 +36,9 @@ export default async function BlogPage() {
   const posts = await getPosts()
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background">
-      <div className="container mx-auto px-4 py-16">
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <div className="container mx-auto px-4 pt-32 pb-16">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#E50914] to-[#B20710] bg-clip-text text-transparent">
@@ -112,6 +115,7 @@ export default async function BlogPage() {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   )
 }

@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
 import { notFound } from 'next/navigation'
+import Navbar from '@/components/navbar'
+import Footer from '@/components/footer'
 
 interface Post {
   _id: string
@@ -51,8 +53,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background">
-      <article className="container mx-auto px-4 py-16">
+    <div className="min-h-screen bg-background">
+      <Navbar />
+      <article className="container mx-auto px-4 pt-32 pb-16">
         {/* Back Button */}
         <Link
           href="/blog"
@@ -107,7 +110,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         </header>
 
         {/* Article Body */}
-        <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:font-bold prose-a:text-[#E50914] prose-a:no-underline hover:prose-a:underline prose-img:rounded-lg">
+        <div className="max-w-3xl mx-auto prose prose-lg dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4 prose-p:text-base prose-p:leading-relaxed prose-p:mb-6 prose-strong:text-[#E50914] prose-strong:font-semibold prose-a:text-[#E50914] prose-a:no-underline hover:prose-a:underline prose-img:rounded-lg prose-li:text-base prose-ul:my-6 prose-ol:my-6">
           <PortableText 
             value={post.body}
             components={{
@@ -127,6 +130,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           />
         </div>
       </article>
+      <Footer />
     </div>
   )
 }
