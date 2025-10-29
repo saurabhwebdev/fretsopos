@@ -2,6 +2,7 @@ import { client } from '@/lib/sanity.client'
 import { urlFor } from '@/lib/sanity.image'
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 import { PortableText } from '@portabletext/react'
 import { notFound } from 'next/navigation'
 import Navbar from '@/components/navbar'
@@ -45,6 +46,70 @@ export async function generateStaticParams() {
   }))
 }
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = await getPost(slug)
+  
+  if (!post) {
+    return {
+      title: 'Post Not Found - Fretso Blog',
+      description: 'The requested blog post could not be found.',
+    }
+  }
+  
+  const baseUrl = 'https://www.fretso.in'
+  const postUrl = `${baseUrl}/blog/${post.slug.current}`
+  
+  return {
+    title: `${post.title} | Fretso Blog`,
+    description: post.excerpt || post.title,
+    keywords: post.categories?.join(', ') || 'pet business, pet shop management, India',
+    authors: [{ name: post.author }],
+    openGraph: {
+      title: post.title,
+      description: post.excerpt || post.title,
+      url: postUrl,
+      siteName: 'Fretso',
+      images: post.mainImage
+        ? [
+            {
+              url: urlFor(post.mainImage).width(1200).height(630).url(),
+              width: 1200,
+              height: 630,
+              alt: post.title,
+            },
+          ]
+        : [],
+      locale: 'en_IN',
+      type: 'article',
+      publishedTime: post.publishedAt,
+      authors: [post.author],
+      tags: post.categories,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt || post.title,
+      images: post.mainImage ? [urlFor(post.mainImage).width(1200).height(630).url()] : [],
+      creator: '@fretsoindia',
+    },
+    alternates: {
+      canonical: postUrl,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+  }
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = await getPost(slug)
@@ -53,9 +118,48 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound()
   }
 
+  const baseUrl = 'https://www.fretso.in'
+  const postUrl = `${baseUrl}/blog/${post.slug.current}`
+  
+  // JSON-LD structured data for SEO
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt || post.title,
+    image: post.mainImage ? urlFor(post.mainImage).width(1200).height(630).url() : undefined,
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
+    author: {
+      '@type': 'Organization',
+      name: post.author,
+      url: baseUrl,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Fretso',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
+    keywords: post.categories?.join(', '),
+    articleSection: post.categories?.[0],
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white dark:from-background dark:via-background dark:to-background">
-      <Navbar />
+    <>
+      <Script
+        id="blog-post-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen bg-gradient-to-b from-white via-gray-50/30 to-white dark:from-background dark:via-background dark:to-background">
+        <Navbar />
       
       {/* Hero Section with Gradient Background */}
       <div className="bg-gradient-to-br from-[#E50914]/5 via-transparent to-transparent">
@@ -308,6 +412,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       </section>
 
       <Footer />
-    </div>
+      </div>
+    </>
   )
 }

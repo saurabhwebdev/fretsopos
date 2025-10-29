@@ -32,6 +32,40 @@ async function getPosts(): Promise<Post[]> {
   return posts
 }
 
+export const metadata = {
+  title: 'Pet Business Blog - Expert Tips & Insights | Fretso',
+  description: 'Discover expert insights, practical tips, and success stories from India\'s leading pet care businesses. Learn how to manage your pet shop, grooming salon, or veterinary clinic more effectively.',
+  keywords: 'pet business blog, pet shop management tips, pet grooming business, veterinary clinic management, pet retail India, pet business success stories, GST for pet shops, inventory management tips',
+  openGraph: {
+    title: 'Pet Business Blog - Expert Tips & Insights | Fretso',
+    description: 'Expert insights, practical tips, and success stories from India\'s leading pet care businesses',
+    url: 'https://www.fretso.in/blog',
+    siteName: 'Fretso',
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Pet Business Blog - Expert Tips & Insights | Fretso',
+    description: 'Expert insights, practical tips, and success stories from India\'s leading pet care businesses',
+    creator: '@fretsoindia',
+  },
+  alternates: {
+    canonical: 'https://www.fretso.in/blog',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+}
+
 export default async function BlogPage() {
   const posts = await getPosts()
 
