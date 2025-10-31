@@ -7,7 +7,7 @@ interface BlogPost {
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://www.fretso.in'
+  const baseUrl = 'https://fretso.in'
   
   // Fetch all blog posts from Sanity
   const posts = await client.fetch<BlogPost[]>(
