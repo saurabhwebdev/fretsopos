@@ -142,7 +142,9 @@ export const seoConfig = {
     sameAs: [
       "https://www.instagram.com/fretsoindia",
       "https://www.linkedin.com/company/fretsoindia/",
-      "https://facebook.com/fretso",
+      "https://www.facebook.com/fretsoindia",
+      "https://www.youtube.com/@FretsoIndia",
+      "https://www.snapchat.com/add/fretsoindia",
     ],
     foundingDate: "2024",
     slogan: "Pet Business Management Made for India",
