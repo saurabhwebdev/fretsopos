@@ -1,12 +1,6 @@
 {
-  "name": "Fretso - Pet Business Management",
+  "name": "Fretso",
   "short_name": "Fretso",
-  "description": "Pet Business Management Software for India",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#E50914",
-  "orientation": "portrait",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -18,5 +12,8 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "theme_color": "#E50914",
+  "background_color": "#E50914",
+  "display": "standalone"
 }
