@@ -170,12 +170,99 @@ export default function Home() {
 
   return (
     <>
-      {/* JSON-LD Schema */}
+      {/* Organization Schema */}
       <Script
-        id="schema-org"
+        id="organization-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(seoConfig.organization),
+        }}
+      />
+      
+      {/* Software Application Schema */}
+      <Script
+        id="software-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(seoConfig.softwareApplication),
+        }}
+      />
+      
+      {/* FAQ Schema */}
+      <Script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Is my data safe with Fretso?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Absolutely! We take data security very seriously. Your data is encrypted both in transit and at rest. We use industry-standard security protocols and regularly backup all data. Your business information, customer records, and transaction history are stored securely on our cloud servers with multiple layers of protection."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Do you offer installation and setup support?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes! We provide complete onboarding support. Our team will guide you through the installation process, help you set up your initial inventory, import existing customer data, and train your staff on how to use Fretso effectively. We ensure you're fully comfortable with the system before going live."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "What if I need updates or new features?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "All updates and new features are automatically included in your subscription at no extra cost. We continuously improve Fretso based on customer feedback and industry trends. You'll always have access to the latest version with bug fixes, performance improvements, and new functionality."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Can I try Fretso before committing?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes! We offer a free trial period so you can test all features with your actual business data. No credit card required during the trial. Contact us to get started, and we'll set you up with a demo account where you can explore everything Fretso has to offer."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "What kind of customer support do you provide?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "We provide comprehensive support through multiple channels - email, phone, WhatsApp, and live chat. Our support team is available during business hours to help with any questions or issues. We also have detailed documentation, video tutorials, and an active community forum."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Will Fretso work for my specific type of pet business?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Fretso is designed to work for all types of pet businesses - pet shops, grooming salons, pet spas, veterinary clinics, and multi-location chains. Our flexible system adapts to your specific needs whether you sell products, offer services, or both. We can customize features based on your business requirements."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "Can I export my data if I want to switch systems?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Yes! Your data is always yours. You can export all your data (customers, pets, inventory, transactions, etc.) in standard formats like Excel/CSV at any time. We believe in data portability and will never lock you in. If you decide to move to another system, we'll help you export everything smoothly."
+                }
+              },
+              {
+                "@type": "Question",
+                name: "How does billing work? Are there any hidden fees?",
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "Our pricing is completely transparent with no hidden fees. You'll receive a custom quote based on your specific needs (business size, features, users, etc.). Payment is typically monthly or annually. What you see in your quote is exactly what you pay - no surprises, no additional charges for updates or standard support."
+                }
+              }
+            ]
+          }),
         }}
       />
       

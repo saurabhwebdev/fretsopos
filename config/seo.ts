@@ -6,7 +6,7 @@ export const seoConfig = {
   titleTemplate: "%s | Fretso",
   
   // Default Meta Description
-  description: "Complete management solution for Pet Shops, Pet Spas & Pet Clinics in India. Features include GST billing, inventory management, grooming appointments, pet parent records, and custom pricing tailored to your business. Built specifically for the Indian pet care industry.",
+  description: "Pet business management for India: GST billing, inventory, appointments & CRM for pet shops, spas & clinics. Custom pricing for your needs.",
   
   // Keywords
   keywords: [
@@ -43,10 +43,10 @@ export const seoConfig = {
     alternateLocales: ["hi_IN"],
     siteName: "Fretso",
     title: "Fretso - Pet Business Management for India",
-    description: "Complete solution for Pet Shops, Pet Spas & Pet Clinics in India. Custom pricing for every business. GST billing, inventory, appointments & more.",
+    description: "Complete solution for pet shops, spas & clinics in India. GST billing, inventory, appointments & more. Custom pricing for every business.",
     images: [
       {
-        url: "https://fretso.in/opengraph-image",
+        url: "https://fretso.in/og-image.png",
         width: 1200,
         height: 630,
         alt: "Fretso - Pet Business Management Software",
@@ -60,8 +60,8 @@ export const seoConfig = {
     site: "@fretso", // Update with actual Twitter handle
     creator: "@fretso",
     title: "Fretso - Pet Business Management for India",
-    description: "Complete solution for Pet Shops, Pet Spas & Pet Clinics in India. Custom pricing tailored to your business needs.",
-    images: ["https://fretso.in/opengraph-image"], // Using same as OG image
+    description: "Complete solution for pet shops, spas & clinics in India. Custom pricing tailored to your business needs.",
+    images: ["https://fretso.in/og-image.png"],
   },
   
   // Robots
@@ -125,7 +125,34 @@ export const seoConfig = {
   // Business/Organization Schema
   organization: {
     "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://fretso.in/#organization",
+    name: "Fretso",
+    legalName: "Fretso",
+    url: "https://fretso.in",
+    logo: "https://fretso.in/logo.png",
+    description: "Pet business management software for India - Built for pet shops, spas, and clinics",
+    email: "hello@fretso.in",
+    telephone: "+91-8282867803",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "IN",
+      addressLocality: "India",
+    },
+    sameAs: [
+      "https://www.instagram.com/fretsoindia",
+      "https://www.linkedin.com/company/fretsoindia/",
+      "https://facebook.com/fretso",
+    ],
+    foundingDate: "2024",
+    slogan: "Pet Business Management Made for India",
+  },
+  
+  // Software Application Schema
+  softwareApplication: {
+    "@context": "https://schema.org",
     "@type": "SoftwareApplication",
+    "@id": "https://fretso.in/#software",
     name: "Fretso",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
@@ -133,13 +160,24 @@ export const seoConfig = {
       "@type": "Offer",
       price: "0",
       priceCurrency: "INR",
+      description: "Custom pricing based on business needs",
     },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.8",
       ratingCount: "150",
+      bestRating: "5",
+      worstRating: "1",
     },
-    description: "Pet business management software for India",
+    description: "Complete pet business management solution with GST billing, inventory, appointments, and CRM",
+    featureList: [
+      "GST Billing & Invoicing",
+      "Inventory Management",
+      "Appointment Scheduling",
+      "Customer & Pet CRM",
+      "Vaccination Tracking",
+      "Multi-Currency Support",
+    ],
   },
 };
 
@@ -147,7 +185,7 @@ export const seoConfig = {
 export const pagesSEO = {
   home: {
     title: "Pet Business Management Software for India",
-    description: "Complete management solution for Pet Shops, Pet Spas & Pet Clinics. GST billing, inventory, appointments & more. Made for India.",
+    description: "Complete solution for pet shops, spas & clinics. GST billing, inventory, appointments & CRM. Custom pricing. Made for India.",
     keywords: ["pet shop software", "pet business India", "GST billing pets"],
   },
   features: {
