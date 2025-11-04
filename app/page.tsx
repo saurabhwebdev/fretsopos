@@ -404,6 +404,7 @@ export default function Home() {
             { icon: Mail, title: 'Email Integration & Notifications', description: 'Connect Gmail, Outlook, Yahoo or custom SMTP. Send automated email notifications for appointments, vaccinations, invoices & reminders with professional templates.' },
             { icon: Settings, title: 'Automated Reminder System', description: 'Auto-send email reminders for upcoming appointments & overdue vaccinations. Configurable timing, custom templates & delivery tracking with test functionality.' },
             { icon: Receipt, title: 'Advanced Reporting & Analytics', description: 'Comprehensive business reports with sales analysis, inventory insights, customer behavior, revenue trends, product performance & custom date range exports.' },
+            { icon: Star, title: 'Loyalty Points System', description: 'Reward customers with points on every purchase. Multi-tier system (Bronze/Silver/Gold) with tier multipliers, automatic point calculation, redemption at checkout & email notifications.' },
           ].map((feature, index) => {
             const Icon = feature.icon as any;
             return (
@@ -469,6 +470,12 @@ export default function Home() {
               { title: 'Vaccination Due Alerts', description: 'Auto-send email alerts for upcoming & overdue pet vaccinations. Keep pet parents informed with 30-day advance notices & overdue reminders via email' },
               { title: 'Advanced Business Reports', description: 'Generate comprehensive reports including sales analysis, inventory status, customer insights, revenue trends, product performance & profit margins with Excel export' },
               { title: 'Email Delivery Tracking', description: 'Monitor email delivery status for all notifications. Test email configuration, view send history & troubleshoot delivery issues with detailed logging' },
+              { title: 'Customer Loyalty Rewards', description: 'Build customer loyalty with automated points system. Earn 1 point per ₹100 spent (configurable), redeem points for discounts at 1:1 ratio with complete transaction history' },
+              { title: 'Tier-Based Loyalty Program', description: 'Multi-tier loyalty system with Bronze (1.0x), Silver (1.2x at 500+ points), and Gold (1.5x at 1000+ points) earning multipliers to reward your best customers' },
+              { title: 'Automatic Points Calculation', description: 'Points automatically calculated and awarded on every transaction. Smart tier detection, multiplier application & instant balance updates with zero manual work' },
+              { title: 'Points Redemption at Checkout', description: 'Let customers redeem loyalty points at POS for instant discounts. Configurable minimum redemption threshold, point-to-currency conversion & live balance tracking' },
+              { title: 'Loyalty Analytics & Reports', description: 'Track loyalty program performance with detailed analytics. View points issued vs redeemed, customer tier distribution, lifetime value tracking & Excel export' },
+              { title: 'Configurable Loyalty Rules', description: 'Customize loyalty program to fit your business. Set earn rates, redemption values, minimum thresholds, point expiry (optional) & tier thresholds from settings page' },
             ].map((benefit, index) => (
               <div key={index} className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4 sm:p-5 hover:border-[#E50914] dark:hover:border-[#E50914] hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 hover:scale-105">
                 <div className="flex items-start gap-2.5 sm:gap-3">
