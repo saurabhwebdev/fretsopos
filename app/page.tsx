@@ -276,356 +276,883 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="hero-section flex flex-col lg:flex-row lg:min-h-screen">
-        {/* Left Side - Image Slider */}
-        <div className="relative w-full lg:w-1/2 h-[45vh] sm:h-[55vh] lg:min-h-screen order-1 lg:order-none overflow-hidden">
-          {/* Slide 1 - Dog Image */}
-          <div 
-            className={`absolute inset-0 w-full h-full transition-all ${
-              currentHeroSlide === 0 ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{
-              backgroundImage: 'url(/herobg.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              transitionDuration: '1500ms',
-              transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
-            }}
-          />
-          
-          {/* Slide 2 - Image */}
-          <div 
-            className={`absolute inset-0 w-full h-full bg-[#E50914] transition-all ${
-              currentHeroSlide === 1 ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{
-              backgroundImage: 'url(/0.png)',
-              backgroundSize: 'contain',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              transitionDuration: '1500ms',
-              transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
-            }}
-          />
-          
-          {/* Slide 3 - Bird Image */}
-          <div 
-            className={`absolute inset-0 w-full h-full bg-[#E50914] transition-all ${
-              currentHeroSlide === 2 ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{
-              backgroundImage: 'url(/bird.png)',
-              backgroundSize: 'contain',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              transitionDuration: '1500ms',
-              transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
-            }}
-          />
-        </div>
-        
-        {/* Right Side - Content */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center bg-white dark:bg-background p-8 sm:p-10 lg:p-16 order-2 lg:order-none">
-          <div className="max-w-lg space-y-5 sm:space-y-8 text-center">
-            {/* Logo */}
-            <div className="flex justify-center mb-1">
-              <FretsoLogo size="lg" />
-            </div>
-            
-            {/* Main heading */}
-            <div className="space-y-1.5 sm:space-y-3">
-              <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-                Pet Business Management
-              </h2>
-              <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#E50914] leading-tight">
-                Made for <span className="transition-all duration-500">{madeForTexts[currentTextIndex]}</span>
-              </h2>
-            </div>
-            
-            {/* Simple description */}
-            <p className="text-sm sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 leading-relaxed pt-1">
-              For Pet Shops, Spas & Clinics
-            </p>
-            
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pt-3 sm:pt-6">
-              <Button 
-                size="lg" 
-                onClick={() => scrollToSection('contact')}
-                className="bg-[#E50914] hover:bg-[#C40812] active:scale-95 text-white font-semibold px-8 sm:px-8 py-6 sm:py-6 text-base sm:text-base w-full sm:w-auto transition-all duration-200 shadow-lg"
-              >
-                Get Started
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                onClick={() => scrollToSection('features')}
-                className="px-8 sm:px-8 py-6 sm:py-6 text-base sm:text-base w-full sm:w-auto active:scale-95 transition-all duration-200 border-2"
-              >
-                Learn More
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section - Editorial Luxe Design */}
+      <section className="hero-section relative min-h-screen overflow-hidden">
+        {/* Background with gradient mesh */}
+        <div className="absolute inset-0 bg-white dark:bg-background gradient-mesh" />
 
-      {/* Decorative Divider */}
-      <div className="relative py-8 sm:py-12">
-        <div className="absolute inset-0 flex items-center" aria-hidden="true">
-          <div className="w-full border-t border-gray-200 dark:border-gray-800"></div>
-        </div>
-        <div className="relative flex justify-center">
-          <span className="bg-background px-6 text-3xl">✦</span>
-        </div>
-      </div>
+        {/* Noise texture overlay */}
+        <div className="noise-overlay" />
 
-      {/* Features Section */}
-      <section id="features" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
-        <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight px-4">Everything you need to run your pet business</h3>
-          <p className="text-sm sm:text-base text-muted-foreground mt-3 px-4">Complete suite of tools for seamless pet care business operations</p>
-        </div>
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
-          {[
-            { icon: BarChart3, title: 'Smart POS System', description: 'Quick checkout with Cash, Card, UPI, Wallet payments. Grid/Table view toggle, cart management, customer linking & real-time stats dashboard.' },
-            { icon: Package, title: 'Advanced Inventory', description: 'Stock tracking with min/max/reorder points, expiry alerts, batch numbers, SKU/barcode, cost vs selling price, profit analysis & supplier linking.' },
-            { icon: Calendar, title: 'Appointment Scheduling', description: 'Book grooming/vet visits with pet linking, service selection, time slots, deposit tracking, status management & unpaid appointment alerts.' },
-            { icon: Users, title: 'Customer & Pet CRM', description: 'Complete profiles with unlimited pets per customer, vaccination history, allergies, medical notes, microchip numbers, visit tracking & lifetime value.' },
-            { icon: Receipt, title: 'Smart Discount System', description: 'Flexible discounts - percentage or fixed amount with optional reason tracking. Apply discounts before tax on subtotal with live preview.' },
-            { icon: Wrench, title: 'Services Management', description: 'Create time-based services with categories, pricing, 15-min duration intervals, configurable GST rates & active/inactive status control.' },
-            { icon: BarChart3, title: 'Vaccination Tracking', description: 'Complete pet vaccination records with upcoming & overdue alerts, veterinarian tracking, next due dates, Excel export & dashboard widgets.' },
-            { icon: Package, title: 'Certificate Generation', description: 'Generate professional vaccination certificates with unique certificate numbers, batch operations, search & filter by pet, date range export.' },
-            { icon: Package, title: 'Transaction Management', description: 'Full sales history with appointment linking, customer/pet association, payment method tracking, discount records, GST breakdown & detailed invoices.' },
-            { icon: Package, title: 'Stock Movement Tracking', description: 'Complete audit trail of inventory changes - sales, purchases, adjustments, returns, damage, theft & corrections with quantity tracking.' },
-            { icon: BarChart3, title: 'Supplier Management', description: 'Manage supplier contacts, payment terms, credit limits, lead times, product associations, order history & Excel import/export capabilities.' },
-            { icon: Package, title: 'Business Analytics', description: 'Today\'s sales & transaction stats, revenue trends, top products/customers, payment method breakdowns, inventory insights & comprehensive reports.' },
-            { icon: Mail, title: 'Email Integration & Notifications', description: 'Connect Gmail, Outlook, Yahoo or custom SMTP. Send automated email notifications for appointments, vaccinations, invoices & reminders with professional templates.' },
-            { icon: Settings, title: 'Automated Reminder System', description: 'Auto-send email reminders for upcoming appointments & overdue vaccinations. Configurable timing, custom templates & delivery tracking with test functionality.' },
-            { icon: Receipt, title: 'Advanced Reporting & Analytics', description: 'Comprehensive business reports with sales analysis, inventory insights, customer behavior, revenue trends, product performance & custom date range exports.' },
-            { icon: Star, title: 'Loyalty Points System', description: 'Reward customers with points on every purchase. Multi-tier system (Bronze/Silver/Gold) with tier multipliers, automatic point calculation, redemption at checkout & email notifications.' },
-          ].map((feature, index) => {
-            const Icon = feature.icon as any;
-            return (
-              <Card key={index} className="border border-gray-200 hover:border-[#E50914]/50 shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105">
-                <CardHeader className="p-4 sm:p-5">
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 bg-[#E50914]/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4">
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-[#E50914]" />
+        {/* Decorative geometric shapes */}
+        <div className="absolute top-20 left-10 w-64 h-64 hero-shape animate-float opacity-60" style={{ animationDelay: '0s' }} />
+        <div className="absolute bottom-32 left-1/4 w-32 h-32 hero-shape animate-float opacity-40" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/3 right-20 w-20 h-20 rounded-full border-2 border-[#E50914]/20 animate-rotate-slow hidden lg:block" />
+        <div className="absolute bottom-20 right-1/3 w-16 h-16 rounded-full border border-[#E50914]/10 animate-rotate-slow hidden lg:block" style={{ animationDirection: 'reverse' }} />
+
+        {/* Main content container */}
+        <div className="relative z-10 flex flex-col lg:flex-row min-h-screen">
+
+          {/* Left Side - Content */}
+          <div className="w-full lg:w-[55%] flex items-center justify-center lg:justify-start px-6 sm:px-10 lg:px-16 xl:px-24 py-20 lg:py-0 order-2 lg:order-1">
+            <div className="max-w-2xl space-y-6 sm:space-y-8">
+
+              {/* Overline tag */}
+              <div
+                className="opacity-0 animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E50914]/5 border border-[#E50914]/20"
+                style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}
+              >
+                <span className="w-2 h-2 rounded-full bg-[#E50914] animate-pulse" />
+                <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#E50914]">
+                  #1 Pet Business Software
+                </span>
+              </div>
+
+              {/* Main heading - Editorial style */}
+              <div className="space-y-2 sm:space-y-4">
+                <h1
+                  className="opacity-0 animate-fade-in-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight"
+                  style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}
+                >
+                  Pet Business
+                </h1>
+                <h1
+                  className="opacity-0 animate-fade-in-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight"
+                  style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
+                >
+                  Management
+                </h1>
+                <div
+                  className="opacity-0 animate-fade-in-up flex items-center gap-3 sm:gap-4"
+                  style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}
+                >
+                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+                    Made for
+                  </span>
+                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight animate-text-shimmer">
+                    {madeForTexts[currentTextIndex]}
+                  </span>
+                </div>
+              </div>
+
+              {/* Description with accent line */}
+              <div
+                className="opacity-0 animate-fade-in-up flex items-start gap-4 pt-2"
+                style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}
+              >
+                <div className="w-1 h-16 bg-gradient-to-b from-[#E50914] to-[#E50914]/20 rounded-full flex-shrink-0 mt-1" />
+                <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400 leading-relaxed font-light">
+                  The complete solution for Pet Shops, Grooming Spas & Veterinary Clinics across India
+                </p>
+              </div>
+
+              {/* CTA Buttons with staggered animation */}
+              <div
+                className="opacity-0 animate-fade-in-up flex flex-col sm:flex-row gap-4 pt-4 sm:pt-6"
+                style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}
+              >
+                <Button
+                  size="lg"
+                  onClick={() => scrollToSection('contact')}
+                  className="group relative bg-[#E50914] hover:bg-[#C40812] active:scale-95 text-white font-semibold px-10 py-7 text-lg w-full sm:w-auto transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-[#E50914]/25 overflow-hidden"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    Get Started
+                    <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#ff4d5a] to-[#E50914] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => scrollToSection('features')}
+                  className="group px-10 py-7 text-lg w-full sm:w-auto active:scale-95 transition-all duration-300 border-2 border-gray-900 dark:border-gray-100 hover:bg-gray-900 dark:hover:bg-gray-100 hover:text-white dark:hover:text-gray-900"
+                >
+                  <span className="flex items-center gap-2">
+                    Explore Features
+                    <svg className="w-5 h-5 transition-transform group-hover:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </span>
+                </Button>
+              </div>
+
+              {/* Trust indicators */}
+              <div
+                className="opacity-0 animate-fade-in-up flex flex-wrap items-center gap-6 pt-8 border-t border-gray-200 dark:border-gray-800"
+                style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}
+              >
+                <div className="flex items-center gap-2">
+                  <div className="flex -space-x-2">
+                    {['PM', 'RK', 'DS', 'AP'].map((initials, i) => (
+                      <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-[#E50914] to-[#ff4d5a] flex items-center justify-center text-white text-xs font-bold border-2 border-white dark:border-background">
+                        {initials}
+                      </div>
+                    ))}
                   </div>
-                  <CardTitle className="text-base sm:text-lg mb-1.5">{feature.title}</CardTitle>
-                  <CardDescription className="text-xs sm:text-sm text-muted-foreground leading-snug">
-                    {feature.description}
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Animated Wave Divider */}
-      <div className="relative h-16 sm:h-24">
-        <svg className="absolute bottom-0 w-full h-16 sm:h-24 text-gray-50 dark:text-background" viewBox="0 0 1440 120" preserveAspectRatio="none">
-          <path fill="currentColor" d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
-        </svg>
-      </div>
-
-      {/* Benefits Section */}
-      <section id="benefits" className="bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-background py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center mb-8 sm:mb-12">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight px-4">Why choose Fretso for your pet business?</h3>
-            <p className="text-sm sm:text-base text-muted-foreground mt-3 px-4">Built specifically for the Indian pet care industry</p>
+                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                    <strong className="text-gray-900 dark:text-gray-100">500+</strong> Happy Businesses
+                  </span>
+                </div>
+                <div className="flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-[#E50914] text-[#E50914]" />
+                  ))}
+                  <span className="text-sm text-gray-600 dark:text-gray-400 ml-1">4.9/5 Rating</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
-            {[
-              { title: 'GST & Tax Compliant', description: 'Automatic CGST, SGST, IGST calculation with configurable GST rates per product/service. Full tax breakdown in invoices.' },
-              { title: 'Multi-Currency & Language', description: '7+ currencies (USD, EUR, GBP, INR, JPY, AUD, CAD) with 10+ language/locale formats for global operations' },
-              { title: 'Vaccination Tracking & Alerts', description: 'Complete vaccination records with upcoming (30 days) & overdue alerts, next due dates, veterinarian tracking & dashboard notifications' },
-              { title: 'Certificate Generation', description: 'Auto-generate professional vaccination certificates with unique numbers, PDF export, batch operations & complete history tracking' },
-              { title: 'Smart Discount System', description: 'Flexible percentage or fixed discounts with optional reason tracking, applied on subtotal before tax with live calculation preview' },
-              { title: 'Pet Health Records', description: 'Comprehensive medical notes (1000 chars), allergy tracking, microchip numbers, weight monitoring, breed/species info & visit history' },
-              { title: 'Expiry & Batch Tracking', description: 'Manufacturing dates, expiry alerts for perishables, batch/lot numbers with automatic expiry warnings for medicines & food' },
-              { title: 'Cost & Profit Analysis', description: 'Track cost price vs selling price per product, real-time profit margins, revenue analysis & identify high-margin items' },
-              { title: 'Smart Stock Management', description: 'Min/max/reorder point alerts, low inventory notifications, stock movement audit trail & supplier lead time tracking' },
-              { title: '4 Payment Methods', description: 'Accept Cash, Card, UPI & Digital Wallet with complete payment analytics, today\'s stats & method-wise breakdowns' },
-              { title: 'Appointment Integration', description: 'Link transactions to appointments, track deposit payments, unpaid appointment alerts & service-based billing' },
-              { title: 'Customer Lifetime Value', description: 'Track total purchases, spending patterns, number of pets owned, visit frequency & customer loyalty insights' },
-              { title: 'Time-Based Services', description: 'Services with precise duration (15min intervals), categories, individual pricing, GST configuration & active/inactive control' },
-              { title: 'Bulk Excel Operations', description: 'Import/export products, services, appointments, pets, suppliers, vaccinations, certificates & transactions with full data portability' },
-              { title: 'Stock Movement Audit', description: 'Complete trail of inventory changes - sales, purchases, adjustments, returns, damage, theft, corrections with date/time stamps' },
-              { title: 'Supplier Network', description: 'Manage supplier contacts, payment terms, credit limits, lead times, product associations & order history with Excel support' },
-              { title: 'Grid & Table View Toggle', description: 'Switch between visual grid cards and detailed table views in POS for different workflow preferences' },
-              { title: 'Category Management', description: 'Custom product/service categories, dynamic filtering, category-based organization with easy add/remove functionality' },
-              { title: 'SKU & Barcode Support', description: 'Assign unique SKUs and barcodes to products for faster checkout, inventory tracking & integration with scanners' },
-              { title: 'Dashboard Statistics', description: 'Real-time today\'s sales, transaction count, products in stock, cart items, vaccination alerts & clickable stats widget' },
-              { title: 'Pet Species & Breed', description: 'Detailed pet information with species, breed, age, date of birth, gender, color & image codes for visual identification' },
-              { title: 'Dark Mode Support', description: 'Beautiful dark theme for comfortable viewing in any lighting condition with consistent styling across all pages' },
-              { title: 'Responsive Design', description: 'Works perfectly on desktop, tablet & mobile devices with adaptive layouts, touch-friendly controls & mobile-optimized views' },
-              { title: 'Search & Filter Everywhere', description: 'Powerful search across products, customers, pets, vaccinations, certificates with multiple filter options & date ranges' },
-              { title: 'Email Notifications & Reminders', description: 'Automated email system with Gmail/Outlook/Yahoo integration. Send appointment reminders, vaccination alerts, invoices & custom notifications with professional templates' },
-              { title: 'SMTP Configuration', description: 'Easy email setup with support for Gmail, Outlook, Yahoo or custom SMTP servers. Secure app password authentication, test email functionality & connection validation' },
-              { title: 'Automated Appointment Reminders', description: 'Schedule automatic email reminders for upcoming appointments. Configurable send timing, professional templates & reduce no-shows with timely notifications' },
-              { title: 'Vaccination Due Alerts', description: 'Auto-send email alerts for upcoming & overdue pet vaccinations. Keep pet parents informed with 30-day advance notices & overdue reminders via email' },
-              { title: 'Advanced Business Reports', description: 'Generate comprehensive reports including sales analysis, inventory status, customer insights, revenue trends, product performance & profit margins with Excel export' },
-              { title: 'Email Delivery Tracking', description: 'Monitor email delivery status for all notifications. Test email configuration, view send history & troubleshoot delivery issues with detailed logging' },
-              { title: 'Customer Loyalty Rewards', description: 'Build customer loyalty with automated points system. Earn 1 point per ₹100 spent (configurable), redeem points for discounts at 1:1 ratio with complete transaction history' },
-              { title: 'Tier-Based Loyalty Program', description: 'Multi-tier loyalty system with Bronze (1.0x), Silver (1.2x at 500+ points), and Gold (1.5x at 1000+ points) earning multipliers to reward your best customers' },
-              { title: 'Automatic Points Calculation', description: 'Points automatically calculated and awarded on every transaction. Smart tier detection, multiplier application & instant balance updates with zero manual work' },
-              { title: 'Points Redemption at Checkout', description: 'Let customers redeem loyalty points at POS for instant discounts. Configurable minimum redemption threshold, point-to-currency conversion & live balance tracking' },
-              { title: 'Loyalty Analytics & Reports', description: 'Track loyalty program performance with detailed analytics. View points issued vs redeemed, customer tier distribution, lifetime value tracking & Excel export' },
-              { title: 'Configurable Loyalty Rules', description: 'Customize loyalty program to fit your business. Set earn rates, redemption values, minimum thresholds, point expiry (optional) & tier thresholds from settings page' },
-            ].map((benefit, index) => (
-              <div key={index} className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-xl p-4 sm:p-5 hover:border-[#E50914] dark:hover:border-[#E50914] hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 hover:scale-105">
-                <div className="flex items-start gap-2.5 sm:gap-3">
-                  <div className="mt-0.5">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] flex-shrink-0" />
+
+          {/* Right Side - Image Showcase */}
+          <div className="w-full lg:w-[45%] relative h-[50vh] sm:h-[60vh] lg:h-auto order-1 lg:order-2">
+            {/* Diagonal clip mask for desktop */}
+            <div className="absolute inset-0 hero-image-mask">
+              {/* Image container with slides */}
+              <div className="relative w-full h-full">
+                {/* Slide 1 - Dog Image */}
+                <div
+                  className={`absolute inset-0 w-full h-full transition-all duration-[1500ms] ease-out ${
+                    currentHeroSlide === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                  }`}
+                >
+                  <div
+                    className="absolute inset-0 w-full h-full"
+                    style={{
+                      backgroundImage: 'url(/herobg.png)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                    }}
+                  />
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/30 dark:from-background/30 via-transparent to-transparent lg:bg-gradient-to-r lg:from-white/50 lg:dark:from-background/50" />
+                </div>
+
+                {/* Slide 2 - Image */}
+                <div
+                  className={`absolute inset-0 w-full h-full transition-all duration-[1500ms] ease-out ${
+                    currentHeroSlide === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                  }`}
+                >
+                  <div
+                    className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#E50914] to-[#8B0000]"
+                    style={{
+                      backgroundImage: 'url(/0.png)',
+                      backgroundSize: 'contain',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/30 dark:from-background/30 via-transparent to-transparent lg:bg-gradient-to-r lg:from-white/50 lg:dark:from-background/50" />
+                </div>
+
+                {/* Slide 3 - Bird Image */}
+                <div
+                  className={`absolute inset-0 w-full h-full transition-all duration-[1500ms] ease-out ${
+                    currentHeroSlide === 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                  }`}
+                >
+                  <div
+                    className="absolute inset-0 w-full h-full bg-gradient-to-br from-[#E50914] to-[#8B0000]"
+                    style={{
+                      backgroundImage: 'url(/bird.png)',
+                      backgroundSize: 'contain',
+                      backgroundPosition: 'center',
+                      backgroundRepeat: 'no-repeat',
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/30 dark:from-background/30 via-transparent to-transparent lg:bg-gradient-to-r lg:from-white/50 lg:dark:from-background/50" />
+                </div>
+              </div>
+            </div>
+
+            {/* Slide indicators */}
+            <div className="absolute bottom-8 left-1/2 lg:left-auto lg:right-8 transform -translate-x-1/2 lg:translate-x-0 flex gap-2 z-20">
+              {[0, 1, 2].map((index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentHeroSlide(index)}
+                  className={`transition-all duration-300 rounded-full ${
+                    index === currentHeroSlide
+                      ? 'w-8 h-2 bg-white'
+                      : 'w-2 h-2 bg-white/50 hover:bg-white/75'
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Floating feature cards */}
+            <div
+              className="hidden lg:block absolute bottom-24 left-0 transform -translate-x-1/2 opacity-0 animate-fade-in-left z-20"
+              style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}
+            >
+              <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-5 border border-gray-100 dark:border-gray-800">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-[#E50914]/10 flex items-center justify-center">
+                    <BarChart3 className="w-6 h-6 text-[#E50914]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm sm:text-base mb-1 dark:text-gray-100">{benefit.title}</h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400 leading-snug">{benefit.description}</p>
+                    <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">Smart POS</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">GST Compliant Billing</p>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Decorative Dots Divider */}
-      <div className="relative py-8 sm:py-12">
-        <div className="flex items-center justify-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-[#E50914] animate-pulse"></div>
-          <div className="w-2 h-2 rounded-full bg-[#E50914] animate-pulse" style={{animationDelay: '0.2s'}}></div>
-          <div className="w-2 h-2 rounded-full bg-[#E50914] animate-pulse" style={{animationDelay: '0.4s'}}></div>
-        </div>
-      </div>
-
-      {/* Pricing Section */}
-      <section id="pricing" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-8 sm:mb-12 px-4">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">Flexible Pricing for Your Business</h3>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-              Every pet business is unique. We understand that your needs are different, which is why our pricing is customized based on your specific requirements.
-            </p>
-          </div>
-          
-          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 dark:bg-black">
-            <CardHeader className="text-center p-6 sm:p-10">
-              <CardTitle className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-[#E50914]">Custom Pricing</CardTitle>
-              <CardDescription className="text-sm sm:text-base lg:text-lg text-muted-foreground dark:text-gray-400">
-                Tailored solutions for your pet business
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="p-6 sm:p-10">
-              <div className="space-y-6">
-                <div className="text-center space-y-4">
-                  <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300">
-                    <strong className="dark:text-gray-100">No business is the same.</strong> Whether you run a small pet shop, a grooming spa, or a multi-location veterinary clinic, we'll create a pricing plan that fits your:
-                  </p>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4">
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Business Size</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Single store or multi-location</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Features Needed</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Choose only what you use</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Number of Users</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Pay for active users only</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Transaction Volume</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Scales with your growth</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="pt-6 text-center">
-                  <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mb-6">
-                    Get a personalized quote in minutes. No hidden fees, no surprises.
-                  </p>
-                  <Button 
-                    size="lg"
-                    onClick={() => scrollToSection('contact')}
-                    className="bg-[#E50914] hover:bg-[#C40812] active:scale-95 text-white font-semibold px-10 sm:px-10 py-6 sm:py-6 text-base sm:text-base w-full sm:w-auto transition-all duration-200 shadow-lg"
-                  >
-                    Get Custom Quote
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <div className="mt-8 text-center">
-            <p className="text-xs sm:text-sm text-muted-foreground">
-              💡 <strong>Free trial available. No CC required.</strong> Contact us for free trial.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Gradient Divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-[#E50914] to-transparent"></div>
-
-      {/* Testimonials Section - Minimal Slider */}
-      <section id="testimonials" className="bg-white dark:bg-background py-16 sm:py-20 md:py-24">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 sm:mb-16">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">Trusted by Pet Businesses Across India</h3>
-              <p className="text-sm sm:text-base text-muted-foreground">See what our customers have to say</p>
             </div>
-            
-            {/* Testimonial Slider */}
-            <div className="relative">
-              {/* Main Testimonial Card */}
-              <div className="bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-2xl p-8 sm:p-12 shadow-sm transition-all duration-500">
-                {/* Stars */}
-                <div className="flex items-center justify-center gap-1 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-[#E50914] text-[#E50914]" />
+
+            <div
+              className="hidden lg:block absolute top-32 left-8 opacity-0 animate-fade-in-right z-20"
+              style={{ animationDelay: '1s', animationFillMode: 'forwards' }}
+            >
+              <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl p-5 border border-gray-100 dark:border-gray-800">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-[#E50914]/10 flex items-center justify-center">
+                    <Calendar className="w-6 h-6 text-[#E50914]" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">Appointments</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">Grooming & Vet Visits</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 opacity-0 animate-fade-in-up" style={{ animationDelay: '1.2s', animationFillMode: 'forwards' }}>
+          <span className="text-xs text-gray-500 dark:text-gray-400 tracking-widest uppercase">Scroll</span>
+          <div className="w-6 h-10 rounded-full border-2 border-gray-300 dark:border-gray-700 flex items-start justify-center p-1">
+            <div className="w-1.5 h-3 rounded-full bg-[#E50914] animate-bounce" />
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section - Editorial Bento Grid */}
+      <section id="features" className="relative py-24 sm:py-32 overflow-hidden">
+        {/* Background elements */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-white dark:from-gray-950 dark:to-background" />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E50914]/30 to-transparent" />
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#E50914]/30 to-transparent" />
+
+        {/* Decorative elements */}
+        <div className="absolute top-20 right-10 w-72 h-72 bg-[#E50914]/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-[#E50914]/3 rounded-full blur-3xl" />
+
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="max-w-4xl mx-auto text-center mb-16 sm:mb-20">
+            {/* Overline */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E50914]/5 border border-[#E50914]/20 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#E50914]" />
+              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#E50914]">
+                Powerful Features
+              </span>
+            </div>
+
+            {/* Main heading */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+              Everything you need to
+              <span className="block mt-2 animate-text-shimmer">run your pet business</span>
+            </h2>
+
+            {/* Description with accent */}
+            <div className="flex items-center justify-center gap-4">
+              <div className="hidden sm:block w-12 h-px bg-gradient-to-r from-transparent to-[#E50914]" />
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl">
+                Complete suite of tools for seamless pet care business operations
+              </p>
+              <div className="hidden sm:block w-12 h-px bg-gradient-to-l from-transparent to-[#E50914]" />
+            </div>
+          </div>
+
+          {/* Bento Grid Layout */}
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {/* Large Featured Card - Smart POS */}
+            <div className="group md:col-span-2 lg:col-span-2 lg:row-span-2 relative bg-gradient-to-br from-[#E50914] to-[#8B0000] rounded-3xl p-8 sm:p-10 overflow-hidden">
+              {/* Background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-64 h-64 border border-white/20 rounded-full -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 border border-white/20 rounded-full translate-y-1/2 -translate-x-1/2" />
+              </div>
+
+              <div className="relative z-10 h-full flex flex-col">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <BarChart3 className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">Smart POS System</h3>
+                <p className="text-white/80 text-base sm:text-lg leading-relaxed mb-6 flex-grow">
+                  Quick checkout with Cash, Card, UPI, Wallet payments. Grid/Table view toggle, cart management, customer linking & real-time stats dashboard.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['GST Ready', 'Multi-Payment', 'Real-time'].map((tag) => (
+                    <span key={tag} className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-medium">
+                      {tag}
+                    </span>
                   ))}
                 </div>
-                
-                {/* Quote */}
-                <div className="text-center mb-8">
-                  <p className="text-base sm:text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                    "{testimonials[currentTestimonial].text}"
+              </div>
+            </div>
+
+            {/* Medium Cards */}
+            {[
+              { icon: Package, title: 'Advanced Inventory', description: 'Stock tracking with min/max/reorder points, expiry alerts, batch numbers & profit analysis.', accent: true },
+              { icon: Calendar, title: 'Appointment Scheduling', description: 'Book grooming/vet visits with pet linking, time slots & deposit tracking.', accent: false },
+              { icon: Users, title: 'Customer & Pet CRM', description: 'Complete profiles with unlimited pets, vaccination history & lifetime value tracking.', accent: false },
+              { icon: Receipt, title: 'Smart Discounts', description: 'Flexible percentage or fixed discounts with reason tracking & live preview.', accent: true },
+            ].map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={index}
+                  className={`group relative rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:scale-[1.02] ${
+                    feature.accent
+                      ? 'bg-gray-900 dark:bg-gray-900'
+                      : 'bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800'
+                  }`}
+                >
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#E50914]/10 to-transparent" />
+                  </div>
+
+                  <div className="relative z-10">
+                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 ${
+                      feature.accent
+                        ? 'bg-[#E50914]'
+                        : 'bg-[#E50914]/10'
+                    }`}>
+                      <Icon className={`w-6 h-6 ${feature.accent ? 'text-white' : 'text-[#E50914]'}`} />
+                    </div>
+                    <h3 className={`text-lg sm:text-xl font-bold mb-3 ${
+                      feature.accent
+                        ? 'text-white'
+                        : 'text-gray-900 dark:text-white'
+                    }`}>
+                      {feature.title}
+                    </h3>
+                    <p className={`text-sm sm:text-base leading-relaxed ${
+                      feature.accent
+                        ? 'text-gray-300'
+                        : 'text-gray-600 dark:text-gray-400'
+                    }`}>
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Wide Card - Vaccination & Certificates */}
+            <div className="group md:col-span-2 relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-3xl p-6 sm:p-8 overflow-hidden transition-all duration-500 hover:border-[#E50914]/50">
+              <div className="flex flex-col sm:flex-row gap-6">
+                <div className="flex gap-4 sm:gap-6">
+                  <div className="w-14 h-14 bg-gradient-to-br from-[#E50914] to-[#ff4d5a] rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                    <BarChart3 className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="w-14 h-14 bg-[#E50914]/10 rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300" style={{ transitionDelay: '50ms' }}>
+                    <Package className="w-7 h-7 text-[#E50914]" />
+                  </div>
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
+                    Vaccination Tracking & Certificates
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+                    Complete pet vaccination records with upcoming & overdue alerts. Generate professional certificates with unique numbers, batch operations & PDF export.
                   </p>
                 </div>
-                
-                {/* Author */}
-                <div className="flex flex-col items-center gap-4">
-                  <div className="w-14 h-14 bg-[#E50914]/10 rounded-full flex items-center justify-center">
-                    <span className="text-[#E50914] font-bold text-xl">{testimonials[currentTestimonial].initials}</span>
+              </div>
+            </div>
+
+            {/* Remaining Feature Cards */}
+            {[
+              { icon: Wrench, title: 'Services Management', description: 'Time-based services with categories, pricing & GST configuration.' },
+              { icon: Package, title: 'Transaction Management', description: 'Full sales history with GST breakdown & detailed invoices.' },
+              { icon: Package, title: 'Stock Movement', description: 'Complete audit trail of all inventory changes.' },
+              { icon: BarChart3, title: 'Supplier Management', description: 'Manage contacts, payment terms & order history.' },
+              { icon: Package, title: 'Business Analytics', description: 'Revenue trends, top products & comprehensive reports.' },
+              { icon: Mail, title: 'Email Integration', description: 'Automated notifications for appointments & vaccinations.' },
+              { icon: Settings, title: 'Automated Reminders', description: 'Configurable timing with delivery tracking.' },
+              { icon: Receipt, title: 'Advanced Reporting', description: 'Sales analysis, customer behavior & performance metrics.' },
+            ].map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <div
+                  key={index}
+                  className="group relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-5 sm:p-6 overflow-hidden transition-all duration-300 hover:border-[#E50914]/50 hover:shadow-lg hover:shadow-[#E50914]/5"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-[#E50914]/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-[#E50914] transition-colors duration-300">
+                      <Icon className="w-5 h-5 text-[#E50914] group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <div>
+                      <h3 className="text-base font-semibold text-gray-900 dark:text-white mb-1.5 group-hover:text-[#E50914] transition-colors duration-300">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
                   </div>
+                </div>
+              );
+            })}
+
+            {/* Loyalty Points - Special Card */}
+            <div className="group md:col-span-2 lg:col-span-2 relative overflow-hidden rounded-3xl">
+              <div className="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900" />
+              <div className="absolute inset-0 opacity-30">
+                <div className="absolute top-0 left-1/4 w-32 h-32 bg-[#E50914] rounded-full blur-3xl" />
+                <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-[#E50914] rounded-full blur-3xl" />
+              </div>
+
+              <div className="relative z-10 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 bg-[#E50914] rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
+                    <Star className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="flex gap-1">
+                    {['Bronze', 'Silver', 'Gold'].map((tier, i) => (
+                      <div
+                        key={tier}
+                        className={`px-3 py-1 rounded-full text-xs font-medium ${
+                          i === 0 ? 'bg-amber-700 text-amber-100' :
+                          i === 1 ? 'bg-gray-400 text-gray-900' :
+                          'bg-yellow-500 text-yellow-900'
+                        }`}
+                      >
+                        {tier}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex-grow">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                    Loyalty Points System
+                  </h3>
+                  <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                    Reward customers with points on every purchase. Multi-tier system with automatic point calculation, redemption at checkout & email notifications.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <Button
+              size="lg"
+              onClick={() => scrollToSection('demo')}
+              className="group bg-[#E50914] hover:bg-[#C40812] text-white font-semibold px-10 py-7 text-lg shadow-xl hover:shadow-2xl hover:shadow-[#E50914]/25 transition-all duration-300"
+            >
+              <span className="flex items-center gap-2">
+                See All Features in Action
+                <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits Section - Marquee Style */}
+      <section id="benefits" className="relative py-24 sm:py-32 overflow-hidden bg-gray-900">
+        {/* Background decorations */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#E50914]/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#E50914]/5 rounded-full blur-3xl" />
+        </div>
+
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="max-w-4xl mx-auto text-center mb-16 sm:mb-20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#E50914]" />
+              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-white/80">
+                Why Fretso
+              </span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+              Why choose Fretso for
+              <span className="block mt-2 text-[#E50914]">your pet business?</span>
+            </h2>
+
+            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
+              Built specifically for the Indian pet care industry with 35+ powerful features
+            </p>
+          </div>
+
+          {/* Benefits Grid - Categorized */}
+          <div className="max-w-7xl mx-auto space-y-12">
+            {/* Category 1: Core Business */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-[#E50914] flex items-center justify-center">
+                  <BarChart3 className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Core Business Features</h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { title: 'GST & Tax Compliant', description: 'Automatic CGST, SGST, IGST calculation with configurable rates' },
+                  { title: 'Multi-Currency', description: '7+ currencies with 10+ language formats' },
+                  { title: '4 Payment Methods', description: 'Cash, Card, UPI & Digital Wallet support' },
+                  { title: 'Cost & Profit Analysis', description: 'Real-time profit margins & revenue analysis' },
+                ].map((benefit, index) => (
+                  <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 hover:bg-white/10 hover:border-[#E50914]/50 transition-all duration-300">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#E50914] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-semibold text-white mb-1">{benefit.title}</h4>
+                        <p className="text-sm text-gray-400 leading-relaxed">{benefit.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Category 2: Pet & Health */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-[#E50914] flex items-center justify-center">
+                  <Users className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Pet Care & Health</h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { title: 'Vaccination Tracking', description: 'Complete records with 30-day alerts & overdue notifications' },
+                  { title: 'Certificate Generation', description: 'Professional certificates with unique numbers & PDF export' },
+                  { title: 'Pet Health Records', description: 'Medical notes, allergies, microchip & weight tracking' },
+                  { title: 'Pet Species & Breed', description: 'Detailed info with age, gender, color & image codes' },
+                ].map((benefit, index) => (
+                  <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 hover:bg-white/10 hover:border-[#E50914]/50 transition-all duration-300">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#E50914] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-semibold text-white mb-1">{benefit.title}</h4>
+                        <p className="text-sm text-gray-400 leading-relaxed">{benefit.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Category 3: Inventory & Stock */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-[#E50914] flex items-center justify-center">
+                  <Package className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Inventory & Stock</h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { title: 'Smart Stock Management', description: 'Min/max/reorder alerts & supplier tracking' },
+                  { title: 'Expiry & Batch Tracking', description: 'Auto expiry warnings for medicines & food' },
+                  { title: 'Stock Movement Audit', description: 'Complete trail of all inventory changes' },
+                  { title: 'SKU & Barcode Support', description: 'Scanner integration for faster checkout' },
+                ].map((benefit, index) => (
+                  <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 hover:bg-white/10 hover:border-[#E50914]/50 transition-all duration-300">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#E50914] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-semibold text-white mb-1">{benefit.title}</h4>
+                        <p className="text-sm text-gray-400 leading-relaxed">{benefit.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Category 4: Automation & Communications */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-[#E50914] flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Automation & Communications</h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { title: 'Email Integration', description: 'Gmail, Outlook, Yahoo & custom SMTP support' },
+                  { title: 'Automated Reminders', description: 'Appointment & vaccination email alerts' },
+                  { title: 'Bulk Excel Operations', description: 'Import/export all data with full portability' },
+                  { title: 'Email Delivery Tracking', description: 'Monitor send status & troubleshoot issues' },
+                ].map((benefit, index) => (
+                  <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 hover:bg-white/10 hover:border-[#E50914]/50 transition-all duration-300">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#E50914] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-semibold text-white mb-1">{benefit.title}</h4>
+                        <p className="text-sm text-gray-400 leading-relaxed">{benefit.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Category 5: Loyalty & Customers */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-[#E50914] flex items-center justify-center">
+                  <Star className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Loyalty & Customer Management</h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { title: 'Customer Loyalty Rewards', description: 'Earn points on purchases with 1:1 redemption' },
+                  { title: 'Tier-Based Program', description: 'Bronze, Silver & Gold multiplier tiers' },
+                  { title: 'Customer Lifetime Value', description: 'Track purchases & spending patterns' },
+                  { title: 'Configurable Rules', description: 'Custom earn rates, thresholds & expiry' },
+                ].map((benefit, index) => (
+                  <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 hover:bg-white/10 hover:border-[#E50914]/50 transition-all duration-300">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#E50914] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-semibold text-white mb-1">{benefit.title}</h4>
+                        <p className="text-sm text-gray-400 leading-relaxed">{benefit.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Category 6: Platform */}
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-[#E50914] flex items-center justify-center">
+                  <Settings className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-xl font-bold text-white">Platform & Experience</h3>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {[
+                  { title: 'Dark Mode Support', description: 'Beautiful dark theme across all pages' },
+                  { title: 'Responsive Design', description: 'Perfect on desktop, tablet & mobile' },
+                  { title: 'Dashboard Statistics', description: 'Real-time sales & inventory insights' },
+                  { title: 'Search & Filter', description: 'Powerful search with multiple filters' },
+                ].map((benefit, index) => (
+                  <div key={index} className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 hover:bg-white/10 hover:border-[#E50914]/50 transition-all duration-300">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-[#E50914] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-semibold text-white mb-1">{benefit.title}</h4>
+                        <p className="text-sm text-gray-400 leading-relaxed">{benefit.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Stats row */}
+          <div className="mt-16 pt-12 border-t border-white/10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              {[
+                { value: '35+', label: 'Features' },
+                { value: '500+', label: 'Businesses' },
+                { value: '99.9%', label: 'Uptime' },
+                { value: '24/7', label: 'Support' },
+              ].map((stat, index) => (
+                <div key={index}>
+                  <div className="text-3xl sm:text-4xl font-bold text-[#E50914] mb-1">{stat.value}</div>
+                  <div className="text-sm text-gray-400">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section - Bold Editorial */}
+      <section id="pricing" className="relative py-24 sm:py-32 overflow-hidden">
+        {/* Background */}
+        <div className="absolute inset-0 bg-white dark:bg-background" />
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#E50914]/5 to-transparent" />
+
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E50914]/5 border border-[#E50914]/20 mb-6">
+                <span className="w-2 h-2 rounded-full bg-[#E50914]" />
+                <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#E50914]">
+                  Simple Pricing
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+                Flexible Pricing for
+                <span className="block mt-2 text-[#E50914]">Your Business</span>
+              </h2>
+
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Every pet business is unique. Get a custom quote tailored to your specific needs.
+              </p>
+            </div>
+
+            {/* Pricing Card */}
+            <div className="relative max-w-4xl mx-auto">
+              {/* Decorative elements */}
+              <div className="absolute -top-6 -left-6 w-24 h-24 border-2 border-[#E50914]/20 rounded-3xl -z-10" />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-[#E50914]/10 rounded-3xl -z-10" />
+
+              <div className="bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-800 rounded-3xl overflow-hidden shadow-2xl">
+                {/* Top accent bar */}
+                <div className="h-2 bg-gradient-to-r from-[#E50914] via-[#ff4d5a] to-[#E50914]" />
+
+                <div className="p-8 sm:p-12 lg:p-16">
+                  {/* Price display */}
+                  <div className="text-center mb-10">
+                    <div className="inline-flex items-baseline gap-2">
+                      <span className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white">Custom</span>
+                    </div>
+                    <p className="text-lg text-gray-600 dark:text-gray-400 mt-2">Tailored to your business needs</p>
+                  </div>
+
+                  {/* Features grid */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                    {[
+                      { title: 'Business Size', desc: 'Single store or multi-location', icon: BarChart3 },
+                      { title: 'Features Needed', desc: 'Choose only what you use', icon: Package },
+                      { title: 'Number of Users', desc: 'Pay for active users only', icon: Users },
+                      { title: 'Transaction Volume', desc: 'Scales with your growth', icon: Receipt },
+                    ].map((item, index) => {
+                      const Icon = item.icon;
+                      return (
+                        <div key={index} className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-2xl">
+                          <div className="w-10 h-10 bg-[#E50914]/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <Icon className="w-5 h-5 text-[#E50914]" />
+                          </div>
+                          <div>
+                            <p className="font-semibold text-gray-900 dark:text-white">{item.title}</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-400">{item.desc}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* CTA */}
                   <div className="text-center">
-                    <p className="font-semibold text-base sm:text-lg dark:text-gray-100">{testimonials[currentTestimonial].name}</p>
-                    <p className="text-sm text-muted-foreground dark:text-gray-400">{testimonials[currentTestimonial].role}</p>
-                    <p className="text-xs text-muted-foreground dark:text-gray-500 mt-1">{testimonials[currentTestimonial].location}</p>
+                    <Button
+                      size="lg"
+                      onClick={() => scrollToSection('contact')}
+                      className="group bg-[#E50914] hover:bg-[#C40812] text-white font-semibold px-12 py-7 text-lg shadow-xl hover:shadow-2xl hover:shadow-[#E50914]/25 transition-all duration-300 w-full sm:w-auto"
+                    >
+                      <span className="flex items-center justify-center gap-2">
+                        Get Custom Quote
+                        <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </span>
+                    </Button>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
+                      Free trial available. No credit card required.
+                    </p>
                   </div>
                 </div>
               </div>
-              
-              {/* Navigation Dots */}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section - Card Carousel */}
+      <section id="testimonials" className="relative py-24 sm:py-32 overflow-hidden bg-gray-50 dark:bg-gray-950">
+        {/* Background decorations */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#E50914]/5 rounded-full blur-3xl" />
+
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E50914]/5 border border-[#E50914]/20 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#E50914]" />
+              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#E50914]">
+                Testimonials
+              </span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+              Trusted by Pet Businesses
+              <span className="block mt-2 text-[#E50914]">Across India</span>
+            </h2>
+          </div>
+
+          {/* Testimonial Card */}
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Quote mark */}
+              <div className="absolute -top-6 left-8 sm:left-12">
+                <Quote className="w-16 h-16 text-[#E50914]/20" />
+              </div>
+
+              {/* Main Card */}
+              <div className="bg-white dark:bg-gray-900 rounded-3xl p-8 sm:p-12 shadow-2xl border border-gray-100 dark:border-gray-800">
+                {/* Stars */}
+                <div className="flex items-center gap-1 mb-8">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-6 h-6 fill-[#E50914] text-[#E50914]" />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <blockquote className="text-xl sm:text-2xl lg:text-3xl font-medium text-gray-900 dark:text-white leading-relaxed mb-10">
+                  "{testimonials[currentTestimonial].text}"
+                </blockquote>
+
+                {/* Author */}
+                <div className="flex items-center justify-between flex-wrap gap-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-[#E50914] to-[#ff4d5a] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                      {testimonials[currentTestimonial].initials}
+                    </div>
+                    <div>
+                      <p className="font-bold text-lg text-gray-900 dark:text-white">{testimonials[currentTestimonial].name}</p>
+                      <p className="text-gray-600 dark:text-gray-400">{testimonials[currentTestimonial].role}</p>
+                      <p className="text-sm text-gray-500 dark:text-gray-500">{testimonials[currentTestimonial].location}</p>
+                    </div>
+                  </div>
+
+                  {/* Navigation */}
+                  <div className="flex items-center gap-3">
+                    <button
+                      onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                      className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E50914] hover:text-white transition-colors duration-300"
+                      aria-label="Previous testimonial"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <button
+                      onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
+                      className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E50914] hover:text-white transition-colors duration-300"
+                      aria-label="Next testimonial"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Pagination dots */}
               <div className="flex items-center justify-center gap-2 mt-8">
                 {testimonials.map((_, index) => (
                   <button
@@ -633,331 +1160,315 @@ export default function Home() {
                     onClick={() => setCurrentTestimonial(index)}
                     className={`transition-all duration-300 rounded-full ${
                       index === currentTestimonial
-                        ? 'w-8 h-2 bg-[#E50914]'
-                        : 'w-2 h-2 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500'
+                        ? 'w-10 h-3 bg-[#E50914]'
+                        : 'w-3 h-3 bg-gray-300 dark:bg-gray-600 hover:bg-[#E50914]/50'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
                 ))}
               </div>
-              
-              {/* Previous Button */}
-              <button
-                onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-12 w-9 h-9 sm:w-10 sm:h-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-gray-800 transition-all hover:scale-110 shadow-md"
-                aria-label="Previous testimonial"
-              >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              
-              {/* Next Button */}
-              <button
-                onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-12 w-9 h-9 sm:w-10 sm:h-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 rounded-full flex items-center justify-center hover:bg-white dark:hover:bg-gray-800 transition-all hover:scale-110 shadow-md"
-                aria-label="Next testimonial"
-              >
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Decorative Line with Icon */}
-      <div className="relative py-8 sm:py-12">
-        <div className="absolute inset-0 flex items-center" aria-hidden="true">
-          <div className="w-full border-t-2 border-dashed border-gray-200 dark:border-gray-800"></div>
-        </div>
-        <div className="relative flex justify-center">
-          <div className="bg-background px-4 sm:px-6">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#E50914]/10 flex items-center justify-center">
-              <span className="text-[#E50914] text-lg sm:text-xl">?</span>
+      {/* FAQ Section - Modern Accordion */}
+      <section id="faq" className="relative py-24 sm:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-white dark:bg-background" />
+
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E50914]/5 border border-[#E50914]/20 mb-6">
+                <span className="w-2 h-2 rounded-full bg-[#E50914]" />
+                <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-[#E50914]">
+                  FAQ
+                </span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+                Frequently Asked
+                <span className="block mt-2 text-[#E50914]">Questions</span>
+              </h2>
+
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">
+                Got questions? We've got answers.
+              </p>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* FAQ Section */}
-      <section id="faq" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-base sm:text-lg text-muted-foreground">
-              Got questions? We've got answers.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {[
-              {
-                question: "Is my data safe with Fretso?",
-                answer: "Absolutely! We take data security very seriously. Your data is encrypted both in transit and at rest. We use industry-standard security protocols and regularly backup all data. Your business information, customer records, and transaction history are stored securely on our cloud servers with multiple layers of protection."
-              },
-              {
-                question: "Do you offer installation and setup support?",
-                answer: "Yes! We provide complete onboarding support. Our team will guide you through the installation process, help you set up your initial inventory, import existing customer data, and train your staff on how to use Fretso effectively. We ensure you're fully comfortable with the system before going live."
-              },
-              {
-                question: "What if I need updates or new features?",
-                answer: "All updates and new features are automatically included in your subscription at no extra cost. We continuously improve Fretso based on customer feedback and industry trends. You'll always have access to the latest version with bug fixes, performance improvements, and new functionality."
-              },
-              {
-                question: "Can I try Fretso before committing?",
-                answer: "Yes! We offer a free trial period so you can test all features with your actual business data. No credit card required during the trial. Contact us to get started, and we'll set you up with a demo account where you can explore everything Fretso has to offer."
-              },
-              {
-                question: "What kind of customer support do you provide?",
-                answer: "We provide comprehensive support through multiple channels - email, phone, WhatsApp, and live chat. Our support team is available during business hours to help with any questions or issues. We also have detailed documentation, video tutorials, and an active community forum."
-              },
-              {
-                question: "Will Fretso work for my specific type of pet business?",
-                answer: "Fretso is designed to work for all types of pet businesses - pet shops, grooming salons, pet spas, veterinary clinics, and multi-location chains. Our flexible system adapts to your specific needs whether you sell products, offer services, or both. We can customize features based on your business requirements."
-              },
-              {
-                question: "Can I export my data if I want to switch systems?",
-                answer: "Yes! Your data is always yours. You can export all your data (customers, pets, inventory, transactions, etc.) in standard formats like Excel/CSV at any time. We believe in data portability and will never lock you in. If you decide to move to another system, we'll help you export everything smoothly."
-              },
-              {
-                question: "How does billing work? Are there any hidden fees?",
-                answer: "Our pricing is completely transparent with no hidden fees. You'll receive a custom quote based on your specific needs (business size, features, users, etc.). Payment is typically monthly or annually. What you see in your quote is exactly what you pay - no surprises, no additional charges for updates or standard support."
-              }
-            ].map((faq, index) => (
-              <Card key={index} className="border border-gray-200 dark:border-gray-800 hover:border-[#E50914] transition-colors overflow-hidden">
-                <button
-                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                  className="w-full text-left p-6 flex items-center justify-between gap-4 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
-                >
-                  <h3 className="text-base sm:text-lg font-semibold pr-8">{faq.question}</h3>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-[#E50914] flex-shrink-0 transition-transform duration-300 ${
-                      openFaqIndex === index ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                <div 
-                  className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                    openFaqIndex === index ? 'max-h-96' : 'max-h-0'
+            {/* FAQ Items */}
+            <div className="space-y-4">
+              {[
+                {
+                  question: "Is my data safe with Fretso?",
+                  answer: "Absolutely! We take data security very seriously. Your data is encrypted both in transit and at rest. We use industry-standard security protocols and regularly backup all data. Your business information, customer records, and transaction history are stored securely on our cloud servers with multiple layers of protection."
+                },
+                {
+                  question: "Do you offer installation and setup support?",
+                  answer: "Yes! We provide complete onboarding support. Our team will guide you through the installation process, help you set up your initial inventory, import existing customer data, and train your staff on how to use Fretso effectively. We ensure you're fully comfortable with the system before going live."
+                },
+                {
+                  question: "What if I need updates or new features?",
+                  answer: "All updates and new features are automatically included in your subscription at no extra cost. We continuously improve Fretso based on customer feedback and industry trends. You'll always have access to the latest version with bug fixes, performance improvements, and new functionality."
+                },
+                {
+                  question: "Can I try Fretso before committing?",
+                  answer: "Yes! We offer a free trial period so you can test all features with your actual business data. No credit card required during the trial. Contact us to get started, and we'll set you up with a demo account where you can explore everything Fretso has to offer."
+                },
+                {
+                  question: "What kind of customer support do you provide?",
+                  answer: "We provide comprehensive support through multiple channels - email, phone, WhatsApp, and live chat. Our support team is available during business hours to help with any questions or issues. We also have detailed documentation, video tutorials, and an active community forum."
+                },
+                {
+                  question: "Will Fretso work for my specific type of pet business?",
+                  answer: "Fretso is designed to work for all types of pet businesses - pet shops, grooming salons, pet spas, veterinary clinics, and multi-location chains. Our flexible system adapts to your specific needs whether you sell products, offer services, or both. We can customize features based on your business requirements."
+                },
+                {
+                  question: "Can I export my data if I want to switch systems?",
+                  answer: "Yes! Your data is always yours. You can export all your data (customers, pets, inventory, transactions, etc.) in standard formats like Excel/CSV at any time. We believe in data portability and will never lock you in. If you decide to move to another system, we'll help you export everything smoothly."
+                },
+                {
+                  question: "How does billing work? Are there any hidden fees?",
+                  answer: "Our pricing is completely transparent with no hidden fees. You'll receive a custom quote based on your specific needs (business size, features, users, etc.). Payment is typically monthly or annually. What you see in your quote is exactly what you pay - no surprises, no additional charges for updates or standard support."
+                }
+              ].map((faq, index) => (
+                <div
+                  key={index}
+                  className={`group bg-white dark:bg-gray-900 border-2 rounded-2xl overflow-hidden transition-all duration-300 ${
+                    openFaqIndex === index
+                      ? 'border-[#E50914] shadow-lg shadow-[#E50914]/10'
+                      : 'border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700'
                   }`}
                 >
-                  <div className="px-6 pb-6 pt-0">
-                    <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                      {faq.answer}
-                    </p>
+                  <button
+                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                    className="w-full text-left p-6 sm:p-8 flex items-center justify-between gap-4"
+                  >
+                    <div className="flex items-center gap-4">
+                      <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold transition-colors ${
+                        openFaqIndex === index
+                          ? 'bg-[#E50914] text-white'
+                          : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
+                      }`}>
+                        {index + 1}
+                      </span>
+                      <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">{faq.question}</h3>
+                    </div>
+                    <ChevronDown
+                      className={`w-6 h-6 text-[#E50914] flex-shrink-0 transition-transform duration-300 ${
+                        openFaqIndex === index ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+                  <div
+                    className={`transition-all duration-300 ease-in-out overflow-hidden ${
+                      openFaqIndex === index ? 'max-h-96' : 'max-h-0'
+                    }`}
+                  >
+                    <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-0 pl-[4.5rem] sm:pl-[5.5rem]">
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </Card>
-            ))}
-          </div>
+              ))}
+            </div>
 
-          <div className="text-center mt-12">
-            <p className="text-sm text-muted-foreground mb-4">
-              Still have questions? We're here to help!
-            </p>
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              className="bg-[#E50914] hover:bg-[#C40812] text-white font-semibold px-8 py-6"
-            >
-              Contact Us
-            </Button>
+          {/* Still have questions CTA */}
+            <div className="text-center mt-16 p-8 bg-gray-50 dark:bg-gray-900 rounded-2xl">
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
+                Still have questions? We're here to help!
+              </p>
+              <Button
+                onClick={() => scrollToSection('contact')}
+                className="group bg-[#E50914] hover:bg-[#C40812] text-white font-semibold px-8 py-6"
+              >
+                <span className="flex items-center gap-2">
+                  Contact Us
+                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Sparkle Divider */}
-      <div className="relative py-8 sm:py-12 overflow-hidden">
-        <div className="flex items-center justify-center gap-4 sm:gap-8">
-          <div className="h-px w-16 sm:w-32 bg-gradient-to-r from-transparent to-[#E50914]"></div>
-          <div className="flex gap-1.5 sm:gap-2">
-            <span className="text-[#E50914] text-xl sm:text-2xl">✦</span>
-            <span className="text-[#E50914] text-base sm:text-lg">✦</span>
-            <span className="text-[#E50914] text-xl sm:text-2xl">✦</span>
-          </div>
-          <div className="h-px w-16 sm:w-32 bg-gradient-to-l from-transparent to-[#E50914]"></div>
+      {/* Product Demo Section - Interactive */}
+      <section id="demo" className="relative py-24 sm:py-32 overflow-hidden bg-gray-900">
+        {/* Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#E50914]/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#E50914]/10 rounded-full blur-3xl" />
         </div>
-      </div>
 
-      {/* Product Demo Section */}
-      <section id="demo" className="container mx-auto px-4 py-16 sm:py-20 md:py-24">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-8 sm:mb-12 px-4">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3">Experience Fretso in Action</h3>
-            <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
-              See how Fretso can transform your pet business. Try our interactive demo and explore all the features.
-            </p>
-          </div>
-          
-          <Card className="border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-lg dark:hover:shadow-[#E50914]/20 transition-all duration-300 dark:bg-black">
-            <CardHeader className="text-center p-6 sm:p-10">
-              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-[#E50914]/10 rounded-full mx-auto mb-4">
-                <svg className="w-8 h-8 sm:w-10 sm:h-10 text-[#E50914]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-6">
+                <span className="w-2 h-2 rounded-full bg-[#E50914] animate-pulse" />
+                <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-white/80">
+                  Live Demo
+                </span>
               </div>
-              <CardTitle className="text-xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 text-[#E50914]">Live Demo Access</CardTitle>
-              <CardDescription className="text-sm sm:text-base lg:text-lg text-muted-foreground dark:text-gray-400">
-                Try all features with our interactive demo
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="p-6 sm:p-10">
-              <div className="space-y-6">
-                <div className="text-center space-y-4">
-                  <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300">
-                    Get instant access to our live demo. Fill in your details and we'll take you straight to the interactive demo where you can explore:
-                  </p>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4">
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">POS System</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Complete checkout with real transactions</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Inventory Management</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Stock tracking & management</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Appointments</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Scheduling & booking system</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2.5 sm:gap-3 p-3 sm:p-4 bg-gray-50 dark:bg-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914] mt-0.5 flex-shrink-0" />
-                    <div>
-                      <p className="font-semibold text-xs sm:text-base dark:text-gray-100">Customer CRM</p>
-                      <p className="text-xs sm:text-sm text-muted-foreground dark:text-gray-400">Pet & customer management</p>
+
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+                Experience Fretso
+                <span className="block mt-2 text-[#E50914]">in Action</span>
+              </h2>
+
+              <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto">
+                See how Fretso can transform your pet business with our interactive demo.
+              </p>
+            </div>
+
+            {/* Demo Card */}
+            <div className="relative max-w-4xl mx-auto">
+              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 sm:p-12">
+                {/* Play button animation */}
+                <div className="flex justify-center mb-10">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-[#E50914] rounded-full animate-ping opacity-20" />
+                    <div className="relative w-24 h-24 bg-gradient-to-br from-[#E50914] to-[#ff4d5a] rounded-full flex items-center justify-center shadow-2xl shadow-[#E50914]/30">
+                      <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
                     </div>
                   </div>
                 </div>
-                
-                <div className="pt-6 text-center">
-                  <p className="text-xs sm:text-base text-gray-600 dark:text-gray-400 mb-6">
-                    💡 No credit card required. Explore all features instantly.
-                  </p>
-                  <Button 
+
+                {/* Demo features grid */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                  {[
+                    { icon: BarChart3, title: 'POS System', desc: 'Real transactions' },
+                    { icon: Package, title: 'Inventory', desc: 'Stock tracking' },
+                    { icon: Calendar, title: 'Appointments', desc: 'Scheduling' },
+                    { icon: Users, title: 'Customer CRM', desc: 'Pet management' },
+                  ].map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={index} className="text-center p-4 bg-white/5 rounded-2xl border border-white/10">
+                        <div className="w-10 h-10 bg-[#E50914]/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                          <Icon className="w-5 h-5 text-[#E50914]" />
+                        </div>
+                        <p className="font-semibold text-white text-sm">{item.title}</p>
+                        <p className="text-xs text-gray-400">{item.desc}</p>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* CTA */}
+                <div className="text-center">
+                  <Button
                     size="lg"
                     onClick={handleDemoClick}
-                    className="bg-[#E50914] hover:bg-[#C40812] active:scale-95 text-white font-semibold px-10 sm:px-10 py-6 sm:py-6 text-base sm:text-base w-full sm:w-auto transition-all duration-200 shadow-lg"
+                    className="group bg-[#E50914] hover:bg-[#C40812] text-white font-semibold px-12 py-7 text-lg shadow-xl hover:shadow-2xl hover:shadow-[#E50914]/25 transition-all duration-300"
                   >
-                    Try Live Demo Now
+                    <span className="flex items-center gap-3">
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                      Try Live Demo Now
+                    </span>
                   </Button>
+                  <p className="text-sm text-gray-500 mt-4">
+                    No credit card required. Explore all features instantly.
+                  </p>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Decorative Divider */}
-      <div className="relative py-8 sm:py-12">
-        <div className="absolute inset-0 flex items-center" aria-hidden="true">
-          <div className="w-full border-t border-gray-200 dark:border-gray-800"></div>
-        </div>
-        <div className="relative flex justify-center">
-          <span className="bg-background px-6 text-3xl">✦</span>
-        </div>
-      </div>
+      {/* CTA Section - Final Call to Action */}
+      <section id="contact" className="relative py-24 sm:py-32 overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#E50914] via-[#C40812] to-[#8B0000]" />
 
-      {/* CTA Section */}
-      <section id="contact" className="container mx-auto px-4 py-16 sm:py-20 md:py-24 lg:py-32">
-        <div className="max-w-5xl mx-auto bg-[#E50914] rounded-2xl sm:rounded-3xl p-8 sm:p-16 md:p-20 lg:p-24 text-center space-y-6 sm:space-y-10 shadow-2xl">
-          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            Ready to Transform Your Pet Business?
-          </h2>
-          <p className="text-base sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
-            Join pet shops, spas & clinics across India using Fretso
-          </p>
-          
-          {/* Social Media Icons */}
-          <div className="flex items-center justify-center gap-6 pt-4">
-            <a 
-              href="mailto:hello@fretso.in"
-              className="text-white hover:text-white/80 transition-colors"
-              aria-label="Email"
-            >
-              <Mail className="w-7 h-7 sm:w-8 sm:h-8" />
-            </a>
-            <a 
-              href="https://www.instagram.com/fretsoindia?igsh=dThidXRhcnVmYTh1&utm_source=qr" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-white/80 transition-colors"
-              aria-label="Instagram"
-            >
-              <Instagram className="w-7 h-7 sm:w-8 sm:h-8" />
-            </a>
-            <a 
-              href="https://www.facebook.com/fretsoindia" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-white/80 transition-colors"
-              aria-label="Facebook"
-            >
-              <Facebook className="w-7 h-7 sm:w-8 sm:h-8" />
-            </a>
-            <a 
-              href="https://www.youtube.com/@FretsoIndia" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-white/80 transition-colors"
-              aria-label="YouTube"
-            >
-              <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-              </svg>
-            </a>
-            <a 
-              href="https://www.snapchat.com/add/fretsoindia?share_id=NMTPNoCYJ0M&locale=en-IN" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-white/80 transition-colors"
-              aria-label="Snapchat"
-            >
-              <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12.166 3c3.682 0 6.928 2.968 6.928 7.65 0 4.68-3.246 7.65-6.928 7.65-.522 0-1.02-.084-1.486-.234-.15.132-.642.592-1.028.856-.764.528-1.632.716-2.274.716-.598 0-.756-.24-.588-.66.186-.468.696-1.146 1.068-1.596-1.062-.684-2.106-1.992-2.106-4.098 0-4.032 2.988-7.29 6.414-7.29zm5.19 13.02c.42 0 .654.084.888.228.216.132.456.3.708.492.228.168.468.348.726.54.72.54 1.308.876 2.022.876.54 0 1.02-.264 1.308-.624.228-.288.312-.624.24-.972-.06-.276-.3-.48-.948-.756-.516-.228-1.176-.516-1.992-.888.852-.42 1.524-.78 2.016-1.104.66-.432 1.068-.912 1.152-1.416.06-.372-.048-.732-.276-1.02-.288-.372-.708-.576-1.188-.576-.372 0-.756.132-1.104.336-.324.192-.66.432-1.008.72-.216.18-.444.372-.684.576-.024-.144-.048-.288-.072-.432-.012-.072-.024-.144-.036-.216-.084-.588-.18-1.224-.18-1.836 0-3.804-2.832-6.54-6.768-6.54-3.936 0-6.768 2.736-6.768 6.54 0 .612-.096 1.248-.18 1.836-.012.072-.024.144-.036.216-.024.144-.048.288-.072.432-.24-.204-.468-.396-.684-.576-.348-.288-.684-.528-1.008-.72-.348-.204-.732-.336-1.104-.336-.48 0-.9.204-1.188.576-.228.288-.336.648-.276 1.02.084.504.492.984 1.152 1.416.492.324 1.164.684 2.016 1.104-.816.372-1.476.66-1.992.888-.648.276-.888.48-.948.756-.072.348.012.684.24.972.288.36.768.624 1.308.624.714 0 1.302-.336 2.022-.876.258-.192.498-.372.726-.54.252-.192.492-.36.708-.492.234-.144.468-.228.888-.228z"/>
-              </svg>
-            </a>
-            <a 
-              href="https://www.linkedin.com/company/fretsoindia/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-white/80 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-7 h-7 sm:w-8 sm:h-8" />
-            </a>
-            <a 
-              href="https://wa.me/918282867803"
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-white hover:text-white/80 transition-colors"
-              aria-label="WhatsApp"
-            >
-              <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-              </svg>
-            </a>
+        {/* Decorative elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-full">
+            <div className="absolute top-10 left-10 w-64 h-64 border border-white/10 rounded-full" />
+            <div className="absolute bottom-10 right-10 w-96 h-96 border border-white/10 rounded-full" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/5 rounded-full" />
           </div>
-          
-          <Button 
-            size="lg" 
-            onClick={handleContactClick}
-            className="bg-white hover:bg-gray-100 active:scale-95 text-[#E50914] font-semibold px-12 sm:px-14 py-7 sm:py-7 text-lg sm:text-lg shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto max-w-xs"
-          >
-            Contact Us
-          </Button>
+        </div>
+
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8">
+              <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
+              <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-white/90">
+                Get Started Today
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8">
+              Ready to Transform Your
+              <span className="block">Pet Business?</span>
+            </h2>
+
+            <p className="text-xl sm:text-2xl text-white/80 max-w-2xl mx-auto mb-12">
+              Join 500+ pet shops, spas & clinics across India using Fretso
+            </p>
+
+            {/* Social Media Icons */}
+            <div className="flex items-center justify-center gap-4 sm:gap-6 mb-12">
+              {[
+                { href: "mailto:hello@fretso.in", icon: Mail, label: "Email" },
+                { href: "https://www.instagram.com/fretsoindia", icon: Instagram, label: "Instagram" },
+                { href: "https://www.facebook.com/fretsoindia", icon: Facebook, label: "Facebook" },
+                { href: "https://www.linkedin.com/company/fretsoindia/", icon: Linkedin, label: "LinkedIn" },
+              ].map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target={social.href.startsWith('mailto') ? undefined : '_blank'}
+                    rel={social.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
+                    className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+                    aria-label={social.label}
+                  >
+                    <Icon className="w-5 h-5 text-white" />
+                  </a>
+                );
+              })}
+              <a
+                href="https://wa.me/918282867803"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+                aria-label="WhatsApp"
+              >
+                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+              </a>
+            </div>
+
+            {/* CTA Button */}
+            <Button
+              size="lg"
+              onClick={handleContactClick}
+              className="group bg-white hover:bg-gray-100 text-[#E50914] font-bold px-14 py-8 text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+            >
+              <span className="flex items-center gap-3">
+                Contact Us
+                <svg className="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </Button>
+          </div>
         </div>
       </section>
 
