@@ -24,27 +24,27 @@ export default function PrivacyPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-40 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" />
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#E50914]/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#E50914]/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-[#E50914]/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-[#E50914]/10 rounded-full blur-3xl" />
         </div>
 
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 mb-6 sm:mb-8">
               <Shield className="w-4 h-4 text-[#E50914]" />
               <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-white/80">
                 Your Privacy Matters
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
               Privacy <span className="text-[#E50914]">Policy</span>
             </h1>
 
-            <p className="text-lg text-gray-400">
+            <p className="text-base sm:text-lg text-gray-400">
               Last updated: January 27, 2025
             </p>
           </div>
@@ -52,19 +52,19 @@ export default function PrivacyPage() {
       </section>
 
       {/* Content Section */}
-      <section className="relative py-16 sm:py-24">
+      <section className="relative py-12 sm:py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
 
             {/* Section 1 */}
-            <div className="mb-12 p-6 sm:p-8 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-[#E50914] rounded-xl flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-white" />
+            <div className="mb-8 sm:mb-12 p-4 sm:p-6 md:p-8 bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914] rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">1. Introduction</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">1. Introduction</h2>
               </div>
-              <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+              <div className="space-y-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                 <p>
                   Welcome to Fretso ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our pet business management software and services.
                 </p>
@@ -75,16 +75,16 @@ export default function PrivacyPage() {
             </div>
 
             {/* Section 2 */}
-            <div className="mb-12 p-6 sm:p-8 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-[#E50914] rounded-xl flex items-center justify-center">
-                  <Database className="w-6 h-6 text-white" />
+            <div className="mb-8 sm:mb-12 p-4 sm:p-6 md:p-8 bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914] rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Database className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">2. Information We Collect</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">2. Information We Collect</h2>
               </div>
-              <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">
+              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">2.1 Personal Information</h3>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2 sm:mb-3">2.1 Personal Information</h3>
                   <p className="mb-3">We collect personal information that you voluntarily provide to us when you:</p>
                   <ul className="list-disc pl-6 space-y-2 mb-4">
                     <li>Register for an account</li>
@@ -260,28 +260,28 @@ export default function PrivacyPage() {
             </div>
 
             {/* Contact Section */}
-            <div className="p-6 sm:p-8 bg-gray-900 rounded-2xl">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-[#E50914] rounded-xl flex items-center justify-center">
-                  <Mail className="w-6 h-6 text-white" />
+            <div className="p-4 sm:p-6 md:p-8 bg-gray-900 rounded-xl sm:rounded-2xl">
+              <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914] rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-white">13. Contact Us</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-white">13. Contact Us</h2>
               </div>
-              <p className="text-gray-400 mb-6">
+              <p className="text-sm sm:text-base text-gray-400 mb-4 sm:mb-6">
                 If you have questions or concerns about this Privacy Policy or our data practices, please contact us:
               </p>
-              <div className="grid sm:grid-cols-3 gap-4">
-                <div className="p-4 bg-white/5 rounded-xl border border-white/10">
-                  <p className="text-sm text-gray-500 mb-1">Email</p>
-                  <p className="text-white font-medium">hello@fretso.in</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+                <div className="p-3 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl border border-white/10">
+                  <p className="text-xs sm:text-sm text-gray-500 mb-1">Email</p>
+                  <p className="text-sm sm:text-base text-white font-medium">hello@fretso.in</p>
                 </div>
-                <div className="p-4 bg-white/5 rounded-xl border border-white/10">
-                  <p className="text-sm text-gray-500 mb-1">Phone</p>
-                  <p className="text-white font-medium">+91 82828 67803</p>
+                <div className="p-3 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl border border-white/10">
+                  <p className="text-xs sm:text-sm text-gray-500 mb-1">Phone</p>
+                  <p className="text-sm sm:text-base text-white font-medium">+91 82828 67803</p>
                 </div>
-                <div className="p-4 bg-white/5 rounded-xl border border-white/10">
-                  <p className="text-sm text-gray-500 mb-1">Location</p>
-                  <p className="text-white font-medium">India</p>
+                <div className="p-3 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl border border-white/10">
+                  <p className="text-xs sm:text-sm text-gray-500 mb-1">Location</p>
+                  <p className="text-sm sm:text-base text-white font-medium">India</p>
                 </div>
               </div>
             </div>

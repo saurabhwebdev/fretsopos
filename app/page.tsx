@@ -309,27 +309,27 @@ export default function Home() {
               </div>
 
               {/* Main heading - Editorial style */}
-              <div className="space-y-2 sm:space-y-4">
+              <div className="space-y-1 sm:space-y-2 md:space-y-4">
                 <h1
-                  className="opacity-0 animate-fade-in-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight"
+                  className="opacity-0 animate-fade-in-up text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight"
                   style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}
                 >
                   Pet Business
                 </h1>
                 <h1
-                  className="opacity-0 animate-fade-in-up text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight"
+                  className="opacity-0 animate-fade-in-up text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight"
                   style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}
                 >
                   Management
                 </h1>
                 <div
-                  className="opacity-0 animate-fade-in-up flex items-center gap-3 sm:gap-4"
+                  className="opacity-0 animate-fade-in-up flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4"
                   style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}
                 >
-                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
+                  <span className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
                     Made for
                   </span>
-                  <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight animate-text-shimmer">
+                  <span className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight animate-text-shimmer">
                     {madeForTexts[currentTextIndex]}
                   </span>
                 </div>
@@ -381,26 +381,26 @@ export default function Home() {
 
               {/* Trust indicators */}
               <div
-                className="opacity-0 animate-fade-in-up flex flex-wrap items-center gap-6 pt-8 border-t border-gray-200 dark:border-gray-800"
+                className="opacity-0 animate-fade-in-up flex flex-col xs:flex-row flex-wrap items-start xs:items-center gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-gray-200 dark:border-gray-800"
                 style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}
               >
                 <div className="flex items-center gap-2">
                   <div className="flex -space-x-2">
                     {['PM', 'RK', 'DS', 'AP'].map((initials, i) => (
-                      <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-br from-[#E50914] to-[#ff4d5a] flex items-center justify-center text-white text-xs font-bold border-2 border-white dark:border-background">
+                      <div key={i} className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-[#E50914] to-[#ff4d5a] flex items-center justify-center text-white text-[10px] sm:text-xs font-bold border-2 border-white dark:border-background">
                         {initials}
                       </div>
                     ))}
                   </div>
-                  <span className="text-sm text-gray-600 dark:text-gray-400">
+                  <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
                     <strong className="text-gray-900 dark:text-gray-100">500+</strong> Happy Businesses
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#E50914] text-[#E50914]" />
+                    <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#E50914] text-[#E50914]" />
                   ))}
-                  <span className="text-sm text-gray-600 dark:text-gray-400 ml-1">4.9/5 Rating</span>
+                  <span className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 ml-1">4.9/5 Rating</span>
                 </div>
               </div>
             </div>
@@ -1102,49 +1102,49 @@ export default function Home() {
               </div>
 
               {/* Main Card */}
-              <div className="bg-white dark:bg-gray-900 rounded-3xl p-8 sm:p-12 shadow-2xl border border-gray-100 dark:border-gray-800">
+              <div className="bg-white dark:bg-gray-900 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 shadow-2xl border border-gray-100 dark:border-gray-800">
                 {/* Stars */}
-                <div className="flex items-center gap-1 mb-8">
+                <div className="flex items-center gap-1 mb-6 sm:mb-8">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-6 h-6 fill-[#E50914] text-[#E50914]" />
+                    <Star key={i} className="w-5 h-5 sm:w-6 sm:h-6 fill-[#E50914] text-[#E50914]" />
                   ))}
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-xl sm:text-2xl lg:text-3xl font-medium text-gray-900 dark:text-white leading-relaxed mb-10">
+                <blockquote className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-900 dark:text-white leading-relaxed mb-8 sm:mb-10">
                   "{testimonials[currentTestimonial].text}"
                 </blockquote>
 
                 {/* Author */}
-                <div className="flex items-center justify-between flex-wrap gap-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-gradient-to-br from-[#E50914] to-[#ff4d5a] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-6">
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#E50914] to-[#ff4d5a] rounded-full flex items-center justify-center text-white font-bold text-lg sm:text-xl flex-shrink-0">
                       {testimonials[currentTestimonial].initials}
                     </div>
                     <div>
-                      <p className="font-bold text-lg text-gray-900 dark:text-white">{testimonials[currentTestimonial].name}</p>
-                      <p className="text-gray-600 dark:text-gray-400">{testimonials[currentTestimonial].role}</p>
-                      <p className="text-sm text-gray-500 dark:text-gray-500">{testimonials[currentTestimonial].location}</p>
+                      <p className="font-bold text-base sm:text-lg text-gray-900 dark:text-white">{testimonials[currentTestimonial].name}</p>
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400">{testimonials[currentTestimonial].role}</p>
+                      <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-500">{testimonials[currentTestimonial].location}</p>
                     </div>
                   </div>
 
                   {/* Navigation */}
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 sm:gap-3 self-end sm:self-auto">
                     <button
                       onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-                      className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E50914] hover:text-white transition-colors duration-300"
+                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E50914] hover:text-white transition-colors duration-300"
                       aria-label="Previous testimonial"
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                       </svg>
                     </button>
                     <button
                       onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
-                      className="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E50914] hover:text-white transition-colors duration-300"
+                      className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#E50914] hover:text-white transition-colors duration-300"
                       aria-label="Next testimonial"
                     >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
@@ -1243,17 +1243,17 @@ export default function Home() {
                 >
                   <button
                     onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                    className="w-full text-left p-6 sm:p-8 flex items-center justify-between gap-4"
+                    className="w-full text-left p-4 sm:p-6 md:p-8 flex items-start sm:items-center justify-between gap-3 sm:gap-4"
                   >
-                    <div className="flex items-center gap-4">
-                      <span className={`w-8 h-8 rounded-lg flex items-center justify-center text-sm font-bold transition-colors ${
+                    <div className="flex items-start sm:items-center gap-3 sm:gap-4">
+                      <span className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center text-xs sm:text-sm font-bold transition-colors flex-shrink-0 mt-0.5 sm:mt-0 ${
                         openFaqIndex === index
                           ? 'bg-[#E50914] text-white'
                           : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400'
                       }`}>
                         {index + 1}
                       </span>
-                      <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">{faq.question}</h3>
+                      <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 dark:text-white text-left">{faq.question}</h3>
                     </div>
                     <ChevronDown
                       className={`w-6 h-6 text-[#E50914] flex-shrink-0 transition-transform duration-300 ${
@@ -1263,11 +1263,11 @@ export default function Home() {
                   </button>
                   <div
                     className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                      openFaqIndex === index ? 'max-h-96' : 'max-h-0'
+                      openFaqIndex === index ? 'max-h-[500px]' : 'max-h-0'
                     }`}
                   >
-                    <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-0 pl-[4.5rem] sm:pl-[5.5rem]">
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                    <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 md:pb-8 pt-0 pl-[3.25rem] sm:pl-[4.5rem] md:pl-[5.5rem]">
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -1342,7 +1342,7 @@ export default function Home() {
                 </div>
 
                 {/* Demo features grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-10">
                   {[
                     { icon: BarChart3, title: 'POS System', desc: 'Real transactions' },
                     { icon: Package, title: 'Inventory', desc: 'Stock tracking' },
@@ -1351,12 +1351,12 @@ export default function Home() {
                   ].map((item, index) => {
                     const Icon = item.icon;
                     return (
-                      <div key={index} className="text-center p-4 bg-white/5 rounded-2xl border border-white/10">
-                        <div className="w-10 h-10 bg-[#E50914]/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                          <Icon className="w-5 h-5 text-[#E50914]" />
+                      <div key={index} className="text-center p-3 sm:p-4 bg-white/5 rounded-xl sm:rounded-2xl border border-white/10">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 bg-[#E50914]/20 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                          <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#E50914]" />
                         </div>
-                        <p className="font-semibold text-white text-sm">{item.title}</p>
-                        <p className="text-xs text-gray-400">{item.desc}</p>
+                        <p className="font-semibold text-white text-xs sm:text-sm">{item.title}</p>
+                        <p className="text-[10px] sm:text-xs text-gray-400">{item.desc}</p>
                       </div>
                     );
                   })}
@@ -1411,17 +1411,17 @@ export default function Home() {
             </div>
 
             {/* Heading */}
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 sm:mb-8">
               Ready to Transform Your
               <span className="block">Pet Business?</span>
             </h2>
 
-            <p className="text-xl sm:text-2xl text-white/80 max-w-2xl mx-auto mb-12">
+            <p className="text-lg sm:text-xl md:text-2xl text-white/80 max-w-2xl mx-auto mb-8 sm:mb-12 px-4 sm:px-0">
               Join 500+ pet shops, spas & clinics across India using Fretso
             </p>
 
             {/* Social Media Icons */}
-            <div className="flex items-center justify-center gap-4 sm:gap-6 mb-12">
+            <div className="flex items-center justify-center flex-wrap gap-3 sm:gap-4 md:gap-6 mb-8 sm:mb-12">
               {[
                 { href: "mailto:hello@fretso.in", icon: Mail, label: "Email" },
                 { href: "https://www.instagram.com/fretsoindia", icon: Instagram, label: "Instagram" },
@@ -1459,11 +1459,11 @@ export default function Home() {
             <Button
               size="lg"
               onClick={handleContactClick}
-              className="group bg-white hover:bg-gray-100 text-[#E50914] font-bold px-14 py-8 text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+              className="group bg-white hover:bg-gray-100 text-[#E50914] font-bold px-8 sm:px-10 md:px-14 py-6 sm:py-7 md:py-8 text-base sm:text-lg md:text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
             >
-              <span className="flex items-center gap-3">
+              <span className="flex items-center justify-center gap-2 sm:gap-3">
                 Contact Us
-                <svg className="w-6 h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </span>

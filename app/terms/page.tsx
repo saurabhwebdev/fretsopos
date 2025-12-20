@@ -13,27 +13,27 @@ export default function TermsPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
+      <section className="relative pt-28 pb-16 sm:pt-32 sm:pb-20 md:pt-40 md:pb-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" />
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#E50914]/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#E50914]/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-[#E50914]/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-[#E50914]/10 rounded-full blur-3xl" />
         </div>
 
         <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-8">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/10 border border-white/20 mb-6 sm:mb-8">
               <Scale className="w-4 h-4 text-[#E50914]" />
               <span className="text-xs sm:text-sm font-medium tracking-wider uppercase text-white/80">
                 Legal Agreement
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 sm:mb-6">
               Terms of <span className="text-[#E50914]">Service</span>
             </h1>
 
-            <p className="text-lg text-gray-400">
+            <p className="text-base sm:text-lg text-gray-400">
               Last updated: January 27, 2025
             </p>
           </div>
@@ -41,19 +41,19 @@ export default function TermsPage() {
       </section>
 
       {/* Content Section */}
-      <section className="relative py-16 sm:py-24">
+      <section className="relative py-12 sm:py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
 
             {/* Section 1 */}
-            <div className="mb-12 p-6 sm:p-8 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-[#E50914] rounded-xl flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-white" />
+            <div className="mb-8 sm:mb-12 p-4 sm:p-6 md:p-8 bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914] rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <FileText className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">1. Agreement to Terms</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">1. Agreement to Terms</h2>
               </div>
-              <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+              <div className="space-y-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                 <p>
                   These Terms of Service ("Terms") govern your access to and use of Fretso's pet business management software, website, and related services (collectively, the "Services"). By accessing or using our Services, you agree to be bound by these Terms.
                 </p>
@@ -64,14 +64,14 @@ export default function TermsPage() {
             </div>
 
             {/* Section 2 */}
-            <div className="mb-12 p-6 sm:p-8 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-[#E50914] rounded-xl flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-white" />
+            <div className="mb-8 sm:mb-12 p-4 sm:p-6 md:p-8 bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914] rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Shield className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">2. Eligibility</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">2. Eligibility</h2>
               </div>
-              <div className="space-y-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+              <div className="space-y-4 text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                 <p>You must be at least 18 years old and legally capable of entering into binding contracts to use our Services. By using Fretso, you represent and warrant that:</p>
                 <ul className="list-disc pl-6 space-y-2">
                   <li>You are at least 18 years of age</li>
@@ -83,16 +83,16 @@ export default function TermsPage() {
             </div>
 
             {/* Section 3 */}
-            <div className="mb-12 p-6 sm:p-8 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-[#E50914] rounded-xl flex items-center justify-center">
-                  <Settings className="w-6 h-6 text-white" />
+            <div className="mb-8 sm:mb-12 p-4 sm:p-6 md:p-8 bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914] rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Settings className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">3. Account Registration and Security</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">3. Account Registration and Security</h2>
               </div>
-              <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">
+              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">3.1 Account Creation</h3>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2 sm:mb-3">3.1 Account Creation</h3>
                   <p className="mb-3">To use Fretso, you must create an account by providing accurate and complete information. You are responsible for:</p>
                   <ul className="list-disc pl-6 space-y-2">
                     <li>Maintaining the confidentiality of your account credentials</li>
@@ -109,16 +109,16 @@ export default function TermsPage() {
             </div>
 
             {/* Section 4 */}
-            <div className="mb-12 p-6 sm:p-8 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-[#E50914] rounded-xl flex items-center justify-center">
-                  <CreditCard className="w-6 h-6 text-white" />
+            <div className="mb-8 sm:mb-12 p-4 sm:p-6 md:p-8 bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914] rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <CreditCard className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">4. Subscription and Payment</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">4. Subscription and Payment</h2>
               </div>
-              <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">
+              <div className="space-y-4 sm:space-y-6 text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">4.1 Subscription Plans</h3>
+                  <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-2 sm:mb-3">4.1 Subscription Plans</h3>
                   <p>Fretso offers various subscription plans with different features and pricing. By subscribing, you agree to pay all applicable fees as described in your chosen plan.</p>
                 </div>
                 <div>
@@ -143,10 +143,10 @@ export default function TermsPage() {
             </div>
 
             {/* Section 5 */}
-            <div className="mb-12 p-6 sm:p-8 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 bg-[#E50914] rounded-xl flex items-center justify-center">
-                  <Settings className="w-6 h-6 text-white" />
+            <div className="mb-8 sm:mb-12 p-4 sm:p-6 md:p-8 bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl border border-gray-200 dark:border-gray-800">
+              <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#E50914] rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Settings className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white">5. Use of Services</h2>
               </div>
